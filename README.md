@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Click Imóveis
 
 `CURSO`
 
@@ -10,14 +10,15 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Bruno Moulie Correa
+* Handryws
+* Iris
+* Leandro
+* Wesley
 
 ## Orientador
 
-* Nome completo do professor 1
+* Cláudio Faria
 
 ## Instruções de utilização
 
