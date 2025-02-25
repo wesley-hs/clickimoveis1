@@ -40,15 +40,15 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Expectativas: Deseja um local maior para poder preparar o quarto do futuro filho.
 
 1. Persona 2:
-   * Nome: Pedro Silva;
-   * Idade:
-   * Profissão:
-   * Localização:
-   * Formação:
-   * Objetivo:
-   * Descrição:
-   * Dores:
-   * Expectativas:
+   * Nome: Carlos Sampaio;
+   * Idade: 42 anos;
+   * Profissão: Gestor de Fundo Multimercado;
+   * Localização: Rio de Janeiro, RJ;
+   * Formação: Graduação e Mestrado em Economia;
+   * Objetivo: Melhorar a rentabilidade dos fundos por ele geridos;
+   * Descrição: Profissional em meio de carreira, possui muitas responsabilidades em seu trabalho. Procura ferramentas que aumentem a produtividade e minimize as tarefas repetitivas. Não deseja ferramentas que precisem de muitas configurações e que sejam complexas de navegar;
+   * Dores: Sente-se cansado com a rotina do dia-a-dia de casa/escritório;
+   * Expectativas: Passado algum tempo como gestor sente vontade de possuir um local mais afastado da cidade onde possa descansar e curtir a natureza.
 
 1. Persona 3:
    * Nome: Pedro Silva;
