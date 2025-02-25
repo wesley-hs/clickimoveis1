@@ -73,15 +73,15 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Expectativas: Possuir uma residência de menor tamanho e menor custo.
   
 5. Persona 5:
-   * Nome: ;
-   * Idade:
-   * Profissão:
-   * Localização:
-   * Formação:
-   * Objetivo:
-   * Descrição:
-   * Dores:
-   * Expectativas:
+   * Nome: Luiza Andrade;
+   * Idade: 32 anos;
+   * Profissão: Advogada;
+   * Localização: Belo Horizonte, MG;
+   * Formação: Direito;
+   * Objetivo: Tornar-se sócia do escritório de advocacia em que trabalha;
+   * Descrição: Viaja frequentemente seja por trabalho ou lazer. Possui vários aplicativos instalados em seu smartphone que ajudem em suas viagens. Fica frustrado quando algum aplicativo apresenta problemas quando off-line. Gosta de eficiência e organização;
+   * Dores: Fica desconfortável com os recentes incidentes envolvendo segurança nos arredores de seru condomínio;
+   * Expectativas: Mudar-se para um local mais seguro tendo em vista a necessidade de ir ou vir do aeroporto em horários menos movimentados.
 
 ## Histórias de Usuários
 
