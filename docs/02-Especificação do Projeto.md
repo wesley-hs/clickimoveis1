@@ -128,8 +128,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| A aplicação deve ser responsiva | MÉDIA | 
-|RNF-002| A aplicação deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-01| A aplicação interativa deve ser publicada em um ambiente acessível publicamente na Internet | ALTA | 
+|RNF-02| A aplicação interativa deverá ser responsiva permitindo a visualização em um celular de forma adequada |  ALTA | 
+|RNF-03| A aplicação interativa deve ser compatível com os principais navegadores do mercado |  ALTA |
+|RNF-04| A aplicação deve garantir a segurança dos dados dos usuários |  ALTA |
+|RNF-05| O tempo de resposta para buscas deve ser inferior a 2 segundos |  ALTA |
 
 
 
