@@ -112,9 +112,17 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A aplicação deve permitir que o usuário avalie uma agência de intercâmbio com base na sua experiência| ALTA | 
-|RF-002| A aplicação deve permitir que o usuário inclua comentários ao fazer uma avaliação de uma agência de intercâmbio    | ALTA |
-|RF-003| A aplicação deve permitir que o usuário consulte todas as agências de intercâmbio cadastradas ordenando-as com base em suas notas | ALTA |
+|RF-01|	A aplicação deve permitir ao cliente cadastrar uma conta |	ALTA |
+|RF-02|	A aplicação deve permitir aos agentes imobiliários cadastrar uma conta |	ALTA |
+|RF-03| A aplicação deve permitir aos usuários fazer o login	| ALTA |
+|RF-04|	A aplicação deve permitir aos agentes imobiliários cadastrar imóveis |	ALTA |
+|RF-05|	A aplicação deve oferecer aos clientes funcionalidades de filtro/pesquisa para seleção dos imóveis disponíveis |	ALTA |
+|RF-06|	A aplicação deve permitir aos agentes imobiliários fazer upload de fotos e vídeos |	ALTA |
+|RF-07|	A aplicação deve permitir integração com APIs externas para exibição de mapas |	MÉDIA |
+|RF-08|	A aplicação deve disponibilizar um chat para comunicação entre compradores e vendedores |	MÉDIA |
+|RF-09|	A aplicação deve gerar relatórios para os agentes do mercado imobiliário | MÉDIA |
+|RF-10|	A aplicação deve possibilitar avaliações e comentários nos anúncios |	MÉDIA |
+
 
 ### Requisitos não Funcionais
 
@@ -122,6 +130,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |-------|-------------------------|----|
 |RNF-001| A aplicação deve ser responsiva | MÉDIA | 
 |RNF-002| A aplicação deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+
+
+
+
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
