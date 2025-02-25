@@ -39,7 +39,7 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Dores: Casou-se há 2 anos atrás e atualmente mora com a esposa em um pequeno apartamento alugado no centro da cidade;
    * Expectativas: Deseja um local maior para poder preparar o quarto do futuro filho.
 
-1. Persona 2:
+2. Persona 2:
    * Nome: Carlos Sampaio;
    * Idade: 42 anos;
    * Profissão: Gestor de Fundo Multimercado;
@@ -50,7 +50,7 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Dores: Sente-se cansado com a rotina do dia-a-dia de casa/escritório;
    * Expectativas: Passado algum tempo como gestor sente vontade de possuir um local mais afastado da cidade onde possa descansar e curtir a natureza.
 
-1. Persona 3:
+3. Persona 3:
    * Nome: Raquel Cintra;
    * Idade: 25 anos;
    * Profissão: Influenciadora Digital;
@@ -61,19 +61,19 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Dores: Continua morando com os pais em um pequeno apartamento. Sente necessidade de montar um estúdio dentro de casa de modo a melhorar o conteúdo produzido e entregue a seu público;
    * Expectativas: Deixar de morar com os pais e mudar-se para um apartamento pequeno onde possa criar seu estúdio e receber materiais para análise e demonstrações.
 
-1. Persona 4:
-   * Nome: Pedro Silva;
-   * Idade:
-   * Profissão:
-   * Localização:
-   * Formação:
-   * Objetivo:
-   * Descrição:
-   * Dores:
-   * Expectativas:
+4. Persona 4:
+   * Nome: Fernando Cardoso;
+   * Idade: 67 anos;
+   * Profissão: Aposentado;
+   * Localização: Campinas, SP;
+   * Formação: Contabilidade;
+   * Objetivo: Manter a saúde financeira em dia;
+   * Descrição: Utiliza-se de ferramentas para acompanhamento de suas economias conseguidas durante a sua vida profissional. Gosta de aplicativos que auxiliem no acompanhamento de tarefas cotidianas como tomar remédio. Por causa da idade prefere interfaces com bom contraste, letras e botões maiores. Tem preocupação com a desvalorização da moeda e consequente aumento do custo de vida;
+   * Dores: Com o passar dos anos percebe que sua casa ficou grande para somente ele e sua esposa já que seus filhos nãos os visitam com frequencia como visitavam antes;
+   * Expectativas: Possuir uma residência de menor tamanho e menor custo.
   
-1. Persona 5:
-   * Nome: Pedro Silva;
+5. Persona 5:
+   * Nome: ;
    * Idade:
    * Profissão:
    * Localização:
