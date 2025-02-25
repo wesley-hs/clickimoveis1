@@ -27,6 +27,62 @@ Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos 
 >
 Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
 
+
+1. Persona 1:
+   * Nome: Pedro Silva;
+   * Idade: 28 anos;
+   * Profissão: Desenvolvedor de software;
+   * Localização: São Paulo. SP;
+   * Formação: Tecnólogo em Análise e Desenvolvimento de Sistemas;
+   * Objetivo: Ter o próprio négocio de consultoria;
+   * Descrição: Trabalha de maneira híbrida como desenvolvedor de software em uma média empresa em São Paulo, capital. Pelo fato de atuar na área de tecnologia tem facilidade em usar novas soluções tecnológicas. Tem apreço por soluções simples e funcionais e que permitam integração através de APIs;
+   * Dores: Casou-se há 2 anos atrás e atualmente mora com a esposa em um pequeno apartamento alugado no centro da cidade;
+   * Expectativas: Deseja um local maior para poder preparar o quarto do futuro filho.
+
+1. Persona 2:
+   * Nome: Pedro Silva;
+   * Idade:
+   * Profissão:
+   * Localização:
+   * Formação:
+   * Objetivo:
+   * Descrição:
+   * Dores:
+   * Expectativas:
+
+1. Persona 3:
+   * Nome: Pedro Silva;
+   * Idade:
+   * Profissão:
+   * Localização:
+   * Formação:
+   * Objetivo:
+   * Descrição:
+   * Dores:
+   * Expectativas:
+
+1. Persona 4:
+   * Nome: Pedro Silva;
+   * Idade:
+   * Profissão:
+   * Localização:
+   * Formação:
+   * Objetivo:
+   * Descrição:
+   * Dores:
+   * Expectativas:
+  
+1. Persona 5:
+   * Nome: Pedro Silva;
+   * Idade:
+   * Profissão:
+   * Localização:
+   * Formação:
+   * Objetivo:
+   * Descrição:
+   * Dores:
+   * Expectativas:
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
