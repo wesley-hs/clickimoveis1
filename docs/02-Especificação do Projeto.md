@@ -89,8 +89,11 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Ana Clara  | Uma forma de identificar se uma agência é realmente confiável           | Me sentir mais segura ao contratar seus serviços               |
-|Ana Clara       | Ter um mecanismo eficiente e rápido de comunicação                 | Que eu possa sanar todas as minhas dúvidas rapidamente |
+|Pedro Silva          | Um imóvel maior                                               | Poder preparar o quarto para o futuro filho               |
+|Carlos Sampaio       | Imóvel fora da cidade em uma região tranquila                 | Descansar e curtir a natureza |
+|Raquel Cintra        | Imóvel em local silencioso                                    | Evitar inserção de áudio externo nos vídeos produzidos |
+|Fernando Cardoso     | Imóvel menor                                                  | Reduzir o custo de vida e o trabalho de manutenção |
+|Luiza Andrade        | Imóvel dentro de condomínios fechados                         | Evitar problemas quando de sua ausência por tempo prolongado |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
