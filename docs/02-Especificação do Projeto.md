@@ -51,15 +51,15 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Expectativas: Passado algum tempo como gestor sente vontade de possuir um local mais afastado da cidade onde possa descansar e curtir a natureza.
 
 1. Persona 3:
-   * Nome: Pedro Silva;
-   * Idade:
-   * Profissão:
-   * Localização:
-   * Formação:
-   * Objetivo:
-   * Descrição:
-   * Dores:
-   * Expectativas:
+   * Nome: Raquel Cintra;
+   * Idade: 25 anos;
+   * Profissão: Influenciadora Digital;
+   * Localização: Belo Horizonte, DF;
+   * Formação: Arquitetura de Interiores;
+   * Objetivo: Fazer crescer sua audiência nas plataformas digitais;
+   * Descrição: Sempre buscando algo novo que engaje os fãs e em busca de conteúdo. Busca ferramentas que facilitem postar nas redes sociais e ajude a analisar o engajamento do público. Ferramentas para edição de fotos e vídeos são essenciais. Deseja ser notificada rapidamente e ter acesso a análise de tráfego.
+   * Dores: Continua morando com os pais em um pequeno apartamento. Sente necessidade de montar um estúdio dentro de casa de modo a melhorar o conteúdo produzido e entregue a seu público;
+   * Expectativas: Deixar de morar com os pais e mudar-se para um apartamento pequeno onde possa criar seu estúdio e receber materiais para análise e demonstrações.
 
 1. Persona 4:
    * Nome: Pedro Silva;
