@@ -10,12 +10,12 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 ## Integrantes
 
+* André
 * Bruno Moulie Correa
 * Handryws
 * Iris
 * Leandro
 * Wesley
-
 ## Orientador
 
 * Cláudio Faria
