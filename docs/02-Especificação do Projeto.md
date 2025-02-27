@@ -82,6 +82,39 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Descrição: Viaja frequentemente seja por trabalho ou lazer. Possui vários aplicativos instalados em seu smartphone que ajudem em suas viagens. Fica frustrado quando algum aplicativo apresenta problemas quando off-line. Gosta de eficiência e organização;
    * Dores: Fica desconfortável com os recentes incidentes envolvendo segurança nos arredores de seru condomínio;
    * Expectativas: Mudar-se para um local mais seguro tendo em vista a necessidade de ir ou vir do aeroporto em horários menos movimentados.
+  
+6. Persona 6:
+   * Nome: Leonardo Martins;
+   * Idade: 46 anos;
+   * Profissão: Empresário do setor imobiliário;
+   * Localização: São Paulo, SP;
+   * Formação: Administração de Empresas com especialização em Investimentos Imobiliários;
+   * Objetivo: Adquirir imóveis com alto potencial de valorização para investimentos lucrativos;
+   *  Descrição: É um empresário experiente que busca imóveis com boa rentabilidade. Ele analisa detalhadamente a valorização e tendências do mercado antes de investir. Para tomar decisões mais seguras, precisa de uma plataforma com dados financeiros completos, projeções de valorização e informações sobre infraestrutura local;
+   *  Dores: O medo de investir em um imóvel com baixa valorização e a falta de dados confiáveis dificultam suas decisões;
+   *  Expectativa: Ter acesso a dados confiáveis e atualizados para tomar decisões seguras e garantir investimentos lucrativos.
+  
+7. Persona 7:
+    * Nome: Fernada Souza;
+    * Idade: 40 anos;
+    * Profissão: Gerente de Marketing;
+    * Localização: Rio de Janeiro;
+    * Formação:Publicidade e Propaganda com especialização em Marketing Digital;
+    * Objetivo: Encontrar um imóvel de alto padrão para locação, próximo ao trabalho, com segurança e conforto;
+    * Descrição: Como profissional de marketing, ela valoriza soluções rápidas e eficientes. Para otimizar sua busca, precisa de uma plataforma   confiável que permita filtrar imóveis por localização, padrão de qualidade e infraestrutura;
+    * Dores: Dificuldade em encontrar um imóvel que atenda às suas exigências de localização, conforto e segurança de forma rápida;
+    * Expectativa: Ter uma plataforma ágil e intuitiva para encontrar o imóvel ideal sem perder tempo.
+
+8. persona 8:
+   * Nome: Ricardo Menezes;
+   * idade: 35 anos;
+   * Profissão: Engenheiro Civil;
+   * Localização: Curitiba, PR;
+   * Formação: Engenharia Civil com especialização em Planejamento Urbano;
+   * Objetivo: Comprar uma casa maior para acomodar sua família em crescimento, priorizando segurança, escolas próximas e áreas de lazer;
+   * Descrição: Busca um imóvel espaçoso e bem localizado para oferecer conforto e qualidade de vida à sua família. Ele valoriza segurança, infraestrutura e um processo de compra simples, com suporte especializado. Para facilitar a escolha, deseja uma plataforma que ofereça visitas virtuais e atendimento eficiente;
+   * Dores: Burocracia no processo de compra e dificuldade em encontrar um imóvel que atenda às necessidades da família;
+   * Expectativa: Contar com um sistema prático e suporte de corretores para tornar a compra rápida e sem complicações.
 
 ## Histórias de Usuários
 
@@ -94,6 +127,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Raquel Cintra        | Imóvel em local silencioso                                    | Evitar inserção de áudio externo nos vídeos produzidos |
 |Fernando Cardoso     | Imóvel menor                                                  | Reduzir o custo de vida e o trabalho de manutenção |
 |Luiza Andrade        | Imóvel dentro de condomínios fechados                         | Evitar problemas quando de sua ausência por tempo prolongado |
+|Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios. |
+|Fernanda Souza | Plataforma rápida e confiável para encontar imóveis de alto padrão| Localizar rapidamente uma casa que atenda às minhas necessidades|
+|Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontar e adquirir uma casa maior para minha família|
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
