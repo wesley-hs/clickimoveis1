@@ -28,8 +28,7 @@ Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos 
 Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
 
 
-1. Persona 1:
-   * Nome: Pedro Silva;
+ **Pedro Silva**
    * Idade: 28 anos;
    * Profissão: Desenvolvedor de software;
    * Localização: São Paulo. SP;
@@ -39,8 +38,7 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Dores: Casou-se há 2 anos atrás e atualmente mora com a esposa em um pequeno apartamento alugado no centro da cidade;
    * Expectativas: Deseja um local maior para poder preparar o quarto do futuro filho.
 
-2. Persona 2:
-   * Nome: Carlos Sampaio;
+ **Carlos Sampaio**
    * Idade: 42 anos;
    * Profissão: Gestor de Fundo Multimercado;
    * Localização: Rio de Janeiro, RJ;
@@ -50,8 +48,7 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Dores: Sente-se cansado com a rotina do dia-a-dia de casa/escritório;
    * Expectativas: Passado algum tempo como gestor sente vontade de possuir um local mais afastado da cidade onde possa descansar e curtir a natureza.
 
-3. Persona 3:
-   * Nome: Raquel Cintra;
+**Raquel Sintra**
    * Idade: 25 anos;
    * Profissão: Influenciadora Digital;
    * Localização: Belo Horizonte, DF;
@@ -61,8 +58,7 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Dores: Continua morando com os pais em um pequeno apartamento. Sente necessidade de montar um estúdio dentro de casa de modo a melhorar o conteúdo produzido e entregue a seu público;
    * Expectativas: Deixar de morar com os pais e mudar-se para um apartamento pequeno onde possa criar seu estúdio e receber materiais para análise e demonstrações.
 
-4. Persona 4:
-   * Nome: Fernando Cardoso;
+**Fernando Cardoso**
    * Idade: 67 anos;
    * Profissão: Aposentado;
    * Localização: Campinas, SP;
@@ -71,9 +67,8 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Descrição: Utiliza-se de ferramentas para acompanhamento de suas economias conseguidas durante a sua vida profissional. Gosta de aplicativos que auxiliem no acompanhamento de tarefas cotidianas como tomar remédio. Por causa da idade prefere interfaces com bom contraste, letras e botões maiores. Tem preocupação com a desvalorização da moeda e consequente aumento do custo de vida;
    * Dores: Com o passar dos anos percebe que sua casa ficou grande para somente ele e sua esposa já que seus filhos nãos os visitam com frequencia como visitavam antes;
    * Expectativas: Possuir uma residência de menor tamanho e menor custo.
-  
-5. Persona 5:
-   * Nome: Luiza Andrade;
+
+  **Luiza Andrade**
    * Idade: 32 anos;
    * Profissão: Advogada;
    * Localização: Belo Horizonte, MG;
@@ -82,9 +77,8 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Descrição: Viaja frequentemente seja por trabalho ou lazer. Possui vários aplicativos instalados em seu smartphone que ajudem em suas viagens. Fica frustrado quando algum aplicativo apresenta problemas quando off-line. Gosta de eficiência e organização;
    * Dores: Fica desconfortável com os recentes incidentes envolvendo segurança nos arredores de seru condomínio;
    * Expectativas: Mudar-se para um local mais seguro tendo em vista a necessidade de ir ou vir do aeroporto em horários menos movimentados.
-  
-6. Persona 6:
-   * Nome: Leonardo Martins;
+
+  **Leonardo Martins**
    * Idade: 46 anos;
    * Profissão: Empresário do setor imobiliário;
    * Localização: São Paulo, SP;
@@ -93,20 +87,9 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    *  Descrição: É um empresário experiente que busca imóveis com boa rentabilidade. Ele analisa detalhadamente a valorização e tendências do mercado antes de investir. Para tomar decisões mais seguras, precisa de uma plataforma com dados financeiros completos, projeções de valorização e informações sobre infraestrutura local;
    *  Dores: O medo de investir em um imóvel com baixa valorização e a falta de dados confiáveis dificultam suas decisões;
    *  Expectativa: Ter acesso a dados confiáveis e atualizados para tomar decisões seguras e garantir investimentos lucrativos.
-  
-7. Persona 7:
-    * Nome: Fernada Souza;
-    * Idade: 40 anos;
-    * Profissão: Gerente de Marketing;
-    * Localização: Rio de Janeiro;
-    * Formação:Publicidade e Propaganda com especialização em Marketing Digital;
-    * Objetivo: Encontrar um imóvel de alto padrão para locação, próximo ao trabalho, com segurança e conforto;
-    * Descrição: Como profissional de marketing, ela valoriza soluções rápidas e eficientes. Para otimizar sua busca, precisa de uma plataforma   confiável que permita filtrar imóveis por localização, padrão de qualidade e infraestrutura;
-    * Dores: Dificuldade em encontrar um imóvel que atenda às suas exigências de localização, conforto e segurança de forma rápida;
-    * Expectativa: Ter uma plataforma ágil e intuitiva para encontrar o imóvel ideal sem perder tempo.
 
-8. persona 8:
-   * Nome: Ricardo Menezes;
+
+**Ricardo Menezes**
    * idade: 35 anos;
    * Profissão: Engenheiro Civil;
    * Localização: Curitiba, PR;
@@ -115,6 +98,15 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Descrição: Busca um imóvel espaçoso e bem localizado para oferecer conforto e qualidade de vida à sua família. Ele valoriza segurança, infraestrutura e um processo de compra simples, com suporte especializado. Para facilitar a escolha, deseja uma plataforma que ofereça visitas virtuais e atendimento eficiente;
    * Dores: Burocracia no processo de compra e dificuldade em encontrar um imóvel que atenda às necessidades da família;
    * Expectativa: Contar com um sistema prático e suporte de corretores para tornar a compra rápida e sem complicações.
+
+**Ana Silva**
+  * idade: 32 anos;
+  * Profissão: Arquiteta freelancer;
+  * Localização: São Paulo, SP;
+  * Formação: Graduação em Arquitetura e Urbanismo;
+  * Objetivo: Resolver dúvidas rapidamente e obter informações precisas sobre os imóveis, sem precisar fazer ligações telefônicas;
+  * Dores: Perda de tempo em ligações telefônicas, dificuldade em encontrar informações específicas sobre os imóveis, falta de registro de conversas;
+  * Expectativas: Um chat com respostas rápidas e precisas, histórico de conversas detalhado, e a possibilidade de enviar e receber documentos.
 
 ## Histórias de Usuários
 
@@ -128,8 +120,8 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Fernando Cardoso     | Imóvel menor                                                  | Reduzir o custo de vida e o trabalho de manutenção |
 |Luiza Andrade        | Imóvel dentro de condomínios fechados                         | Evitar problemas quando de sua ausência por tempo prolongado |
 |Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios. |
-|Fernanda Souza | Plataforma rápida e confiável para encontar imóveis de alto padrão| Localizar rapidamente uma casa que atenda às minhas necessidades|
 |Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontar e adquirir uma casa maior para minha família|
+|Ana Silva     | Usar o chat par aobter informações sobre a documentação necessária para alugar um imóvel | Eu posso me preparar com antecedência |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
