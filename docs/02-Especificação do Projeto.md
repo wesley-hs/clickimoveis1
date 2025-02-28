@@ -114,14 +114,16 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Pedro Silva          | Um imóvel maior                                               | Poder preparar o quarto para o futuro filho               |
-|Carlos Sampaio       | Imóvel fora da cidade em uma região tranquila                 | Descansar e curtir a natureza |
+|Pedro Silva          | Um imóvel maior                                               | Poder preparar o quarto para o futuro filho           |
+|Pedro Silva          | Ser notificado sobre novos cadastros de imóveis               | Antecipar-se aos demais usuários                      | 
+|Carlos Sampaio       | Imóvel fora da cidade em uma região tranquila                 | Descansar e curtir a natureza                         |
 |Raquel Cintra        | Imóvel em local silencioso                                    | Evitar inserção de áudio externo nos vídeos produzidos |
 |Fernando Cardoso     | Imóvel menor                                                  | Reduzir o custo de vida e o trabalho de manutenção |
+|Fernando Cardoso     | Acompanhar a evolução do preço dos imóveis                    | Identificar melhor momento para comprar ou vender seus imóveis |
 |Luiza Andrade        | Imóvel dentro de condomínios fechados                         | Evitar problemas quando de sua ausência por tempo prolongado |
 |Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios. |
-|Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontar e adquirir uma casa maior para minha família|
-|Ana Silva     | Usar o chat par aobter informações sobre a documentação necessária para alugar um imóvel | Eu posso me preparar com antecedência |
+|Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontrar e adquirir uma casa maior para minha família|
+|Ana Silva     | Usar o chat par obter informações sobre a documentação necessária para alugar um imóvel | Eu posso me preparar com antecedência |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
