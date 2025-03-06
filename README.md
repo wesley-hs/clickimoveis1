@@ -16,6 +16,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Iris
 * Leandro
 * Wesley
+* João 
 ## Orientador
 
 * Cláudio Faria
