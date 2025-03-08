@@ -90,7 +90,7 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
 
 
 **Ricardo Menezes**
-   * idade: 35 anos;
+   * Idade: 35 anos;
    * Profissão: Engenheiro Civil;
    * Localização: Curitiba, PR;
    * Formação: Engenharia Civil com especialização em Planejamento Urbano;
@@ -100,13 +100,24 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
    * Expectativa: Contar com um sistema prático e suporte de corretores para tornar a compra rápida e sem complicações.
 
 **Ana Silva**
-  * idade: 32 anos;
+  * Idade: 32 anos;
   * Profissão: Arquiteta freelancer;
   * Localização: São Paulo, SP;
   * Formação: Graduação em Arquitetura e Urbanismo;
   * Objetivo: Resolver dúvidas rapidamente e obter informações precisas sobre os imóveis, sem precisar fazer ligações telefônicas;
+  * Descrição: Busca uma solução prática que facilite o acesso a detalhes técnicos, como metragem, plantas, materiais utilizados e disponibilidade, sem precisar interromper seu fluxo de trabalho com chamadas demoradas. Além disso, valoriza a organização e gostaria de ter um histórico de suas interações para consultas futuras;
   * Dores: Perda de tempo em ligações telefônicas, dificuldade em encontrar informações específicas sobre os imóveis, falta de registro de conversas;
   * Expectativas: Um chat com respostas rápidas e precisas, histórico de conversas detalhado, e a possibilidade de enviar e receber documentos.
+
+**Henrique Fiori**
+* Idade: 35 anos;
+* Profissão: Analista Financeiro;
+* Localização: São Paulo, SP;
+* Formação: Graduação em economia;
+* Objetivo: Monitorar as variações do mercado imobiliário para identificar o momento mais estratégico para realizar a compra ou venda de imóveis;
+* Descrição: Busca informações confiáveis sobre o mercado imobiliário para tomar decisões embasadas na compra e venda de imóveis. Como profissional da área financeira, ele sabe que a volatilidade do mercado pode impactar diretamente a rentabilidade de um investimento imobiliário;
+* Dores: Falta de uma plataforma confiável que centralize informações sobre preços, tendências e previsões do mercado imobiliário;
+* Expectativas: Encontrar uma interface intuitiva que facilite a análise e comparação de preços.
 
 ## Histórias de Usuários
 
@@ -114,16 +125,15 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Pedro Silva          | Um imóvel maior                                               | Poder preparar o quarto para o futuro filho           |
-|Pedro Silva          | Ser notificado sobre novos cadastros de imóveis               | Antecipar-se aos demais usuários                      | 
-|Carlos Sampaio       | Imóvel fora da cidade em uma região tranquila                 | Descansar e curtir a natureza                         |
-|Raquel Cintra        | Imóvel em local silencioso                                    | Evitar inserção de áudio externo nos vídeos produzidos |
-|Fernando Cardoso     | Imóvel menor                                                  | Reduzir o custo de vida e o trabalho de manutenção |
-|Fernando Cardoso     | Acompanhar a evolução do preço dos imóveis                    | Identificar melhor momento para comprar ou vender seus imóveis |
-|Luiza Andrade        | Imóvel dentro de condomínios fechados                         | Evitar problemas quando de sua ausência por tempo prolongado |
-|Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios. |
-|Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontrar e adquirir uma casa maior para minha família|
-|Ana Silva     | Usar o chat par obter informações sobre a documentação necessária para alugar um imóvel | Eu possa me preparar com antecedência |
+|Pedro Silva          | Receber notificações personalizadas compatíveis com meu perfil  | Antecipar-se aos demais usuáriose encontrar rapidamente um imóvel maior para preparar o quarto do futuro filho                    | 
+|Carlos Sampaio       | Filtrar imóveis por localozação afastada e ambientes tranquilos       | Facilitar a busca de um local longe da agitação da cidade                      |
+|Raquel Cintra        | Encontrar imóveis com isolamento ou localizados em áreas silenciosas| Evitar inserção de áudio externo nos vídeos produzidos |
+|Fernando Cardoso     | Visualizar imóveis menores com baixo custo de manutenção       | Reduzir despesas e trabalho de manutenção através da redução do espaço |
+|Luiza Andrade        | Buscar imóveis em condomíniosfechados com boa infraestrutura de segurança     | Evitar problemas quando de sua ausência por tempo prolongado |
+|Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios |
+|Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontrar e adquirir uma casa maior para minha família com praticidade|
+|Ana Silva     | Usar o chat para obter informações sobre a documentação necessária para alugar um imóvel | Eu possa me preparar com antecedência |
+|Henrique Fiori  | Acompanhar a evolução do preço dos imóveis     | Identificar o melhor momento para vender imóveis          |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
