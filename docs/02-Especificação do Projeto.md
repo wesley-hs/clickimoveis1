@@ -123,7 +123,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Luiza Andrade        | Imóvel dentro de condomínios fechados                         | Evitar problemas quando de sua ausência por tempo prolongado |
 |Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios. |
 |Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontrar e adquirir uma casa maior para minha família|
-|Ana Silva     | Usar o chat par obter informações sobre a documentação necessária para alugar um imóvel | Eu posso me preparar com antecedência |
+|Ana Silva     | Usar o chat par obter informações sobre a documentação necessária para alugar um imóvel | Eu possa me preparar com antecedência |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
