@@ -14,8 +14,8 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Bruno Moulie Correa
 * Handryws
 * Iris
-* Leandro
 * João
+* Leandro
 *  Wesley Henrique Santos Souza
 ## Orientador
 
