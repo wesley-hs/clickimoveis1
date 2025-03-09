@@ -9,3 +9,5 @@ Aluno **João Rezende** - Ajudou na apresentação do vídeo de 2 minutos sobre 
 Aluno **Wesley Henrique** - Sugeriu uma ideia de nome para o projeto, fez algumas histórias de usuários, além de alguns requisitos funcionais e não funcionais. Participou da primeira reunião com os alunos, e da segunda com o grupo 3 com o professor.
 
 Aluno **Leandro Araújo** - Ajudou na apresentação do vídeo de 2 minutos sobre o Projeto.
+
+Aluna **Iris Alves** - Ajudou a realizar o Diagrama de Casos de Uso, realizou os slides da apresentação, participou da reunião inicial da Turma 3 para detalhamentos do projeto e da reunião com o grupo 3 e o professor.
