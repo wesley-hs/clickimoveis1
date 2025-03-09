@@ -10,7 +10,7 @@
    * Formação: Tecnólogo em Análise e Desenvolvimento de Sistemas;
    * Objetivo: Ter o próprio négocio de consultoria;
    * Descrição: Trabalha de maneira híbrida como desenvolvedor de software em uma média empresa em São Paulo, capital. Pelo fato de atuar na área de tecnologia tem facilidade em usar novas soluções tecnológicas. Tem apreço por soluções simples e funcionais e que permitam integração através de APIs;
-   * Dores: Casou-se há 2 anos atrás e atualmente mora com a esposa em um pequeno apartamento alugado no centro da cidade;
+   * Dores: Casou-se há 2 anos e atualmente mora com a esposa em um pequeno apartamento alugado no centro da cidade;
    * Expectativas: Deseja um local maior para poder preparar o quarto do futuro filho.
 
  **Carlos Sampaio**
