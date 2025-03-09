@@ -1,27 +1,29 @@
 # Apresentação
 
-<span style="color:red">Pré-requisitos: Todos os demais artefatos</span>
-
-Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do projeto contemplando todos os itens trabalhados nos demais artefatos.
 
 ## Título do Projeto
 
-Nome e marca do projeto
+Click Imóveis
+
+
+
 
 ## Identidade Visual (Marca, Design)
 
-O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do contexto da solução proposta, de forma a manter a temática do problema.
+![WhatsApp Image 2025-03-09 at 17 58 55](https://github.com/user-attachments/assets/a402abf0-d311-4420-8be6-ea1db501d705)
 
-> **Links Úteis**:
-> - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
-> - [7 dicas de design para criar apresentações de PowerPoint incríveis e eficientes](https://www.shutterstock.com/pt/blog/7-dicas-de-design-para-criar-apresentacoes-de-powerpoint-incriveis-e-eficientes)
-> - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
+
+O logo da Click Imóveis, com sua paleta de cinza escuro e claro, transmite profissionalismo, solidez e modernidade. O cinza, cor neutra, destaca a confiabilidade e a tecnologia da marca, essenciais no mercado imobiliário. A combinação das tonalidades cria um logo versátil e equilibrado, refletindo os valores da Click Imóveis.
 
 ## Conjunto de Slides (Estrutura)
 
-O grupo deve distribuir de forma coerente o conteúdo a ser apresentado, dentro do tempo determinado. Importante ressaltar a importância da descrição clara de todo o andamento do projeto, insumos gerados e requisitos atendidos.
+Apresentação do projeto Click Imóveis - PDF
  
-> **Links Úteis**:
-> - [A regra 10-20-30 para apresentações de sucesso](https://revistapegn.globo.com/Noticias/noticia/2014/07/regra-10-20-30-para-apresentacoes-de-sucesso.html)
-> - [Top Tips for Effective Presentations](https://www.skillsyouneed.com/present/presentation-tips.html)
-> - [How to make a great presentation](https://www.ted.com/playlists/574/how_to_make_a_great_presentation)
+[Slide plataforma imoveis.pdf](https://github.com/user-attachments/files/19152839/Slide.plataforma.imoveis.pdf)
+
+
+
+
+https://github.com/user-attachments/assets/b94492cb-0c75-4254-830d-793d99e71b22
+
+
