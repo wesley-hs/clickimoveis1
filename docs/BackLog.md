@@ -11,3 +11,6 @@ Aluno **Wesley Henrique** - Sugeriu uma ideia de nome para o projeto, fez alguma
 Aluno **Leandro Araújo** - Ajudou na apresentação do vídeo de 2 minutos sobre o Projeto.
 
 Aluna **Iris Alves** - Ajudou a realizar o Diagrama de Casos de Uso, realizou os slides da apresentação, participou da reunião inicial da Turma 3 para detalhamentos do projeto e da reunião com o grupo 3 e o professor.
+
+
+Aluno **André Florio** - Colaborou na montagem do Diagrama de Casos de Uso, ajudou na histórias dos usuários e preparou o logo do projeto.
