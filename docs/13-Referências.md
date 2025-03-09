@@ -1,7 +1,5 @@
 # Referências
+• Clemente, Matheus. Psicologia das Cores: descubra o significado (e o poder) de cada cor no marketing. Rock Content Blog, 2023. Disponível em: https://rockcontent.com/br/blog/psicologia-das-cores/. Acesso em: 09 de março de 2025.
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
 
-> **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+
