@@ -1,7 +1,6 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
-
+O Click Imóveis é uma plataforma online voltada para a compra, venda e aluguel de imóveis. O projeto tem como objetivo facilitar a conexão entre proprietários, corretores e interessados, oferecendo uma experiência intuitiva e acessível para busca e divulgação de imóveis.
 ## Problema
 
 O tema proposto é o desenvolvimento de uma plataforma de divulgação de imóveis que possa ser utilizado tanto por corretores imobiliários que trabalhem de forma independente quanto por imobiliárias.
