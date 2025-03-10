@@ -14,3 +14,5 @@ Aluna **Iris Alves** - Ajudou a realizar o Diagrama de Casos de Uso, realizou os
 
 
 Aluno **André Florio** - Colaborou na montagem do Diagrama de Casos de Uso, ajudou na histórias dos usuários e preparou o logo do projeto.
+
+Aluno **Handryws Junior** Sugeriu o tema do projeto . Participativo nas reuniões inicial geral da turma e da do grupo 3.
