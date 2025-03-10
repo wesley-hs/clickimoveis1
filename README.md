@@ -12,7 +12,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 * André 
 * Bruno Moulie Correa
-* Handryws
+* Handryws Junior de Oliveira Matias
 * Iris
 * João
 * Leandro
