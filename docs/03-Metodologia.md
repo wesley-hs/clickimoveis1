@@ -60,7 +60,18 @@ A equipe utiliza o Scrum como base para definição do processo de desenvolvimen
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o GitHub, estruturado com as seguintes listas:
+
+- Backlog: Recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
+- Sprint Backlog: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
+- In Progress: Quando uma tarefa tiver sido iniciada, ela é movida para cá.
+- Review: Aqui estão tarefas finalizadas que aguardam revisão para a conclusão.
+- Done: Nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias.
+  
+O quadro kanban do grupo no GitHub está disponível no link [github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/1285/views/1](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/1814/views/1) e é apresentado, no estado atual, na figura abaixo:
+
+![image](https://github.com/user-attachments/assets/4f9b5d05-32a1-49cb-b18a-cee88208951e)
+
  
 > **Links Úteis**:
 > - [Project management, made simple](https://github.com/features/project-management/)
