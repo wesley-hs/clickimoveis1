@@ -82,19 +82,22 @@ O quadro kanban do grupo no GitHub está disponível no link [github.com/orgs/IC
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
+<li>Github - Repositório de código, documentação e gerenciamento do projeto.</li>
+<li>Visual Studio Community - Editor de código.</li>
+<li>Microsoft Teams e Whatsapp - Ferramentas de comunicação.</li>
+<li>LucidChart - Ferramenta para diagramas (UML, fluxograma, etc).</li>
+<li>Figma - Ferramenta de desenho de tela (wireframing).</li>
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
+</br>
+Como os artefatos do projeto são desenvolvidos utilizando-se de diversas plataformas, apresentamos a seguir os endereços onde se encontram:
 
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
-
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
+| AMBIENTE                            | PLATAFORMA                         | LINK DE ACESSO                         |
+|-------------------------------------|------------------------------------|----------------------------------------|
+| Repositório de código fonte         | GitHub                             | [https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-1-e2-proj-int-t3-clickimoveis](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-1-e2-proj-int-t3-clickimoveis)                        |
+| Documentos do projeto               | GitHub                             | [https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-1-e2-proj-int-t3-clickimoveis](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-1-e2-proj-int-t3-clickimoveis)                           |
+| Diagramas                           | LucidChart                              |      [https://lucid.app/lucidchart/62d094a3-1ed3-4ace-81c0-00046a906da1/edit?viewport_loc=-328%2C-10%2C2890%2C1546%2C.Q4MUjXso07N&invitationId=inv_1178b2f1-0429-4107-b223-eebbae4d901d](https://lucid.app/lucidchart/62d094a3-1ed3-4ace-81c0-00046a906da1/edit?viewport_loc=-328%2C-10%2C2890%2C1546%2C.Q4MUjXso07N&invitationId=inv_1178b2f1-0429-4107-b223-eebbae4d901d)                                      |
+| Projeto de Interface                | Figma                              |      endereço a ser definido                                      |
+| Gerenciamento do Projeto            | GitHub Projects                    | [https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/1814](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/1814)                           |
+| Hospedagem                          | GitHub Pages                       |  endereço a ser definido                            |
  
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+
