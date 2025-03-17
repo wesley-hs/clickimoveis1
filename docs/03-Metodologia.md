@@ -21,9 +21,15 @@ O projeto segue a seguinte convenção para o nome de branches:
 Quanto à gerência de issues, o projeto adota a seguinte convenção para
 etiquetas:
 
-- `documentation`: melhorias ou acréscimos à documentação
 - `bug`: uma funcionalidade encontra-se com problemas
+- `documentation`: melhorias ou acréscimos à documentação
+- `duplicate`: issue ou pull request duplicado
 - `enhancement`: uma funcionalidade precisa ser melhorada
+- `good first issue`: bom para iniciantes
+- `help wanted`: necessário atenção extra
+- `invalid`: não parece válido
+- `question`: necessário informações adicionais
+- `wontfix`: não será trabalhado
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
 Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
