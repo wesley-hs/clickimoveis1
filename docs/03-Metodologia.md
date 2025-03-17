@@ -46,7 +46,12 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 ### Divisão de Papéis
 
-Apresente a divisão de papéis entre os membros do grupo.
+A equipe utiliza o Scrum como base para definição do processo de desenvolvimento.
+
+- Scrum Master: Bruno
+- Product Owner: André
+- Equipe de Desenvolvimento: Handryws, Iris, João
+- Equipe de Design: Leandro, Wesley
 
 > **Links Úteis**:
 > - [11 Passos Essenciais para Implantar Scrum no seu 
