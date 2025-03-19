@@ -98,14 +98,14 @@
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Pedro Silva          | Receber notificações personalizadas compatíveis com meu perfil  | Antecipar-se aos demais usuáriose encontrar rapidamente um imóvel maior para preparar o quarto do futuro filho                    | 
-|Carlos Sampaio       | Filtrar imóveis por localozação afastada e ambientes tranquilos       | Facilitar a busca de um local longe da agitação da cidade                      |
+|Pedro Silva          | Receber notificações personalizadas compatíveis com meu perfil  | Antecipar-se aos demais usuários e encontrar rapidamente um imóvel maior para preparar o quarto do futuro filho   | 
+|Carlos Sampaio       | Filtrar imóveis por em região afastada e ambientes tranquilos       | Facilitar a busca de um local longe da agitação da cidade                      |
 |Raquel Cintra        | Encontrar imóveis com isolamento ou localizados em áreas silenciosas| Evitar inserção de áudio externo nos vídeos produzidos |
 |Fernando Cardoso     | Visualizar imóveis menores com baixo custo de manutenção       | Reduzir despesas e trabalho de manutenção através da redução do espaço |
-|Luiza Andrade        | Buscar imóveis em condomíniosfechados com boa infraestrutura de segurança     | Evitar problemas quando de sua ausência por tempo prolongado |
-|Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Possa tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios |
+|Luiza Andrade        | Buscar imóveis em condomínios fechados com boa infraestrutura de segurança     | Evitar problemas quando de sua ausência por tempo prolongado |
+|Leonardo martins   |  Ter acesso a dados financeiros completos e atualizados sobre imóveis | Poder tomar decisões de investimento mais seguras e aumentar a rentabilidade dos negócios |
 |Ricardo Menezes| Processo de compra simplificado com suporte de corretores e opções virtuais | Encontrar e adquirir uma casa maior para minha família com praticidade|
-|Ana Silva     | Usar o chat para obter informações sobre a documentação necessária para alugar um imóvel | Eu possa me preparar com antecedência |
+|Ana Silva     | Usar o chat para obter informações sobre a documentação necessária para alugar um imóvel | Poder providenciar com antecedência a documentação exigida |
 |Henrique Fiori  | Acompanhar a evolução do preço dos imóveis     | Identificar o melhor momento para vender imóveis          |
 
 
