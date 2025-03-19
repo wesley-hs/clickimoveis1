@@ -125,7 +125,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-06|	A aplicação deve permitir aos agentes imobiliários fazer upload de fotos e vídeos |	ALTA |
 |RF-07|	A aplicação deve permitir integração com APIs externas para exibição de mapas |	MÉDIA |
 |RF-08|	A aplicação deve disponibilizar um chat para comunicação entre compradores e vendedores |	MÉDIA |
-|RF-09|	A aplicação deve gerar relatórios para os agentes do mercado imobiliário | MÉDIA |
+|RF-09|	A aplicação deve gerar relatórios (análise de desempenho dos imóveis e identificação de tendências) para os agentes do mercado imobiliário | MÉDIA |
 |RF-10|	A aplicação deve possibilitar avaliações e comentários nos anúncios |	MÉDIA |
 
 
