@@ -14,7 +14,8 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 > - [O que é um diagrama de classe UML? | Lucidchart](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml)
 
 
-![Diagramas - ClickImóveis - Diagrama de Classes](https://github.com/user-attachments/assets/e3a39b56-7c4a-44bb-953a-7a3239888298)
+![Diagrama de Classe](https://github.com/user-attachments/assets/b4b9b12b-6320-417e-8d03-aaaf8c6ee8fd)
+
 
 ## Modelo ER (Projeto Conceitual)
 
