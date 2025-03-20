@@ -26,7 +26,8 @@ A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
 
 > - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
 
-![Diagramas - ClickImóveis - Diagrama Entidade-Relacionamento](https://github.com/user-attachments/assets/f2f6f45c-fe27-4979-aab7-dba420712035)
+
+![Entidade-Relacionamento](https://github.com/user-attachments/assets/a30bc29d-f7e9-43af-ba4e-f665ecf531ca)
 
 
 ## Projeto da Base de Dados
