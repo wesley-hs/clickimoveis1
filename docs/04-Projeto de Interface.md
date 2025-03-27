@@ -26,6 +26,9 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 Uma breve explicação do que a tela representa, como "Este wireframe ilustra a página inicial do site Click Imóveis, destacando a interface de busca de imóveis com filtros personalizáveis.
 
-![WhatsApp Image 2025-03-22 at 23 33 36](https://github.com/user-attachments/assets/e51a9575-9221-45a7-b7cb-0e927217f39f) 
+
+
+![image](https://github.com/user-attachments/assets/da01270a-4ea3-4d66-a935-24db436d9bd7)
+
 
 
