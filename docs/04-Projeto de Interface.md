@@ -1,6 +1,24 @@
 
 # Projeto de Interface
 
+![image](https://github.com/user-attachments/assets/da01270a-4ea3-4d66-a935-24db436d9bd7)
+
+
+![image](https://github.com/user-attachments/assets/3a56dbc7-dbcc-400d-9cdb-9caf06af554a)
+
+
+![image](https://github.com/user-attachments/assets/e5e3b3ce-5352-460a-a09e-434695dd3197)
+
+
+![image](https://github.com/user-attachments/assets/73d242f3-751a-4edd-927b-a422c055138a)
+
+
+![image](https://github.com/user-attachments/assets/f9112b91-d935-4e2b-b1dc-7aab1343d679)
+
+
+
+
+
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
