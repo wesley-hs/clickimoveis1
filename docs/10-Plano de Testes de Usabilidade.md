@@ -1,5 +1,53 @@
 # Plano de Testes de Usabilidade
 
+O teste de usabilidade é uma ferramenta para avaliar a funcionalidade de um site, e garantir que as pessoas possam navegar nele com eficiência. 
+
+Para o projeto ClickImóveis realizaremos testes remotos e não moderados.
+
+## 1. Objetivos
+
+- Verificar se os usuários conseguem concluir tarefas essenciais sem dificuldades;
+- Identificar barreiras na navegação e interação com o sistema;
+- Avaliar a eficiência e a satisfação do usuário ao utilizar a interface.
+
+## 2. Participantes
+
+Serão selecionados 5 participantes onde cada um representa uma das personas identificadas neste trabalho.
+São requisitos para que cada participante possa participar:
+
+- Possuir conexão com internet estável;
+- Possuir webcam móvel para gravação da própria tela;
+- Possuir notebook ou computador desktop para uso da webcam;
+
+## 3. Cenários de Teste
+
+### Cenário de Teste 1: CT-01
+
+**Objetivo:** Avaliar a facilidade e eficiência do usuário em pesquisar, visualizar dados do imóvel e obter dados de contato do anunciante.
+
+**Contexto:** O usuário deseja buscar um imóvel na cidade onde mora. Para isso, ele deverá entrar no site www.clickimoveis.com.br para buscar opções disponíveis, visualizar os dados do imóvel e obter dados de contato do anunciante.
+
+**Tarefa(s):** 
+- Acessar o site e localizar a barra de pesquisa.
+- Pesquisar por "Belo Horizonte, MG" e utilizar os filtros para refinar a busca (exemplo: apartamento, casa, aluguel, venda, etc).
+- Escolher um dos imóveis listados e acessar a página do imóvel.
+- Acessar dados de contato do anunciante.
+
+**Critério(s) de Sucesso(s):**
+- O usuário consegue encontrar e filtrar os imóveis sem dificuldades.
+- Os dados detalhados do imóvel são mostrados corretamente.
+- O usuário acessa os dados de contato do anunciante sem dificuldades.
+- Todo o processo ocorre em menos de 5 minutos, sem necessidade de assistência.
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<br><br>
+
 Os testes de usabilidade permitem avaliar a qualidade da interface com o usuário da aplicação interativa.
 
 Um plano de teste de usabilidade deverá conter: 
