@@ -6,8 +6,7 @@
 
 `SEMESTRE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
-
+O objetivo geral deste projeto é a criação de uma aplicação interativa de fácil acesso e uso que permita aos usuários a busca por imóveis de uma forma mais simples e intuitiva.
 ## Integrantes
 
 * André 
