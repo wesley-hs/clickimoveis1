@@ -117,16 +117,17 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01|	A aplicação deve permitir ao cliente cadastrar uma conta |	ALTA |
-|RF-02|	A aplicação deve permitir aos agentes imobiliários cadastrar uma conta |	ALTA |
+|RF-01|	A aplicação deve permitir aos usuários pessoa física cadastrarem uma conta |	ALTA |
+|RF-02|	A aplicação deve permitir aos usuários pessoa jurídica cadastrarem uma conta |	ALTA |
 |RF-03| A aplicação deve permitir aos usuários fazer o login	| ALTA |
-|RF-04|	A aplicação deve permitir aos agentes imobiliários cadastrar imóveis |	ALTA |
-|RF-05|	A aplicação deve oferecer aos clientes funcionalidades de filtro/pesquisa para seleção dos imóveis disponíveis |	ALTA |
-|RF-06|	A aplicação deve permitir aos agentes imobiliários fazer upload de fotos e vídeos |	ALTA |
+|RF-04|	A aplicação deve permitir aos usuários cadastrarem imóveis |	ALTA |
+|RF-05|	A aplicação deve oferecer aos usuários funcionalidades de filtro/pesquisa para seleção dos imóveis disponíveis |	ALTA |
+|RF-06|	A aplicação deve permitir aos usuários fazerem upload de fotos e vídeos |	ALTA |
 |RF-07|	A aplicação deve permitir integração com APIs externas para exibição de mapas |	MÉDIA |
-|RF-08|	A aplicação deve disponibilizar um chat para comunicação entre compradores e vendedores |	MÉDIA |
-|RF-09|	A aplicação deve gerar relatórios (análise de desempenho dos imóveis e identificação de tendências) para os agentes do mercado imobiliário | MÉDIA |
+|RF-08|	A aplicação deve disponibilizar um chat para comunicação entre os usuários |	MÉDIA |
+|RF-09|	A aplicação deve gerar relatórios (análise de desempenho dos imóveis e identificação de tendências) para os usuários agentes do mercado imobiliário | MÉDIA |
 |RF-10|	A aplicação deve possibilitar avaliações e comentários nos anúncios |	MÉDIA |
+|RF-11|	A aplicação deve permitir visualizar os dados de contato dos usuários anunciantes |	MÉDIA |
 
 
 ### Requisitos não Funcionais
