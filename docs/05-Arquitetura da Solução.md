@@ -10,7 +10,7 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 
 
 
-![Diagrama de Classe](https://github.com/user-attachments/assets/b4b9b12b-6320-417e-8d03-aaaf8c6ee8fd)
+![Diagrama de Classe](/docs/img/Diagrama-Classe.jpg)
 
 
 ## Modelo ER (Projeto Conceitual)
