@@ -31,6 +31,13 @@ Para mais informações, consulte o microfundamento "Modelagem de Dados".
 
 ![Base de Dados](/docs/img/Diagrama-Base-Dados.jpeg)
 
+## Diagrama de Fluxo de Login/Pesquisa/Mensagem ao Anunciante
+
+
+![Diagramas_ClickImoveis-Fluxo](https://github.com/user-attachments/assets/64ea0e8e-cd4f-463f-995e-3f58adcff59b)
+
+
+
 ## Tecnologias Utilizadas
 
 Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
