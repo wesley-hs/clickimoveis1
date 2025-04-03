@@ -29,7 +29,7 @@ O projeto da base de dados corresponde à representação das entidades e relaci
  
 Para mais informações, consulte o microfundamento "Modelagem de Dados".
 
-![Base de Dados](https://github.com/user-attachments/assets/4b88d084-5fcb-49eb-8beb-d7aecc37abd8)
+![Base de Dados](/docs/img/Diagrama-Base-Dados.jpeg)
 
 ## Tecnologias Utilizadas
 
