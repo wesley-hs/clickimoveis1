@@ -20,7 +20,7 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 
 
-![Entidade-Relacionamento](https://github.com/user-attachments/assets/a30bc29d-f7e9-43af-ba4e-f665ecf531ca)
+![Entidade-Relacionamento](/docs/img/Diagrama-Entidade-Relacionamento.jpg)
 
 
 ## Projeto da Base de Dados
