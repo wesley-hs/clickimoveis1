@@ -39,6 +39,25 @@ São requisitos para que cada participante possa participar:
 - O usuário acessa os dados de contato do anunciante sem dificuldades.
 - Todo o processo ocorre em menos de 5 minutos, sem necessidade de assistência.
 
+### Cenário de Teste 2: CT-02
+
+**Objetivo:** Avaliar telas de login e cadastro de usuários.
+
+**Contexto:** O usuário deseja realizar cadastro e login na plataforma.
+
+**Tarefa(s):**
+- Acessar o site sem estar previamente logado.
+- Selecionar cadastrar uma conta na tela de login.
+- Cadastrar uma nova conta de usuário na tela de cadastro.
+- Retornar para a tela de login e realizar o login.
+- Visualizar a área logada do site.
+
+**Critério(s) de Sucesso(s):**
+- O usuário deve identificar a opção de cadastro de novo usuário.
+- O cadastro de novo usuário deve ocorrer de modo a não gerar dúvidas.
+- O login com o novo usuário criado deve ocorrer sem problemas.
+
+
 
 
 
