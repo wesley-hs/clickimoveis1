@@ -93,6 +93,26 @@ São requisitos para que cada participante possa participar:
 - O usuário deve conseguir criar o anúncio.
 - Após a criação do anúncio deve aparecer na lista de já criados.
 
+### Cenário de Teste 5: CT-05
+
+**Objetivo:** Avaliar criação de relatórios.
+
+**Contexto:** O usuário deseja gerar relatórios.
+
+**Tarefa(s):**
+- Estar na página inicial da aplicação.
+- Selecionar menu relatórios.
+- Selecionar um dos tipos de relatórios disponíveis e selecionar gerar.
+- Visualizar o relatório em tela.
+- Selecionar a opção de salvar em formato PDF.
+
+**Critério(s) de Sucesso(s):**
+- O usuário deve conseguir gerar o relatório.
+- O usuário deve visualizar o relatório em tela.
+- O download do relatório ocorre sem problemas.
+
+
+
 
 <br><br><br><br><br><br><br><br><br><br>
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
