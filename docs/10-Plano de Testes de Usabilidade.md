@@ -58,6 +58,24 @@ São requisitos para que cada participante possa participar:
 - O login com o novo usuário criado deve ocorrer sem problemas.
 
 
+### Cenário de Teste 3: CT-03
+
+**Objetivo:** Avaliar cadastro de imóveis.
+
+**Contexto:** O usuário deseja realizar cadastro de imóvel.
+
+**Tarefa(s):**
+- Estar na página inicial da aplicação.
+- Selecionar menu cadastrar imóvel.
+- Cadastrar dados do imóvel.
+- Fazer ulpoad de fotos e/ou vídeos.
+- Visualizar novo imóvel como já cadastrado.
+
+**Critério(s) de Sucesso(s):**
+- O usuário deve conseguir cadastrar o imóvel.
+- Caso as fotos e/ou vídeos não sejam compatíveis deve haver aviso claro ao usuário.
+- Após o cadastro o imóvel deve aparecer na lista de já cadastrados.
+
 
 
 
