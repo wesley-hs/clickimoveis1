@@ -77,6 +77,21 @@ São requisitos para que cada participante possa participar:
 - Após o cadastro o imóvel deve aparecer na lista de já cadastrados.
 
 
+### Cenário de Teste 4: CT-04
+
+**Objetivo:** Avaliar criação de anúncios.
+
+**Contexto:** O usuário deseja realizar a criação de um anúncio.
+
+**Tarefa(s):**
+- Estar na página inicial da aplicação.
+- Selecionar menu criar anúncio.
+- Criar novo anúncio.
+- Visualizar novo anúncio na lista de anúncios criados.
+
+**Critério(s) de Sucesso(s):**
+- O usuário deve conseguir criar o anúncio.
+- Após a criação do anúncio deve aparecer na lista de já criados.
 
 
 <br><br><br><br><br><br><br><br><br><br>
