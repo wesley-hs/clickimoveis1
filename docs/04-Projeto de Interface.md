@@ -1,29 +1,13 @@
 
 # Projeto de Interface
 
-![image](https://github.com/user-attachments/assets/da01270a-4ea3-4d66-a935-24db436d9bd7)
-
-
-![image](https://github.com/user-attachments/assets/3a56dbc7-dbcc-400d-9cdb-9caf06af554a)
-
-
-![image](https://github.com/user-attachments/assets/e5e3b3ce-5352-460a-a09e-434695dd3197)
-
-
-![image](https://github.com/user-attachments/assets/73d242f3-751a-4edd-927b-a422c055138a)
-
-
-![image](https://github.com/user-attachments/assets/f9112b91-d935-4e2b-b1dc-7aab1343d679)
-
-
-
-
-
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+Pré-requisitos: Documentação de Especificação
 
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 
- Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
+Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas Documentação de Especificação.
+
+
 
 ## Diagrama de Fluxo
 
@@ -40,13 +24,8 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 ## Wireframes
 
-**Wireframe da Página Inicial – Click Imóveis**
+- [Projeto do Wireframe](https://www.figma.com/design/71MN7oddox1QBN3fyAynT9/Figma-basics?node-id=0-286&p=f&t=Ajz3mShZMjzRAXdh-0)
 
-Uma breve explicação do que a tela representa, como "Este wireframe ilustra a página inicial do site Click Imóveis, destacando a interface de busca de imóveis com filtros personalizáveis.
+- [Wireframe Interativo](https://www.figma.com/proto/71MN7oddox1QBN3fyAynT9/Figma-basics?node-id=925-2&p=f&t=Ajz3mShZMjzRAXdh-0&scaling=contain&content-scaling=fixed&page-id=0%3A286) Personagem usuário
 
-
-
-![image](https://github.com/user-attachments/assets/da01270a-4ea3-4d66-a935-24db436d9bd7)
-
-
-
+- [Wireframe Interativo](https://www.figma.com/proto/71MN7oddox1QBN3fyAynT9/Figma-basics?node-id=925-184&p=f&t=Ajz3mShZMjzRAXdh-0&scaling=contain&content-scaling=fixed&page-id=0%3A286) Personagem Administrador
