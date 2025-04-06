@@ -9,12 +9,12 @@
 O objetivo geral deste projeto é a criação de uma aplicação interativa de fácil acesso e uso que permita aos usuários a busca por imóveis de uma forma mais simples e intuitiva.
 ## Integrantes
 
-* André 
+* André Florio
 * Bruno Moulie Correa
 * Handryws Junior de Oliveira Matias
-* Iris
-* João
-* Leandro
+* Iris Alves Pereira
+* João Rezende Vieira
+* Leandro dos Santos Araújo
 *  Wesley Henrique Santos Souza
 ## Orientador
 
