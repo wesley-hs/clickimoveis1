@@ -6,7 +6,7 @@ Pré-requisitos: Documentação de Especificação
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 
 
-1. **Página Inicial**
+1. **Cadastro de Conta**
 
  ![image](https://github.com/user-attachments/assets/e6a3a286-c440-4883-a1f5-07261727e83b)
 <br>
