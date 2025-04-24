@@ -20,7 +20,11 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 
 
-![Entidade-Relacionamento](/docs/img/Diagrama-Entidade-Relacionamento.jpg)
+
+
+![Entidade-Relacionamento](https://github.com/user-attachments/assets/5acc07cb-c0fb-4ee6-8a40-c351475d17e8)
+
+
 
 
 ## Projeto da Base de Dados
@@ -31,10 +35,6 @@ Para mais informações, consulte o microfundamento "Modelagem de Dados".
 
 ![Base de Dados](/docs/img/Diagrama-Base-Dados.jpeg)
 
-## Diagrama de Fluxo de Login/Pesquisa/Mensagem ao Anunciante
-
-
-![Diagramas_ClickImoveis-Fluxo](https://github.com/user-attachments/assets/64ea0e8e-cd4f-463f-995e-3f58adcff59b)
 
 
 
