@@ -1,10 +1,16 @@
 
 # Projeto de Interface
 
-Pré-requisitos: Documentação de Especificação
+## Diagrama de Fluxo de Login/Pesquisa/Mensagem ao Anunciante
 
-Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 
+![Diagramas_ClickImoveis-Fluxo](https://github.com/user-attachments/assets/64ea0e8e-cd4f-463f-995e-3f58adcff59b)
+
+<hr>
+
+## **Projeto de Wireframe**
+
+Wireframes do projeto Click Imóveis, com fotos e vídeos.
 
 1. **Cadastro de Conta**
 
@@ -34,12 +40,8 @@ Requisito atendido 08 (A aplicação deve disponibilizar um chat para comunicaç
 <br>
 ## ##
 
- 5. **Página de Pagamento**
-
-![image](https://github.com/user-attachments/assets/3305c634-9c04-4e83-99a5-b3e0fc6afd68)
-<br>
-
- 6. **Página de Relatório dos imóveis, para corretor e imobiliária**
+ 
+ 5. **Página de Relatório dos imóveis, para corretor e imobiliária**
 
 ![image](https://github.com/user-attachments/assets/40a0636e-6ac2-4489-8fd8-84fc628aa2df)
 <br>
@@ -49,11 +51,6 @@ Requisito atendido 09 (A aplicação deve gerar relatórios (análise de desempe
   
 
 
-## Diagrama de Fluxo
-
-
-
-![image](https://github.com/user-attachments/assets/ba5eed14-380c-46f7-bde3-fe759b3af856)
 
 
 
