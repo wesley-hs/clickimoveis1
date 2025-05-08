@@ -1,31 +1,63 @@
 
 # Projeto de Interface
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+## Diagrama de Fluxo de Login/Pesquisa/Mensagem ao Anunciante
 
-Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 
- Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
+![Diagramas_ClickImoveis-Fluxo](https://github.com/user-attachments/assets/64ea0e8e-cd4f-463f-995e-3f58adcff59b)
 
-## Diagrama de Fluxo
+<hr>
 
-O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema interativo e  muitas vezes sem a necessidade do desenho do design das telas da interface. Isso permite que o design das interações seja bem planejado e gere impacto na qualidade no design do wireframe interativo que será desenvolvido logo em seguida.
+## **Projeto de Wireframe**
 
-O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamente a indicação dos principais elementos de interface - tais como menus e acessos - e funcionalidades, tais como editar, pesquisar, filtrar, configurar - e a conexão entre esses boxes a partir do processo de interação. Você pode ver mais explicações e exemplos https://www.lucidchart.com/blog/how-to-make-a-user-flow-diagram.
+Wireframes do projeto Click Imóveis, com fotos e vídeos.
 
-![Exemplo de Diagrama de Fluxo](img/diagramafluxo2.jpg)
+1. **Cadastro de Conta**
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
+ ![image](https://github.com/user-attachments/assets/e6a3a286-c440-4883-a1f5-07261727e83b)
+<br>
+Requisito atendido 01 (A aplicação deve permitir aos usuários pessoa física cadastrarem uma conta)
+<br>
+## ##
 
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
+ 2. **Página de Login**
+
+![image](https://github.com/user-attachments/assets/5283db56-e87b-4137-b3c9-5ad2bd38193d)
+<br>
+Requisito atendido 03 (A aplicação deve permitir aos usuários fazer o login)
+<br>
+## ##
+ 3. **Página de detalhes dos imóveis**
+
+![image](https://github.com/user-attachments/assets/c739c7d3-e3e3-426d-babd-3c04fe760e7c)
+<br>
+
+ 4. **Chat entre cliente e corretor**
+
+![image](https://github.com/user-attachments/assets/9f574b18-9edd-477a-9c57-bff25ae0c00a)
+<br>
+Requisito atendido 08 (A aplicação deve disponibilizar um chat para comunicação entre os usuários	)
+<br>
+## ##
+
+ 
+ 5. **Página de Relatório dos imóveis, para corretor e imobiliária**
+
+![image](https://github.com/user-attachments/assets/40a0636e-6ac2-4489-8fd8-84fc628aa2df)
+<br>
+Requisito atendido 09 (A aplicação deve gerar relatórios (análise de desempenho dos imóveis e identificação de tendências) para os usuários agentes do mercado imobiliário)
+<br>
+## ##
+  
+
+
+
+
 
 ## Wireframes
 
-**Wireframe da Página Inicial – Click Imóveis**
+- [Projeto do Wireframe](https://www.figma.com/design/71MN7oddox1QBN3fyAynT9/Figma-basics?node-id=0-286&p=f&t=Ajz3mShZMjzRAXdh-0)
 
-Uma breve explicação do que a tela representa, como "Este wireframe ilustra a página inicial do site Click Imóveis, destacando a interface de busca de imóveis com filtros personalizáveis.
+- [Wireframe Interativo](https://www.figma.com/proto/71MN7oddox1QBN3fyAynT9/Figma-basics?node-id=925-2&t=Ajz3mShZMjzRAXdh-0&scaling=contain&content-scaling=fixed&page-id=0%3A286) Personagem usuário
 
-![WhatsApp Image 2025-03-22 at 23 33 36](https://github.com/user-attachments/assets/e51a9575-9221-45a7-b7cb-0e927217f39f) 
-
-
+- [Wireframe Interativo](https://www.figma.com/proto/71MN7oddox1QBN3fyAynT9/Figma-basics?node-id=925-184&p=f&t=Ajz3mShZMjzRAXdh-0&scaling=contain&content-scaling=fixed&page-id=0%3A286) Personagem Administrador
