@@ -1,0 +1,50 @@
+﻿@model IEnumerable<click_imoveis.Models.Anuncio>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="mb-5">Página Home</h1>
+
+
+    
+    <form asp-action="Index" method="get" class="d-flex flex-column gap-1 mb-5" style="max-width: 300px;">
+                                  
+            
+                <label class="control-label">Digite o Título:</label>
+                <input type="text" name="titulo" value="@(ViewBag.Titulo != null ? ViewBag.Titulo : "")"/>
+                <input type="submit" value="Pesquisar" class="btn btn-primary" />
+            
+            
+
+        </form>
+    
+
+
+
+
+
+
+<div class="d-flex flex-wrap justify-content-center gap-3">
+
+@foreach (var item in Model)
+{
+    if (item.Descricao != null)
+    {
+        //item.Descricao = item.Descricao.Substring(0, 150) + "...";
+    }
+    
+    
+    <div class="card" style="width: 18rem;">
+        <img src=@(string.Concat("https://picsum.photos/200?x=", @item.AnuncioId)) class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
+            <a asp-action="DetalhesAnuncio" asp-route-id="@item.AnuncioId" class="btn btn-primary">Detalhes</a>
+        </div>
+    </div>
+                      
+}
+
+</div>
