@@ -1,12 +1,25 @@
+
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+## Paleta de Cores
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+### Cores Primárias
+![Primaria](https://github.com/user-attachments/assets/c4c5797a-14be-4dc5-a4c5-90516ab780af)
 
-> **Links Úteis**:
->
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
+
+### Cores Secundárias
+As cores secundárias foram pensadas com o intuito de trazer modernidade, elegância e sofisticação. Juntando tais qualidades com as sensações transmitidas pelas cores principais, temos interfaces agradáveis aos usuários de forma que absorvam um sentimento de serenidade.
+
+![Cores](https://github.com/user-attachments/assets/7ab1dd70-caa6-42ad-ad76-3ced35b63ad3)
+
+
+## Tipografia
+
+A principal vantagem da fonte Arial é a sua legibilidade. Pois ela contém um conjunto de caracteres que proporcionam clareza, além de possuir letras com proporções adequadas e formatos bons para se ler, os quais facilitam a leitura em diferentes ambientes.
+
+## Logo
+![LogoClickImoveis](https://github.com/user-attachments/assets/791461b4-4130-40ac-a96c-70e69ea41d01)
+
+
+O logotipo foi desenvolvido com a junção do nome da aplicação e um ícone visual de uma casa com um clique, simbolizando acessibilidade e tecnologia. A imagem da mão clicando representa praticidade e agilidade, enquanto o formato de casa remete diretamente ao setor imobiliário, transmitindo segurança e confiança para o usuário.
+
