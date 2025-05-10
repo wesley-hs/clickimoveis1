@@ -7,33 +7,27 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Caso de Teste** 	| **CT01 – Cadastrar perfil usuário e login** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-01	e RF-03 - A aplicação deve permitir aos usuários pessoa física cadastrarem uma conta |
-|Registro de evidência |
+|Registro de evidência | https://github.com/user-attachments/assets/09f255a7-5e68-4e08-a374-2f7bc6c46603 |
 
-https://github.com/user-attachments/assets/09f255a7-5e68-4e08-a374-2f7bc6c46603
 
-  |
+
+  
 
 | **Caso de Teste** 	| **CT02 – Cadastrar perfil corretor e login** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-02 e RF-03- A aplicação deve permitir aos usuários pessoa jurídica cadastrarem uma conta |
-|Registro de evidência 
-
-https://github.com/user-attachments/assets/64cd333a-2a3d-411b-8fee-471e47781df0
-
-|  |
+|Registro de evidência |https://github.com/user-attachments/assets/64cd333a-2a3d-411b-8fee-471e47781df0 |
 
 
-| **Caso de Teste** 	| **CT02 – Realizar login** 	|
-|:---:	|:---:	|
-|	Requisito Associado 	| RF-00Y - A aplicação deve permitir que um usuário previamente cadastrado faça login |
-|Registro de evidência | www.teste.com.br/drive/ct-02 |
+
+
 
 ## Relatório de testes de software
 
 Os testes focaram na validação do fluxo de cadastro e login, essencial para a segurança e usabilidade do sistema. Foram avaliados:
  
 
-# Pontos Fortes #
+ ### ✅  Pontos Fortes 
 
 - Validação de Dados: O sistema impede o avanço quando dados obrigatórios estão ausentes ou incorretos, garantindo a integridade das informações armazenadas.
 
@@ -42,7 +36,7 @@ Os testes focaram na validação do fluxo de cadastro e login, essencial para a 
 - Feedback claro de erros
   - Exemplo: Mensagem "E-mail inválido" sob o campo
  
-  # Fragilidades Encontradas #
+### ⚠️ Fragilidades Encontradas 
 
 - Ausência de Recuperação de Senha: Não oferecer uma opção para redefinir a senha em caso de esquecimento compromete a acessibilidade do sistema.
 
@@ -56,7 +50,7 @@ CPF/CNPJ (validação de identidade)
 Endereço (para corretores/imobiliárias)
 
 
-# Estratégias de Melhoria Integral #
+### 💡Estratégias de Melhoria Integral 
 
 Aprimoramento do Cadastro de Perfil
 Adoção de Cadastro Progressivo:
