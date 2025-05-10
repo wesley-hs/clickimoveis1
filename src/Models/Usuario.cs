@@ -10,14 +10,40 @@ namespace click_imoveis.Models
         public int UsuarioId { get; set; }
         
         [Required(ErrorMessage = "Obrigatório informar email.")]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar senha.")]
-        public string Senha { get; set; }
+        public required string Senha { get; set; }
 
         [Display(Name = "Tipo de Usuário")]
         [Required(ErrorMessage = "O campo Tipo de Usuário é obrigatório.")]
         public TipoDeUsuario TipoDeUsuario { get; set; }
+
+        public string? Creci { get; set; }
+
+        [Display(Name = "Data de Cadastro")]
+        public DateTime DataCadastro { get; set; }
+
+        public string? Logradouro { get; set; }
+
+        [Display(Name = "Número")]
+        public string? Numero { get; set; }
+
+        public string? Complemento { get; set; }
+
+        public string? Bairro { get; set; }
+
+        public string? Estado { get; set; }
+
+        [Display(Name = "CEP")]
+        public string? CodigoPostal { get; set; }
+
+        public string? TelefonePrincipal { get; set; }
+
+        public string? TelefoneAlternativo1 { get; set; }
+
+        public string? TelefoneAlternativo2 { get; set; }
+
 
         [Display(Name = "Pessoa Física / Pessoa Jurídica")]
         [Required(ErrorMessage = "O campo Pessoa é obrigatório.")]
@@ -34,10 +60,7 @@ namespace click_imoveis.Models
         // One to one-or-zero relationship
         public PessoaFisica? PessoaFisica { get; set; }
         public PessoaJuridica? PessoaJuridica { get; set; }
-
-        //public ICollection<PessoaFisica>? PessoasFisicas { get; set; } = new List<PessoaFisica> { };
-        //public ICollection<PessoaJuridica>? PessoasJuridicas { get; set; } = new List<PessoaJuridica> { };
-
+            
 
     }
 

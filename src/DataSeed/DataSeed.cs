@@ -1,6 +1,7 @@
 ﻿using click_imoveis.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace click_imoveis.DataSeed
 {
@@ -20,15 +21,22 @@ namespace click_imoveis.DataSeed
 
             if (!context.Usuarios.Any() && !context.Imoveis.Any() && !context.Anuncios.Any())
             {
-                var jsonFilePath = Path.Combine(AppContext.BaseDirectory, "DataSeed", "DataSeed.json");
-                var jsonData = await File.ReadAllTextAsync(jsonFilePath);
 
-                Models.DataSeed? entities = JsonSerializer.Deserialize<Models.DataSeed>(jsonData);
+                var jsonFileUsuarios = Path.Combine(AppContext.BaseDirectory, "DataSeed", "usuarios.json");
+                var jsonDataUsuarios = await File.ReadAllTextAsync(jsonFileUsuarios);
+                List<Usuario>? usuarios = JsonSerializer.Deserialize<List<Usuario>>(jsonDataUsuarios);
 
-                
+                var jsonFileImoveis = Path.Combine(AppContext.BaseDirectory, "DataSeed", "imoveis.json");
+                var jsonDataImoveis = await File.ReadAllTextAsync(jsonFileImoveis);
+                List<Imovel>? imoveis = JsonSerializer.Deserialize<List<Imovel>>(jsonDataImoveis);
 
+                var jsonFileAnuncios = Path.Combine(AppContext.BaseDirectory, "DataSeed", "anuncios.json");
+                var jsonDataAnuncios = await File.ReadAllTextAsync(jsonFileAnuncios);
+                List<Anuncio>? anuncios = JsonSerializer.Deserialize<List<Anuncio>>(jsonDataAnuncios);
 
-                if (entities != null)
+                Models.DataSeed entities = new Models.DataSeed { Imoveis = imoveis, Usuarios = usuarios, Anuncios = anuncios };
+
+                if ((entities.Usuarios != null) && (entities.Imoveis != null) && (entities.Anuncios != null))
                 {
                     await context.Usuarios.AddRangeAsync(entities.Usuarios);
                     await context.SaveChangesAsync();

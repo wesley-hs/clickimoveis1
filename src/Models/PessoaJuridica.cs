@@ -13,8 +13,16 @@ namespace click_imoveis.Models
         [Required(ErrorMessage = "O campo Razão Social é obrigatório.")]
         public required string RazaoSocial { get; set; }
 
+        [Display(Name = "CNPJ")]
+        public string? Cnpj { get; set; }
+
+        [Display(Name = "Nome Fantasia")]
+        public string? NomeFantasia { get; set; }
+
+
+
         public int UsuarioId { get; set; }
-        public required Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
 
     }
     

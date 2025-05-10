@@ -8,7 +8,11 @@ namespace click_imoveis.Models
     {
         [Key]
         public int AnuncioId { get; set; }
+
+        [Display(Name = "Data de Início")]
         public DateTime? DataInicio { get; set; }
+
+        [Display(Name = "Data de Término")]
         public DateTime? DataFim { get; set; }
         public float? Valor { get; set; }
         public float? ValorCondominio { get; set; }

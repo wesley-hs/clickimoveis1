@@ -1,0 +1,575 @@
+[
+  {
+    "Email": "artemis.silva@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua das Flores",
+    "Numero": "12",
+    "Complemento": "Casa",
+    "Bairro": "Jardim Primavera",
+    "Estado": "SP",
+    "CodigoPostal": "12345-678",
+    "TelefonePrincipal": "(11) 91234-5678",
+    "PessoaFisica": {
+      "NomeCompleto": "Artemis Silva",
+      "Cpf": "123.456.789-01",
+      "DataNascimento": "1985-03-15"
+
+    }
+  },
+  {
+    "Email": "zeus.oliveira@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Avenida Olímpica",
+    "Numero": "45",
+    "Complemento": "Apto 301",
+    "Bairro": "Centro",
+    "Estado": "RJ",
+    "CodigoPostal": "22345-678",
+    "TelefonePrincipal": "(21) 98765-4321",
+    "PessoaFisica": {
+      "NomeCompleto": "Zeus Oliveira",
+      "Cpf": "123.456.789-02",
+      "DataNascimento": "1990-07-20"
+    }
+  },
+  {
+    "Email": "hera.monteiro@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua das Acácias",
+    "Numero": "78",
+    "Complemento": "Apto 202",
+    "Bairro": "Vila Nova",
+    "Estado": "MG",
+    "CodigoPostal": "32345-678",
+    "TelefonePrincipal": "(31) 99876-5432",
+    "PessoaFisica": {
+      "NomeCompleto": "Hera Monteiro",
+      "Cpf": "123.456.789-03",
+      "DataNascimento": "1988-12-05"
+    }
+  },
+  {
+    "Email": "poseidon.costa@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Praça do Mar",
+    "Numero": "10",
+    "Complemento": "Cobertura",
+    "Bairro": "Beira-Mar",
+    "Estado": "BA",
+    "CodigoPostal": "42345-678",
+    "TelefonePrincipal": "(71) 91234-5678",
+    "PessoaFisica": {
+      "NomeCompleto": "Poseidon Costa",
+      "Cpf": "123.456.789-04",
+      "DataNascimento": "1982-06-10"
+    }
+  },
+  {
+    "Email": "athena.santos@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Sabedoria",
+    "Numero": "99",
+    "Complemento": "Casa",
+    "Bairro": "Jardim Intelecto",
+    "Estado": "RS",
+    "CodigoPostal": "52345-678",
+    "TelefonePrincipal": "(51) 98765-4321",
+    "PessoaFisica": {
+      "NomeCompleto": "Athena Santos",
+      "Cpf": "123.456.789-05",
+      "DataNascimento": "1995-09-25"
+    }
+  },
+  {
+    "Email": "olympus.corp@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Avenida dos Deuses",
+    "Numero": "1000",
+    "Complemento": "Torre A",
+    "Bairro": "Centro Empresarial",
+    "Estado": "SP",
+    "CodigoPostal": "62345-678",
+    "TelefonePrincipal": "(11) 91234-5678",
+    "PessoaJuridica": {
+      "RazaoSocial": "Olympus Corporation",
+      "Cnpj": "12.345.678/0001-01",
+      "NomeFantasia": "Olympus Corp"
+    }
+  },
+  {
+    "Email": "triton.logistics@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Oceano",
+    "Numero": "500",
+    "Complemento": "Galpão 3",
+    "Bairro": "Zona Portuária",
+    "Estado": "RJ",
+    "CodigoPostal": "72345-678",
+    "TelefonePrincipal": "(21) 91234-5678",
+    "PessoaJuridica": {
+      "RazaoSocial": "Triton Logistics LTDA",
+      "Cnpj": "12.345.678/0001-02",
+      "NomeFantasia": "Triton Logistics"
+    }
+  },
+  {
+    "Email": "athena.tech@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Inovação",
+    "Numero": "300",
+    "Complemento": "Sala 101",
+    "Bairro": "Parque Tecnológico",
+    "Estado": "MG",
+    "CodigoPostal": "82345-678",
+    "TelefonePrincipal": "(31) 91234-5678",
+    "PessoaJuridica": {
+      "RazaoSocial": "Athena Tech Solutions",
+      "Cnpj": "12.345.678/0001-03",
+      "NomeFantasia": "Athena Tech"
+    }
+  },
+  {
+    "Email": "apollo.martins@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Sol",
+    "Numero": "150",
+    "Complemento": "Casa",
+    "Bairro": "Jardim Solar",
+    "Estado": "SP",
+    "CodigoPostal": "12345-789",
+    "TelefonePrincipal": "(11) 91234-5679",
+    "PessoaFisica": {
+      "NomeCompleto": "Apollo Martins",
+      "Cpf": "123.456.789-06",
+      "DataNascimento": "1987-04-12"
+    }
+  },
+  {
+    "Email": "diana.rocha@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Lua",
+    "Numero": "200",
+    "Complemento": "Apto 10",
+    "Bairro": "Vila Lunar",
+    "Estado": "RJ",
+    "CodigoPostal": "22345-789",
+    "TelefonePrincipal": "(21) 98765-4322",
+    "PessoaFisica": {
+      "NomeCompleto": "Diana Rocha",
+      "Cpf": "123.456.789-07",
+      "DataNascimento": "1992-08-15"
+    }
+  },
+  {
+    "Email": "hercules.souza@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Força",
+    "Numero": "300",
+    "Complemento": "Casa",
+    "Bairro": "Jardim Hércules",
+    "Estado": "MG",
+    "CodigoPostal": "32345-789",
+    "TelefonePrincipal": "(31) 99876-5433",
+    "PessoaFisica": {
+      "NomeCompleto": "Hércules Souza",
+      "Cpf": "123.456.789-08",
+      "DataNascimento": "1985-11-20"
+    }
+  },
+  {
+    "Email": "medusa.silva@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua das Serpentes",
+    "Numero": "400",
+    "Complemento": "Apto 20",
+    "Bairro": "Vila Mitológica",
+    "Estado": "BA",
+    "CodigoPostal": "42345-789",
+    "TelefonePrincipal": "(71) 91234-5679",
+    "PessoaFisica": {
+      "NomeCompleto": "Medusa Silva",
+      "Cpf": "123.456.789-09",
+      "DataNascimento": "1980-02-25"
+    }
+  },
+  {
+    "Email": "pegasus.corp@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Avenida dos Ventos",
+    "Numero": "600",
+    "Complemento": "Galpão 1",
+    "Bairro": "Zona Industrial",
+    "Estado": "SP",
+    "CodigoPostal": "62345-789",
+    "TelefonePrincipal": "(11) 91234-5680",
+    "PessoaJuridica": {
+      "RazaoSocial": "Pegasus Corporation",
+      "Cnpj": "12.345.678/0001-04",
+      "NomeFantasia": "Pegasus Corp"
+    }
+  },
+  {
+    "Email": "minerva.tech@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Sabedoria",
+    "Numero": "700",
+    "Complemento": "Sala 202",
+    "Bairro": "Parque Tecnológico",
+    "Estado": "MG",
+    "CodigoPostal": "82345-789",
+    "TelefonePrincipal": "(31) 91234-5681",
+    "PessoaJuridica": {
+      "RazaoSocial": "Minerva Tech Solutions",
+      "Cnpj": "12.345.678/0001-05",
+      "NomeFantasia": "Minerva Tech"
+    }
+  },
+  {
+    "Email": "ares.security@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Guerra",
+    "Numero": "800",
+    "Complemento": "Galpão 2",
+    "Bairro": "Zona Militar",
+    "Estado": "RJ",
+    "CodigoPostal": "72345-789",
+    "TelefonePrincipal": "(21) 91234-5682",
+    "PessoaJuridica": {
+      "RazaoSocial": "Ares Security LTDA",
+      "Cnpj": "12.345.678/0001-06",
+      "NomeFantasia": "Ares Security"
+    }
+  },
+  {
+    "Email": "hades.silva@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Submundo",
+    "Numero": "900",
+    "Complemento": "Casa",
+    "Bairro": "Vila Sombria",
+    "Estado": "SP",
+    "CodigoPostal": "12345-890",
+    "TelefonePrincipal": "(11) 91234-5683",
+    "PessoaFisica": {
+      "NomeCompleto": "Hades Silva",
+      "Cpf": "123.456.789-10",
+      "DataNascimento": "1983-05-15"
+    }
+  },
+  {
+    "Email": "persephone.rocha@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua das Flores Eternas",
+    "Numero": "1000",
+    "Complemento": "Apto 15",
+    "Bairro": "Jardim Sombrio",
+    "Estado": "RJ",
+    "CodigoPostal": "22345-890",
+    "TelefonePrincipal": "(21) 98765-4323",
+    "PessoaFisica": {
+      "NomeCompleto": "Perséfone Rocha",
+      "Cpf": "123.456.789-11",
+      "DataNascimento": "1991-09-10"
+    }
+  },
+  {
+    "Email": "hephaestus.martins@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Fogo",
+    "Numero": "1100",
+    "Complemento": "Casa",
+    "Bairro": "Vila Vulcânica",
+    "Estado": "MG",
+    "CodigoPostal": "32345-890",
+    "TelefonePrincipal": "(31) 99876-5434",
+    "PessoaFisica": {
+      "NomeCompleto": "Hefesto Martins",
+      "Cpf": "123.456.789-12",
+      "DataNascimento": "1980-07-25"
+    }
+  },
+  {
+    "Email": "demeter.souza@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 0,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Colheita",
+    "Numero": "1200",
+    "Complemento": "Apto 25",
+    "Bairro": "Jardim Fértil",
+    "Estado": "BA",
+    "CodigoPostal": "42345-890",
+    "TelefonePrincipal": "(71) 91234-5684",
+    "PessoaFisica": {
+      "NomeCompleto": "Deméter Souza",
+      "Cpf": "123.456.789-13",
+      "DataNascimento": "1985-03-30"
+    }
+  },
+  {
+    "Email": "hermes.corp@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Avenida das Entregas",
+    "Numero": "1300",
+    "Complemento": "Galpão 5",
+    "Bairro": "Zona Logística",
+    "Estado": "SP",
+    "CodigoPostal": "62345-890",
+    "TelefonePrincipal": "(11) 91234-5685",
+    "PessoaJuridica": {
+      "RazaoSocial": "Hermes Logistics LTDA",
+      "Cnpj": "12.345.678/0001-07",
+      "NomeFantasia": "Hermes Logistics"
+    }
+  },
+  {
+    "Email": "apollo.energy@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Energia",
+    "Numero": "1400",
+    "Complemento": "Sala 303",
+    "Bairro": "Parque Solar",
+    "Estado": "MG",
+    "CodigoPostal": "82345-890",
+    "TelefonePrincipal": "(31) 91234-5686",
+    "PessoaJuridica": {
+      "RazaoSocial": "Apollo Energy Solutions",
+      "Cnpj": "12.345.678/0001-08",
+      "NomeFantasia": "Apollo Energy"
+    }
+  },
+  {
+    "Email": "poseidon.marine@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Oceano",
+    "Numero": "1500",
+    "Complemento": "Galpão 6",
+    "Bairro": "Zona Portuária",
+    "Estado": "RJ",
+    "CodigoPostal": "72345-890",
+    "TelefonePrincipal": "(21) 91234-5687",
+    "PessoaJuridica": {
+      "RazaoSocial": "Poseidon Marine Services",
+      "Cnpj": "12.345.678/0001-09",
+      "NomeFantasia": "Poseidon Marine"
+    }
+  },
+  {
+    "Email": "zephyr.transport@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Avenida dos Ventos",
+    "Numero": "1600",
+    "Complemento": "Galpão 7",
+    "Bairro": "Zona Industrial",
+    "Estado": "SP",
+    "CodigoPostal": "62345-891",
+    "TelefonePrincipal": "(11) 91234-5688",
+    "PessoaJuridica": {
+      "RazaoSocial": "Zephyr Transport LTDA",
+      "Cnpj": "12.345.678/0001-10",
+      "NomeFantasia": "Zephyr Transport"
+    }
+  },
+  {
+    "Email": "gaia.green@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Natureza",
+    "Numero": "1700",
+    "Complemento": "Sala 404",
+    "Bairro": "Parque Verde",
+    "Estado": "MG",
+    "CodigoPostal": "82345-891",
+    "TelefonePrincipal": "(31) 91234-5689",
+    "PessoaJuridica": {
+      "RazaoSocial": "Gaia Green Solutions",
+      "Cnpj": "12.345.678/0001-11",
+      "NomeFantasia": "Gaia Green"
+    }
+  },
+  {
+    "Email": "chronos.time@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Tempo",
+    "Numero": "1800",
+    "Complemento": "Galpão 8",
+    "Bairro": "Zona Relógio",
+    "Estado": "RJ",
+    "CodigoPostal": "72345-891",
+    "TelefonePrincipal": "(21) 91234-5690",
+    "PessoaJuridica": {
+      "RazaoSocial": "Chronos Time Management",
+      "Cnpj": "12.345.678/0001-12",
+      "NomeFantasia": "Chronos Time"
+    }
+  },
+  {
+    "Email": "eos.light@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Aurora",
+    "Numero": "1900",
+    "Complemento": "Sala 505",
+    "Bairro": "Parque Solar",
+    "Estado": "SP",
+    "CodigoPostal": "62345-892",
+    "TelefonePrincipal": "(11) 91234-5691",
+    "PessoaJuridica": {
+      "RazaoSocial": "Eos Light Solutions",
+      "Cnpj": "12.345.678/0001-13",
+      "NomeFantasia": "Eos Light"
+    }
+  },
+  {
+    "Email": "nyx.night@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Noite",
+    "Numero": "2000",
+    "Complemento": "Galpão 9",
+    "Bairro": "Zona Escura",
+    "Estado": "MG",
+    "CodigoPostal": "82345-892",
+    "TelefonePrincipal": "(31) 91234-5692",
+    "PessoaJuridica": {
+      "RazaoSocial": "Nyx Night Services",
+      "Cnpj": "12.345.678/0001-14",
+      "NomeFantasia": "Nyx Night"
+    }
+  },
+  {
+    "Email": "helios.energy@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 0,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Sol",
+    "Numero": "2100",
+    "Complemento": "Sala 606",
+    "Bairro": "Parque Solar",
+    "Estado": "RJ",
+    "CodigoPostal": "72345-892",
+    "TelefonePrincipal": "(21) 91234-5693",
+    "PessoaJuridica": {
+      "RazaoSocial": "Helios Energy Solutions",
+      "Cnpj": "12.345.678/0001-15",
+      "NomeFantasia": "Helios Energy"
+    }
+  },
+  {
+    "Email": "selene.moon@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 1,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua da Lua",
+    "Numero": "2200",
+    "Complemento": "Sala 707",
+    "Bairro": "Parque Lunar",
+    "Estado": "SP",
+    "CodigoPostal": "62345-893",
+    "TelefonePrincipal": "(11) 91234-5694",
+    "PessoaJuridica": {
+      "RazaoSocial": "Selene Moon Services",
+      "Cnpj": "12.345.678/0001-16",
+      "NomeFantasia": "Selene Moon"
+    }
+  },
+  {
+    "Email": "hestia.home@email.com",
+    "Senha": "123456",
+    "TipoDeUsuario": 2,
+    "Pessoa": 1,
+    "DataCadastro": "2025-05-10T00:00:00",
+    "Logradouro": "Rua do Lar",
+    "Numero": "2300",
+    "Complemento": "Galpão 10",
+    "Bairro": "Zona Familiar",
+    "Estado": "MG",
+    "CodigoPostal": "82345-893",
+    "TelefonePrincipal": "(31) 91234-5695",
+    "PessoaJuridica": {
+      "RazaoSocial": "Hestia Home Solutions",
+      "Cnpj": "12.345.678/0001-17",
+      "NomeFantasia": "Hestia Home"
+    }
+  }
+
+]
+

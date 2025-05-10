@@ -8,8 +8,29 @@ namespace click_imoveis.Models
     {
         [Key]
         public int ImovelId { get; set; }
-        public int Quartos { get; set; }
-        public int Banheiros { get; set; }
+        public int? Quartos { get; set; }
+        public int? Banheiros { get; set; }
+        public int? Metragem { get; set; }
+
+        public int? Vagas { get; set; }
+
+        public int? Suites { get; set; }
+
+        public string? Logradouro { get; set; }
+
+        public string? Numero { get; set; }
+
+        public string? Complemento { get; set; }
+
+        public string? Bairro { get; set; }
+
+        public string? Cidade { get; set; }
+
+        public string? Estado { get; set; }
+
+        [Display(Name = "CEP")]
+        public string? CodigoPostal { get; set; }
+
 
 
         //Esta propriedade de navegação é necessária para o Entity Framework
