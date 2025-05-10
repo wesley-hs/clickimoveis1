@@ -19,7 +19,18 @@ namespace click_imoveis.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            // CLASSE IMÓVEL
+
+            modelBuilder.Entity<Imovel>()
+               .HasMany(u => u.Anuncios)
+               .WithOne(i => i.Imovel)
+               .HasForeignKey(i => i.ImovelId)
+               .OnDelete(DeleteBehavior.SetNull);
             
+
+
+
 
             modelBuilder.Entity<Mensagem>()
                 .HasOne(e => e.Usuario)
@@ -51,6 +62,7 @@ namespace click_imoveis.Models
                 .HasForeignKey(i => i.UsuarioId)
                 .OnDelete(DeleteBehavior.SetNull);
 
+           
         }
     }
 }

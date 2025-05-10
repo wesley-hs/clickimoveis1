@@ -99,7 +99,7 @@ namespace click_imoveis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ImovelId,Quartos,Banheiros")] Imovel imovel)
+        public async Task<IActionResult> Edit(int id, Imovel imovel)
         {
             if (id != imovel.ImovelId)
             {
