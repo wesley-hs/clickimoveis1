@@ -22,6 +22,21 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 
 
 
+
+
+
+
+
+| **Caso de Teste** 	| **CT03 – Cadastro de imóveis**	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-4 - A aplicação deve permitir aos usuários cadastrarem imóveis |
+|Registro de evidência |   https://github.com/user-attachments/assets/ba99bcb7-1d30-4a6e-aa8d-913655df6edd |
+
+
+
+
+
+
 ## Relatório de testes de software
 
 Os testes focaram na validação do fluxo de cadastro e login, essencial para a segurança e usabilidade do sistema. Foram avaliados:
