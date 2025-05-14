@@ -15,9 +15,17 @@ namespace click_imoveis.Models
         [Display(Name = "Data de Término")]
         public DateTime? DataFim { get; set; }
         public float? Valor { get; set; }
+
+        [Display(Name = "Valor do Condomínio")]
         public float? ValorCondominio { get; set; }
+
+        [Display(Name = "Valor do IPTU")]
         public float? ValorIptu { get; set; }
+
+        [Display(Name = "Título")]
         public string? Titulo { get; set; }
+
+        [Display(Name = "Descrição")]
         public string? Descricao { get; set; }
         public Finalidade Finalidade { get; set; }
 

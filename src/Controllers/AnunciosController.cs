@@ -88,13 +88,17 @@ namespace click_imoveis.Controllers
                 return NotFound();
             }
 
-            var anuncio = await _context.Anuncios.FindAsync(id);
+            var anuncio = await _context.Anuncios
+                .Include(u => u.Usuario)
+                .Include(u => u.Imovel)
+                .FirstOrDefaultAsync(u => u.AnuncioId == id);
+
             if (anuncio == null)
             {
                 return NotFound();
             }
-            ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId", anuncio.ImovelId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "UsuarioId", "Email", anuncio.UsuarioId);
+
+                        
             return View(anuncio);
         }
 
@@ -103,7 +107,7 @@ namespace click_imoveis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnuncioId,DataInicio,DataFim,Valor,ValorCondominio,ValorIptu,Titulo,Descricao,Finalidade,ImovelId,UsuarioId")] Anuncio anuncio)
+        public async Task<IActionResult> Edit(int id, Anuncio anuncio)
         {
             if (id != anuncio.AnuncioId)
             {

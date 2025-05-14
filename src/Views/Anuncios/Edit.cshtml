@@ -1,18 +1,18 @@
 ﻿@model click_imoveis.Models.Anuncio
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Anúncio";
 }
 
-<h1>Edit</h1>
+<h1>Editar Anúncio</h1>
 
-<h4>Anuncio</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AnuncioId" />
+            <input type="hidden" asp-for="ImovelId" />
             <div class="form-group">
                 <label asp-for="DataInicio" class="control-label"></label>
                 <input asp-for="DataInicio" class="form-control" />
@@ -53,25 +53,76 @@
                 <select asp-for="Finalidade" class="form-control" asp-items="Html.GetEnumSelectList<Finalidade>()"></select>
                 <span asp-validation-for="Finalidade" class="text-danger"></span>
             </div>
+
+            <br />
+
+            @{
+                if (Model.Usuario != null && Model.Usuario.Email != null)
+                {
+                    <div class="form-group">
+                        <label>Anunciante</label>
+                        <input asp-for="@Model.Usuario.Email" class="form-control" asp-items="@Model.Usuario.Email" disabled>
+
+                    </div>
+                } else
+                {
+                    <div class="form-group">
+                        <label>Anunciante</label>
+                        <input class="form-control" value="null" disabled>
+
+                    </div>
+                }
+            }
+
+
+            <br />
+            <h5>Detalhes do Imóvel:</h5>
+
+            @{
+                if (Model.Imovel != null)
+                {
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.Logradouro" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.Logradouro" class="form-control" disabled/>                        
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.Numero" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.Numero" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.Complemento" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.Complemento" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.Bairro" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.Bairro" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.Cidade" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.Cidade" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.Estado" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.Estado" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Imovel.CodigoPostal" class="control-label"></label>
+                        <input asp-for="@Model.Imovel.CodigoPostal" class="form-control" disabled />
+                    </div>
+                }
+            }
+
+            <br />
+            
             <div class="form-group">
-                <label asp-for="ImovelId" class="control-label"></label>
-                <select asp-for="ImovelId" class="form-control" asp-items="ViewBag.ImovelId"></select>
-                <span asp-validation-for="ImovelId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UsuarioId" class="control-label"></label>
-                <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
-                <span asp-validation-for="UsuarioId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
