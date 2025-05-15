@@ -9,8 +9,8 @@ namespace click_imoveis.Models
         [Key]
         public int ComentarioId { get; set; }
         public DateTime DataCriacao { get; set; }
-        public string Conteudo { get; set; }
-        public string Nota { get; set; }
+        public string? Conteudo { get; set; }
+        public string? Nota { get; set; }
 
 
         public int? UsuarioId { get; set; }

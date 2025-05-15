@@ -49,7 +49,7 @@ public class HomeController : Controller
     }
 
     
-    public async Task<IActionResult> DetalhesAnuncio(int id)
+    public async Task<IActionResult> DetalhesAnuncio(int? id)
     {
         if (id == null)
             return NotFound();
