@@ -1,4 +1,4 @@
-﻿@model click_imoveis.Models.Anuncio
+﻿@model click_imoveis.Models.DetalheAnuncioViewModel
 
 @{
     ViewData["Title"] = "DetalhesAnuncio";
@@ -12,67 +12,144 @@
     <img src="https://picsum.photos/200">
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataInicio)
+            @Html.DisplayNameFor(model => model.anuncio.DataInicio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataInicio)
+            @Html.DisplayFor(model => model.anuncio.DataInicio)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataFim)
+            @Html.DisplayNameFor(model => model.anuncio.DataFim)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataFim)
+            @Html.DisplayFor(model => model.anuncio.DataFim)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Valor)
+            @Html.DisplayNameFor(model => model.anuncio.Valor)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Valor)
+            @Html.DisplayFor(model => model.anuncio.Valor)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorCondominio)
+            @Html.DisplayNameFor(model => model.anuncio.ValorCondominio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorCondominio)
+            @Html.DisplayFor(model => model.anuncio.ValorCondominio)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorIptu)
+            @Html.DisplayNameFor(model => model.anuncio.ValorIptu)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ValorIptu)
+            @Html.DisplayFor(model => model.anuncio.ValorIptu)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
+            @Html.DisplayNameFor(model => model.anuncio.Titulo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
+            @Html.DisplayFor(model => model.anuncio.Titulo)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
+            @Html.DisplayNameFor(model => model.anuncio.Descricao)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
+            @Html.DisplayFor(model => model.anuncio.Descricao)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Finalidade)
+            @Html.DisplayNameFor(model => model.anuncio.Finalidade)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Finalidade)
+            @Html.DisplayFor(model => model.anuncio.Finalidade)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Imovel)
+            @Html.DisplayNameFor(model => model.anuncio.Imovel)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imovel.ImovelId)
+            @Html.DisplayFor(model => model.anuncio.Imovel.ImovelId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Usuario)
+            @Html.DisplayNameFor(model => model.anuncio.Usuario)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.Email)
+            @Html.DisplayFor(model => model.anuncio.Usuario.Email)
         </dd>
     </dl>
 </div>
+
+<hr />
+
+<br />
+
+
+
+@{
+    if (ViewBag.Mensagens.Count > 0)
+    {
+        <div style="border:1px solid">
+            @{
+                foreach (var mensagem in ViewBag.Mensagens)
+                {
+                    if (mensagem.UsuarioId == Model.anuncio.UsuarioId)
+                    {
+                          // Conteúdo na esquerda
+                          <p class="m-0">@mensagem.Conteudo</p>
+                          <p>@mensagem.DataCriacao</p>
+                       
+                        
+                    }
+                    else
+                    {   
+                        // Conteúdo na direita
+                        <p class="text-end m-0">@mensagem.Conteudo</p>
+                        <p class="text-end">@mensagem.DataCriacao</p>
+                    }
+
+                   
+                }
+           
+           } 
+        </div>
+    }
+
+
+    
+}
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateMessage">
+            
+            <div class="form-group">
+                <label>Envie uma mensagem para o Anunciante:</label>
+                <input asp-for="@Model.mensagem.Conteudo" class="form-control" />
+                <span asp-validation-for="@Model.mensagem.Conteudo" class="text-danger"></span>
+            </div>
+            <br />
+            
+
+            <div class="form-group">
+                <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId"/>
+                <input type="submit" value="Enviar" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<br />
+
 <div>
     <a asp-action="Index" class="btn btn-primary">Voltar</a>
 </div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -2,6 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using click_imoveis.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace click_imoveis.Controllers;
 
@@ -58,6 +60,35 @@ public class HomeController : Controller
         if (anuncio == null)
             return NotFound();
 
-        return View(anuncio);
+        List<Mensagem> mensagens = await _context.Mensagens
+            .Where(u => u.AnuncioId == anuncio.AnuncioId)
+            .OrderBy(u => u.DataCriacao)
+            .ToListAsync();
+        ViewBag.Mensagens = mensagens;
+
+        DetalheAnuncioViewModel detalheAnuncioViewModel = new DetalheAnuncioViewModel
+        {
+            anuncio = anuncio,
+            mensagem = new Mensagem { Conteudo = string.Empty}
+        };
+
+        return View(detalheAnuncioViewModel);
+    }
+
+    public async Task<IActionResult> CreateMessage(Mensagem mensagem, int anuncioId)
+    {
+        if (User.Identity != null && User.Identity.IsAuthenticated && ModelState.IsValid)
+        {
+            mensagem.DataCriacao = DateTime.Now;
+            mensagem.AnuncioId = anuncioId;
+
+            var usuarioIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            mensagem.UsuarioId = int.Parse(usuarioIdClaim.Value);
+
+            _context.Mensagens.Add(mensagem);
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToAction("DetalhesAnuncio", new { id = anuncioId });
     }
 }
