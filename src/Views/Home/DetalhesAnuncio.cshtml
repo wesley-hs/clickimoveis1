@@ -87,19 +87,20 @@
             @{
                 foreach (var mensagem in ViewBag.Mensagens)
                 {
+                    
                     if (mensagem.UsuarioId == Model.anuncio.UsuarioId)
                     {
-                          // Conteúdo na esquerda
-                          <p class="m-0">@mensagem.Conteudo</p>
-                          <p>@mensagem.DataCriacao</p>
+                          // Respostas do anunciante
+                          <p class="m-0 text-primary">@mensagem.Conteudo</p>
+                          <p class="text-primary">@mensagem.DataCriacao</p>
                        
                         
                     }
                     else
                     {   
-                        // Conteúdo na direita
-                        <p class="text-end m-0">@mensagem.Conteudo</p>
-                        <p class="text-end">@mensagem.DataCriacao</p>
+                        // Mensagens de outros usuários
+                        <p class="m-0">@mensagem.Conteudo</p>
+                        <p class="">@mensagem.DataCriacao</p>
                     }
 
                    
