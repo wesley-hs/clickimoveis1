@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace click_imoveis.Controllers
 {
-    [Authorize(Roles = "Corretor, Imobiliária")]
+    [Authorize(Roles = "Corretor, Imobiliária, Administrador, Usuário")]
     public class AnunciosController : Controller
     {
         private readonly AppDbContext _context;
@@ -24,8 +24,26 @@ namespace click_imoveis.Controllers
         // GET: Anuncios
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Anuncios.Include(a => a.Imovel).Include(a => a.Usuario);
-            return View(await appDbContext.ToListAsync());
+            var userClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            int? userId = null;
+
+            if (userClaim != null)
+            {
+                userId = int.Parse(userClaim.Value);
+            }
+
+            List<Anuncio>? anuncios = new List<Anuncio>();
+
+            if (User.IsInRole("Corretor") || User.IsInRole("Imobiliária") || User.IsInRole("Usuário"))
+            {
+                anuncios = await _context.Anuncios.Where(u => u.UsuarioId == userId).ToListAsync();
+            }
+            else if (User.IsInRole("Administrador"))
+            {
+                anuncios = await _context.Anuncios.ToListAsync();
+            }
+    
+            return View(anuncios);
         }
 
         // GET: Anuncios/Details/5

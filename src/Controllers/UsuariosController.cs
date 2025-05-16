@@ -28,12 +28,35 @@ namespace click_imoveis.Controllers
         {
             //var resultado = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-            List<Usuario> usuarios = await _context.Usuarios
-                .Include(u => u.PessoaFisica)
-                .Include(u => u.PessoaJuridica)
-                .ToListAsync();
-            
-            return View(usuarios);
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            int? userId = null;
+
+            if (userIdClaim != null)
+            {
+                userId = int.Parse(userIdClaim.Value);
+            }
+
+            List<Usuario>? usuarios = new List<Usuario>();
+
+            if (User.IsInRole("Corretor") || User.IsInRole("Imobiliária") || User.IsInRole("Usuário"))
+            {            
+                usuarios = await _context.Usuarios
+                    .Where(u => u.UsuarioId == userId)
+                    .Include(u => u.PessoaFisica)
+                    .Include(u => u.PessoaJuridica)
+                    .ToListAsync();
+
+            } else if (User.IsInRole("Administrador"))
+            {
+                usuarios = await _context.Usuarios
+                    .Include(u => u.PessoaFisica)
+                    .Include(u => u.PessoaJuridica)
+                    .ToListAsync();
+            }
+
+
+
+                return View(usuarios);
         }
 
         // GET: Usuarios/Details/5

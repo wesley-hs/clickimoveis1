@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace click_imoveis.Controllers
 {
-    [Authorize(Roles = "Corretor, Imobiliária, Administrador")]
+    [Authorize(Roles = "Corretor, Imobiliária, Administrador, Usuário")]
     public class ImoveisController : Controller
     {
         private readonly AppDbContext _context;
@@ -36,10 +36,10 @@ namespace click_imoveis.Controllers
                 userId = int.Parse(userIdClaim.Value);
             }
 
-            List<Imovel>? imoveis = null;
+            List<Imovel>? imoveis = new List<Imovel>();
 
 
-            if (User.IsInRole("Corretor") || User.IsInRole("Imobiliaria"))
+            if (User.IsInRole("Corretor") || User.IsInRole("Imobiliária") || User.IsInRole("Usuário"))
             {
                 imoveis = await _context.Imoveis.Where(u => u.UsuarioId == userId).ToListAsync();
             }
