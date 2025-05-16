@@ -133,6 +133,9 @@ namespace click_imoveis.Controllers
             // Hash password
             usuarioViewModel.Usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuarioViewModel.Usuario.Senha);
 
+            // Insere a data atual no cadastro
+            usuarioViewModel.Usuario.DataCadastro = DateTime.Now;
+
             // Save Usuario first
             _context.Add(usuarioViewModel.Usuario);
             await _context.SaveChangesAsync(); // Now UsuarioId is generated
