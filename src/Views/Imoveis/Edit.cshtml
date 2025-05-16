@@ -13,6 +13,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ImovelId" />
+            <input type="hidden" asp-for="UsuarioId" />
 
             <hr />
             <h5>Endereço:</h5>
@@ -96,7 +97,7 @@
 
             <br />
 
-            <div class="form-group">
+            <div class="form-group">               
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>

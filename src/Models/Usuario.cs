@@ -69,6 +69,7 @@ namespace click_imoveis.Models
         Corretor,
         Imobiliária,
         Usuário,
+        Administrador
     }
     public enum Pessoa
     {

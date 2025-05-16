@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace click_imoveis.Controllers
 {
-    [Authorize(Roles = "Corretor, Imobiliária")]
+    [Authorize(Roles = "Corretor, Imobiliária, Administrador")]
     public class ImoveisController : Controller
     {
         private readonly AppDbContext _context;
@@ -27,9 +27,28 @@ namespace click_imoveis.Controllers
         {
             //bool usuarioLogadoRole = User.IsInRole("Corretor");
             //var usuario = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+           
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            int? userId = null;
+
+            if (userIdClaim != null)
+            {
+                userId = int.Parse(userIdClaim.Value);
+            }
+
+            List<Imovel>? imoveis = null;
 
 
-            return View(await _context.Imoveis.ToListAsync());
+            if (User.IsInRole("Corretor") || User.IsInRole("Imobiliaria"))
+            {
+                imoveis = await _context.Imoveis.Where(u => u.UsuarioId == userId).ToListAsync();
+            }
+            else if (User.IsInRole("Administrador"))
+            {
+                imoveis = await _context.Imoveis.ToListAsync();
+            }
+
+                return View(imoveis);
         }
 
         // GET: Imoveis/Details/5
@@ -61,7 +80,7 @@ namespace click_imoveis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ImovelId,Quartos,Banheiros")] Imovel imovel)
+        public async Task<IActionResult> Create(Imovel imovel)
         {
             if (ModelState.IsValid)
             {   
@@ -106,7 +125,7 @@ namespace click_imoveis.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && imovel.UsuarioId != null)
             {
                 try
                 {
