@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
@@ -91,6 +91,13 @@
                 <input asp-for="Suites" class="form-control" />
                 <span asp-validation-for="Suites" class="text-danger"></span>
             </div>
+            <div>
+                <label for="imagens">Imagens do Imóvel</label>
+                <input type="file" id="imagens" name="imagens" class="form-control" multiple />
+            </div>
+
+
+
 
             <br />
 

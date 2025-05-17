@@ -80,8 +80,42 @@ namespace click_imoveis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Imovel imovel)
+        public async Task<IActionResult> Create(Imovel imovel, List<IFormFile>? imagens)
         {
+            if (imagens != null && imagens.Count > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+                Directory.CreateDirectory(uploadsFolder); // Garante que a pasta existe
+
+                var midias = new List<Midia>();
+
+                foreach (var imagem in imagens)
+                {
+                    if (imagem.Length > 0)
+                    {
+                        var filePath = Path.Combine(uploadsFolder, imagem.FileName);
+
+                        // Salva a imagem no disco
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imagem.CopyToAsync(stream);
+                        }
+
+                        // Adiciona o caminho da imagem à lista de mídias
+                        midias.Add(new Midia
+                        {
+                            Link = filePath,
+                            Imovel = imovel,
+                            TipoDeMidia = TipoDeMidia.Imagem
+                        });
+                    }
+                }
+
+                // Associa as mídias ao imóvel
+                imovel.Midias = midias;
+            }
+
+
             if (ModelState.IsValid)
             {   
                 // Busca quem é o usuário logado e adiciona à variável imóvel
