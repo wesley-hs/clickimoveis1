@@ -60,6 +60,7 @@ namespace click_imoveis.Controllers
             }
 
             var imovel = await _context.Imoveis
+                .Include(i => i.Midias)
                 .FirstOrDefaultAsync(m => m.ImovelId == id);
             if (imovel == null)
             {
@@ -104,7 +105,7 @@ namespace click_imoveis.Controllers
                         // Adiciona o caminho da imagem à lista de mídias
                         midias.Add(new Midia
                         {
-                            Link = filePath,
+                            Link = Path.Combine("uploads", imagem.FileName).Replace("\\", "/"),
                             Imovel = imovel,
                             TipoDeMidia = TipoDeMidia.Imagem
                         });

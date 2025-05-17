@@ -27,11 +27,14 @@ namespace click_imoveis.Models
                .WithOne(i => i.Imovel)
                .HasForeignKey(i => i.ImovelId)
                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Imovel>()
+                .HasMany(u => u.Midias)
+                .WithOne(u => u.Imovel)
+                .HasForeignKey(u => u.ImovelId)
+                .OnDelete(DeleteBehavior.SetNull);
+
             
-
-
-
-
             modelBuilder.Entity<Mensagem>()
                 .HasOne(e => e.Usuario)
                 .WithMany(g => g.Mensagens)

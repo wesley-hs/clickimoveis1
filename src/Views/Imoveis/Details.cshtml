@@ -97,7 +97,27 @@
             @Html.DisplayFor(model => model.Vagas)
         </dd>
     </dl>
+
 </div>
+
+<br />
+<hr />
+
+
+
+
+@if (Model.Midias != null)
+{
+    <div>
+        <h5>Imagens do Imóvel</h5>
+        @foreach (var img in Model.Midias)
+        {
+            <img src="~/@img.Link" alt="Imagem do Imóvel" class="img-thumbnail m-1" style="max-width:200px;" />
+        }
+    </div>
+}
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ImovelId">Editar</a> |
     <a asp-action="Index">Voltar</a>
