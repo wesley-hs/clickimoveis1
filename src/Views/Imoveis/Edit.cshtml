@@ -12,6 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" id="imagensRemovidas" name="imagensRemovidas" value=""/>
             <input type="hidden" asp-for="ImovelId" />
             <input type="hidden" asp-for="UsuarioId" />
 
@@ -97,6 +98,35 @@
 
             <br />
 
+
+            @if (Model.Midias != null)
+            {
+                <div>
+                    <h5>Imagens do Imóvel</h5>
+                    <div id="imagens-lista">
+
+
+
+                    
+                    @foreach (var img in Model.Midias)
+                    {
+                        <div id="@img.MidiaId">
+                            <img src="~/@img.Link" alt="Imagem do Imóvel" class="img-thumbnail m-1" style="max-width:200px;" />
+                             <button type="button" class="btn btn-danger btn-sm remover-imagem" onclick="removerImagem(@img.MidiaId)">Remover</button>
+                        </div>
+                    }
+
+
+                    </div>
+                </div>
+            }
+
+
+
+
+
+
+
             <div class="form-group">               
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
@@ -112,4 +142,27 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        var midiasRemovidas = [];
+
+        var removerImagem = (MidiaId) => {
+            document.getElementById(MidiaId).remove();
+            midiasRemovidas.push(MidiaId);            
+        }
+
+        document.addEventListener('submit', () => {
+            document.getElementById('imagensRemovidas').value = midiasRemovidas.join(',');
+        
+        });
+
+
+    </script>
+
+
+
+
+
+
 }

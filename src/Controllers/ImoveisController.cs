@@ -140,7 +140,9 @@ namespace click_imoveis.Controllers
                 return NotFound();
             }
 
-            var imovel = await _context.Imoveis.FindAsync(id);
+            var imovel = await _context.Imoveis
+                                    .Include(u => u.Midias)
+                                    .FirstOrDefaultAsync(u => u.ImovelId == id);
             if (imovel == null)
             {
                 return NotFound();
@@ -153,7 +155,7 @@ namespace click_imoveis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Imovel imovel)
+        public async Task<IActionResult> Edit(int id, Imovel imovel, string imagensRemovidas)
         {
             if (id != imovel.ImovelId)
             {
@@ -166,6 +168,24 @@ namespace click_imoveis.Controllers
                 {
                     _context.Update(imovel);
                     await _context.SaveChangesAsync();
+
+                    var imagensParaRemover = imagensRemovidas
+                        .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(id => int.Parse(id))
+                        .ToList();
+
+                    if (imagensParaRemover.Count > 0)
+                    {
+                        var midiasToRemove = await _context.Midias
+                            .Where(m => imagensParaRemover.Contains(m.MidiaId))
+                            .ToListAsync();
+
+                        _context.Midias.RemoveRange(midiasToRemove);
+                        await _context.SaveChangesAsync();
+                    }
+
+
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
