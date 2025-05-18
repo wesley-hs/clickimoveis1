@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar dados da conta</h1>
+<h3>Editar dados do Usuário</h3>
 
 
 <hr />
@@ -56,8 +56,56 @@
                 }
             }
 
-
-
+            <div class="form-group">
+                <label asp-for="Usuario.Logradouro" class="control-label"></label>
+                <input asp-for="Usuario.Logradouro" class="form-control" />
+                <span asp-validation-for="Usuario.Logradouro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Numero" class="control-label"></label>
+                <input asp-for="Usuario.Numero" class="form-control" />
+                <span asp-validation-for="Usuario.Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Complemento" class="control-label"></label>
+                <input asp-for="Usuario.Complemento" class="form-control" />
+                <span asp-validation-for="Usuario.Complemento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Bairro" class="control-label"></label>
+                <input asp-for="Usuario.Bairro" class="form-control" />
+                <span asp-validation-for="Usuario.Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Cidade" class="control-label"></label>
+                <input asp-for="Usuario.Cidade" class="form-control" />
+                <span asp-validation-for="Usuario.Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Estado" class="control-label"></label>
+                <input asp-for="Usuario.Estado" class="form-control" />
+                <span asp-validation-for="Usuario.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.CodigoPostal" class="control-label"></label>
+                <input asp-for="Usuario.CodigoPostal" class="form-control" />
+                <span asp-validation-for="Usuario.CodigoPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.TelefonePrincipal" class="control-label"></label>
+                <input asp-for="Usuario.TelefonePrincipal" class="form-control" />
+                <span asp-validation-for="Usuario.TelefonePrincipal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.TelefoneAlternativo1" class="control-label"></label>
+                <input asp-for="Usuario.TelefoneAlternativo1" class="form-control" />
+                <span asp-validation-for="Usuario.TelefoneAlternativo1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.TelefoneAlternativo2" class="control-label"></label>
+                <input asp-for="Usuario.TelefoneAlternativo2" class="form-control" />
+                <span asp-validation-for="Usuario.TelefoneAlternativo2" class="text-danger"></span>
+            </div>
             
 
 

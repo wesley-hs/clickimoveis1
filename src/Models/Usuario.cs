@@ -33,6 +33,8 @@ namespace click_imoveis.Models
 
         public string? Bairro { get; set; }
 
+        public string? Cidade { get; set; }
+
         public string? Estado { get; set; }
 
         [Display(Name = "CEP")]
