@@ -135,7 +135,8 @@
 
 
 
-            <div class="form-group">               
+            <div class="form-group">      
+                <a asp-action="Index" class="btn btn-warning">Voltar</a> |
                 <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
@@ -144,9 +145,6 @@
 
 <br />
 
-<div>
-    <a asp-action="Index">Voltar</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
