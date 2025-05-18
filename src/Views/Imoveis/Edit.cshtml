@@ -10,11 +10,12 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" id="imagensRemovidas" name="imagensRemovidas" value=""/>
             <input type="hidden" asp-for="ImovelId" />
             <input type="hidden" asp-for="UsuarioId" />
+            
 
             <hr />
             <h5>Endereço:</h5>
@@ -94,6 +95,13 @@
                 <label asp-for="Suites" class="control-label"></label>
                 <input asp-for="Suites" class="form-control" />
                 <span asp-validation-for="Suites" class="text-danger"></span>
+            </div>
+
+            <br />
+
+            <div>
+                <label for="imagens">Cadastrar Imagens</label>
+                <input type="file" id="imagens" name="imagens" class="form-control" multiple />
             </div>
 
             <br />

@@ -83,38 +83,30 @@ namespace click_imoveis.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Imovel imovel, List<IFormFile>? imagens)
         {
+            List<string> caminhoDasImagens = new List<string>();
+            List<Midia> midias = new List<Midia>();
+
             if (imagens != null && imagens.Count > 0)
             {
-                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-                Directory.CreateDirectory(uploadsFolder); // Garante que a pasta existe
+                caminhoDasImagens = await SalvarImagens(imagens);
 
-                var midias = new List<Midia>();
-
-                foreach (var imagem in imagens)
+                foreach (var caminho in caminhoDasImagens)
                 {
-                    if (imagem.Length > 0)
+                    midias.Add(new Midia
                     {
-                        var filePath = Path.Combine(uploadsFolder, imagem.FileName);
-
-                        // Salva a imagem no disco
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await imagem.CopyToAsync(stream);
-                        }
-
-                        // Adiciona o caminho da imagem à lista de mídias
-                        midias.Add(new Midia
-                        {
-                            Link = Path.Combine("uploads", imagem.FileName).Replace("\\", "/"),
-                            Imovel = imovel,
-                            TipoDeMidia = TipoDeMidia.Imagem
-                        });
-                    }
+                        Link = caminho,
+                        Imovel = imovel,
+                        TipoDeMidia = TipoDeMidia.Imagem
+                    });
                 }
 
-                // Associa as mídias ao imóvel
                 imovel.Midias = midias;
+
+
             }
+
+
+
 
 
             if (ModelState.IsValid)
@@ -155,51 +147,78 @@ namespace click_imoveis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Imovel imovel, string imagensRemovidas)
+        public async Task<IActionResult> Edit(int id, Imovel imovel, string imagensRemovidas, List<IFormFile>? imagens)
         {
             if (id != imovel.ImovelId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid && imovel.UsuarioId != null)
+            if (imovel.Midias == null)
             {
-                try
+                imovel.Midias = new List<Midia>();
+            }
+
+            List<Midia> midiasExistentes = await _context.Midias.Where(u => u.ImovelId == imovel.ImovelId).ToListAsync();
+                      
+            if (midiasExistentes.Count > 0)
+            {               
+
+                foreach (var midia in midiasExistentes)
                 {
-                    _context.Update(imovel);
+                    imovel.Midias.Add(midia);
+                }
+            }
+           
+
+            List<string> caminhosNovasMidias = new List<string>();
+            
+            if (imagens != null && imagens.Count > 0)
+            {
+                caminhosNovasMidias = await SalvarImagens(imagens);
+                
+                foreach (var caminho in caminhosNovasMidias)
+                {
+                    imovel.Midias.Add(new Midia
+                    {
+                        Link = caminho,
+                        Imovel = imovel,
+                        TipoDeMidia = TipoDeMidia.Imagem
+                    });
+
+                }
+
+            }
+
+
+            ModelState.Remove("imagensRemovidas");
+
+
+
+                if (ModelState.IsValid && imovel.UsuarioId != null)
+                {
+                
+                    _context.Update(imovel);                    
                     await _context.SaveChangesAsync();
 
-                    var imagensParaRemover = imagensRemovidas
-                        .Split(',', StringSplitOptions.RemoveEmptyEntries)
-                        .Select(id => int.Parse(id))
-                        .ToList();
-
-                    if (imagensParaRemover.Count > 0)
+                    if (imagensRemovidas != null)
                     {
-                        var midiasToRemove = await _context.Midias
+                    var imagensParaRemover = imagensRemovidas
+                       .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                       .Select(id => int.Parse(id))
+                       .ToList();
+
+                    var midiasToRemove = await _context.Midias
                             .Where(m => imagensParaRemover.Contains(m.MidiaId))
                             .ToListAsync();
 
-                        _context.Midias.RemoveRange(midiasToRemove);
-                        await _context.SaveChangesAsync();
+                    _context.Midias.RemoveRange(midiasToRemove);
+                    await _context.SaveChangesAsync();
                     }
 
-
-
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ImovelExists(imovel.ImovelId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+               
                 return RedirectToAction(nameof(Index));
-            }
+                }
             return View(imovel);
         }
 
@@ -239,6 +258,33 @@ namespace click_imoveis.Controllers
         private bool ImovelExists(int id)
         {
             return _context.Imoveis.Any(e => e.ImovelId == id);
+        }
+
+        public async Task<List<string>> SalvarImagens(List<IFormFile> imagens)
+        {
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+            Directory.CreateDirectory(uploadsFolder); // Garante que a pasta existe
+
+            List<string> caminhoDasImagens = new List<string>();
+
+            foreach (var imagem in imagens)
+            {
+                if (imagem.Length > 0)
+                {
+                    var filePath = Path.Combine(uploadsFolder, imagem.FileName);
+
+                    // Salva a imagem no disco
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imagem.CopyToAsync(stream);
+                    }
+
+                    caminhoDasImagens.Add(Path.Combine("uploads", imagem.FileName).Replace("\\", "/"));
+                    
+                }
+            }
+
+            return caminhoDasImagens;
         }
     }
 }
