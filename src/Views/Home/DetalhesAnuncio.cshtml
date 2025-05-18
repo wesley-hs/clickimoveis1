@@ -4,11 +4,10 @@
     ViewData["Title"] = "DetalhesAnuncio";
 }
 
-<h1>DetalhesAnuncio</h1>
+
 
 <div>
-    <h4>Anuncio</h4>
-    <hr />
+    
     
     <div class="d-flex flex-wrap justify-content-center gap-3">
 
@@ -35,7 +34,9 @@
     </div>
 
 
-
+    <hr />
+    <h5>Anúncio:</h5>
+    <br />
 
 
     <dl class="row">
@@ -87,19 +88,104 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.anuncio.Finalidade)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.ImovelId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Usuario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Usuario.Email)
-        </dd>
+        
+        
     </dl>
+
+    <hr />
+    <h5>Características:</h5>
+    <br />
+        
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Banheiros)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Banheiros)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Suites)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Suites)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Metragem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Metragem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Quartos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Quartos)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Vagas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Vagas)
+        </dd>
+       
+    </dl>
+
+
+
+
+    <hr />
+    <h5>Endereço:</h5>
+    <br />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Logradouro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Logradouro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Numero)
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Numero)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Bairro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Bairro)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Cidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Cidade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.Estado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.Estado)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.anuncio.Imovel.CodigoPostal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.anuncio.Imovel.CodigoPostal)
+        </dd>
+
+
+
+
+    </dl>
+
+
 </div>
 
 <hr />
