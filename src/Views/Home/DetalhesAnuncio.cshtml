@@ -9,7 +9,35 @@
 <div>
     <h4>Anuncio</h4>
     <hr />
-    <img src="https://picsum.photos/200">
+    
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+
+        @{
+            if (Model.anuncio.Imovel?.Midias != null)
+            {
+                foreach (var item in Model.anuncio.Imovel.Midias)
+                {                    
+                    <div class="card" style="width: 18rem;">
+                    <img src="/@(item.Link ?? "/imagem-nao-disponivel.jpg")"
+                         class="card-img-top"
+                         alt="..."
+                         onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
+
+                    
+                </div>
+
+            }
+        }
+
+        
+    }
+
+    </div>
+
+
+
+
+
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.DataInicio)

@@ -61,7 +61,11 @@ public class HomeController : Controller
         if (id == null)
             return NotFound();
 
-        var anuncio = await _context.Anuncios.FindAsync(id);
+        var anuncio = await _context.Anuncios
+                            .Include(u => u.Imovel)
+                            .ThenInclude(u => u.Midias)
+                            .FirstOrDefaultAsync(u => u.AnuncioId == id);
+                            
         if (anuncio == null)
             return NotFound();
 
