@@ -1,10 +1,20 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Relatórios";
 }
 
-<h1>Página de Relatórios</h1>
+<h1 class="text-center mb-4">Relatórios do Sistema</h1>
 
-<h5>Número de Imóveis cadastrados: @ViewBag.totalDeImoveisCadastrados</h5>
-<h5>Número de Anúncios cadastrados: @ViewBag.totalDeAnunciosCadastrados</h5>
-<h5>Número de Usuários cadastrados: @ViewBag.totalDeUsuariosCadastrados</h5>
+<div class="relatorio-container">
+    <div class="relatorio-item">
+        <h5>Total de Imóveis Cadastrados</h5>
+        <p>@ViewBag.totalDeImoveisCadastrados</p>
+    </div>
+    <div class="relatorio-item">
+        <h5>Total de Anúncios Cadastrados</h5>
+        <p>@ViewBag.totalDeAnunciosCadastrados</p>
+    </div>
+    <div class="relatorio-item">
+        <h5>Total de Usuários Cadastrados</h5>
+        <p>@ViewBag.totalDeUsuariosCadastrados</p>
+    </div>
+</div>

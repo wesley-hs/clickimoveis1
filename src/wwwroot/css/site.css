@@ -20,3 +20,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.relatorio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.relatorio-item {
+    background-color: white;
+    padding: 1rem;
+    border-left: 5px solid #4CAF50;
+    border-radius: 5px;
+}
+
+    .relatorio-item h5 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .relatorio-item p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000;
+    }
