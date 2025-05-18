@@ -26,12 +26,17 @@ public class HomeController : Controller
         if (!string.IsNullOrEmpty(titulo)) 
         {
             dados = await _context.Anuncios
+                .Include(a => a.Imovel)
+                .ThenInclude(a => a.Midias)
                 .Where(c => c.Titulo != null && c.Titulo.Contains(titulo))
                 .ToListAsync();
         }
         else
         {
-            dados = await _context.Anuncios.ToListAsync();
+            dados = await _context.Anuncios
+                .Include(a => a.Imovel)
+                .ThenInclude(a => a.Midias)
+                .ToListAsync();
         }
 
         ViewBag.Titulo = titulo != null ? titulo : null;
