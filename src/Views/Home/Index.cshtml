@@ -5,21 +5,39 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1 class="mb-5">Página Home</h1>
 
 
-    
-    <form asp-action="Index" method="get" class="d-flex flex-column gap-1 mb-5" style="max-width: 300px;">
-                                  
-            
-                <label class="control-label">Digite o Título:</label>
-                <input type="text" name="titulo" value="@(ViewBag.Titulo != null ? ViewBag.Titulo : "")"/>
-                <input type="submit" value="Pesquisar" class="btn btn-primary" />
-            
-            
+<!-- Bootstrap 5 full-width background with search bar and icon -->
+<div class="w-100" style="background: url('/fundo-barra-pesquisa.webp') center center/cover no-repeat; min-height: 320px; display: flex; align-items: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="text-white fw-bold" style="font-size: 3rem; line-height: 1.1; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                    Venda. Locação.<br>
+                    Temporada.
+                </div>
+                <form asp-action="Index" method="get" class="mt-4">
+                    <div class="input-group input-group-lg">
+                        
 
-        </form>
-    
+                        <span class="input-group-text bg-white rounded-end" style="border-left:0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" class="bi bi-search" viewBox="0 0 16 16">
+                                <circle cx="7" cy="7" r="6" />
+                                <line x1="11" y1="11" x2="15" y2="15" />
+                            </svg>
+                        </span>
+                        <input type="text" name="titulo" value="@(ViewBag.Titulo != null ? ViewBag.Titulo : "")" class="form-control rounded-start" placeholder="Pesquise por título" aria-label="Pesquisa">
+                        <input type="submit" value="Pesquisar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<br />
 
 
 
@@ -27,28 +45,118 @@
 
 
 <div class="d-flex flex-wrap justify-content-center gap-3">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="card shadow-sm border rounded-3" style="width: 22rem;">
+                <div class="position-relative">
+                    <div id="carouselImovel@(item.AnuncioId)" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded-top">
 
-@foreach (var item in Model)
-{
-    if (item.Descricao != null)
-    {
-        //item.Descricao = item.Descricao.Substring(0, 150) + "...";
+                        @{
+                            
+                            if (item.Imovel?.Midias?.Count > 0)
+                            {
+                                // Há imagens para exibir
+
+                                int contador = 0;
+                                foreach (var imagem in item.Imovel.Midias.Take(3))
+                                {
+                                    contador = contador + 1;
+                                     
+                                        <div class="carousel-item @(imagem.Link == item.Imovel.Midias.First().Link ? "active" : "")">
+                                            <img
+                                            src="@imagem.Link" class="d-block w-100" alt="Imagem @(contador)"
+                                            onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
+                                        </div>
+                                    
+                                }
+
+                            }
+
+                            else
+
+                            {
+                                // Não existe imagem para exibir
+                                 
+                                    <div class="carousel-item active">
+                                        <img src="/imagem-nao-disponivel.jpg" class="d-block w-100" alt="Imagem não disponível">
+                                    </div>                                    
+                                 
+                            }
+                            
+
+                        }
+                        </div>
+
+
+                        <!-- Carousel indicators (dots) -->
+                        <div class="carousel-indicators mb-1">
+
+                            @{
+                                if (item.Imovel?.Midias?.Count > 0)
+                                {
+                                    int contador = 0;
+                                    foreach(var imagem in item.Imovel.Midias.Take(3))
+                                    {
+                                        contador = contador + 1;
+                                        <button type="button" data-bs-target="#carouselImovel1" data-bs-slide-to="@(contador - 1)" class="@(contador == 1 ? "active" : "")" aria-current="true" aria-label="Slide @contador"></button>
+                                    }
+                                }
+                            }
+
+
+                        </div>
+                        <!-- Carousel controls (arrows) - show on hover only -->
+                        <button class="carousel-control-prev d-none" type="button" data-bs-target="#carouselImovel@(item.AnuncioId)" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark bg-opacity-50 rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next d-none" type="button" data-bs-target="#carouselImovel@(item.AnuncioId)" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-dark bg-opacity-50 rounded-circle" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+
+                    <style>
+                        /* Show carousel arrows only on hover */
+                        #carouselImovel@(item.AnuncioId):hover .carousel-control-prev,
+                        #carouselImovel@(item.AnuncioId):hover .carousel-control-next {
+                            display: flex !important;
+                        }
+
+                        .carousel-inner img {
+                            height: 180px;
+                            object-fit: cover;
+                        }
+                    </style>
+                </div>
+                <div class="card-body pb-2">
+                    <div class="fw-bold fs-4 mb-1" style="color: #222;">@(item.Valor != null ? $"R$ {item.Valor:N0}" : "-------")</div>
+                    <div class="text-secondary text-uppercase" style="font-size: 0.95rem;">
+                        @(item.Titulo)
+                    </div>
+                    <div class="mb-1 text-muted" style="font-size: 1rem;">
+                        @(item.Imovel?.Quartos != null ? item.Imovel.Quartos : "--") qts &nbsp;|&nbsp;
+                        @(item.Imovel?.Banheiros != null ? item.Imovel.Banheiros : "--") ba &nbsp;|&nbsp;
+                        @(item.Imovel?.Metragem != null ? item.Imovel.Metragem : "--") m<sup>2</sup>
+
+                    </div>
+                    <div class="mb-1" style="font-size: 0.97rem;">
+                        @(item.Imovel?.Logradouro != null ? $"{item.Imovel.Logradouro}," : "")
+                        @(item.Imovel?.Bairro != null ? $"{item.Imovel.Bairro}," : "")
+                        @(item.Imovel?.Cidade != null ? $"{item.Imovel.Cidade}," : "")
+                        @(item.Imovel?.Estado != null ? $"{item.Imovel.Estado}" : "")
+                        
+                    </div>                    
+                </div>
+            </div>
+
+        }
     }
     
     
-    <div class="card" style="width: 18rem;">
-        <img src="@(item.Imovel?.Midias?.FirstOrDefault()?.Link ?? "/imagem-nao-disponivel.jpg")"
-             class="card-img-top"
-             alt="..."
-             onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
-
-        <div class="card-body">
-            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-            <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
-            <a asp-action="DetalhesAnuncio" asp-route-id="@item.AnuncioId" class="btn btn-primary">Detalhes</a>
-        </div>
-    </div>
-                      
-}
-
+    
 </div>
+

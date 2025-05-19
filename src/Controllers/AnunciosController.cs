@@ -69,6 +69,7 @@ namespace click_imoveis.Controllers
         // GET: Anuncios/Create
         public IActionResult Create()
         {
+            
             ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId");
                         
             return View();
