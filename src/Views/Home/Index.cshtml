@@ -38,13 +38,14 @@
 
 
 <br />
+<br />
 
 
 
 
 
 
-<div class="d-flex flex-wrap justify-content-center gap-3">
+<div class="container d-flex flex-wrap justify-content-center gap-3">
     @{
         foreach (var item in Model)
         {
@@ -132,7 +133,7 @@
                         }
                     </style>
                 </div>
-                <div class="card-body pb-2">
+                <div class="card-body pb-2 d-flex flex-column">
                     <div class="fw-bold fs-4 mb-1" style="color: #222;">@(item.Valor != null ? $"R$ {item.Valor:N0}" : "-------")</div>
                     <div class="text-secondary text-uppercase" style="font-size: 0.95rem;">
                         @(item.Titulo)
@@ -149,7 +150,12 @@
                         @(item.Imovel?.Cidade != null ? $"{item.Imovel.Cidade}," : "")
                         @(item.Imovel?.Estado != null ? $"{item.Imovel.Estado}" : "")
                         
-                    </div>                    
+                    </div>
+                    <div class="flex-grow-1"></div> <!-- Espaço expansível -->
+                    <div class="text-end">
+                        <a asp-action="DetalhesAnuncio" class="btn btn-primary" asp-route-id="@item.AnuncioId">Detalhes</a>
+                    </div>
+                    
                 </div>
             </div>
 
