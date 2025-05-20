@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace click_imoveis.Controllers
 {
-    //[Authorize(Roles = "Corretor, Imobiliária")]
+    [Authorize(Roles = "Administrador")]
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -86,6 +86,7 @@ namespace click_imoveis.Controllers
         }
 
         // GET: Usuarios/Create
+        [AllowAnonymous]
         public IActionResult Create()
         {
                       
@@ -99,6 +100,7 @@ namespace click_imoveis.Controllers
         // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UsuarioViewModel usuarioViewModel)
@@ -147,7 +149,7 @@ namespace click_imoveis.Controllers
                     usuarioViewModel.PessoaFisica.UsuarioId = usuarioViewModel.Usuario.UsuarioId;
                     _context.Add(usuarioViewModel.PessoaFisica);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Login");
                 
             }
             else if (usuarioViewModel.Usuario.Pessoa == Pessoa.PessoaJuridica)
@@ -156,7 +158,7 @@ namespace click_imoveis.Controllers
                     usuarioViewModel.PessoaJuridica.UsuarioId = usuarioViewModel.Usuario.UsuarioId;
                     _context.Add(usuarioViewModel.PessoaJuridica);
                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Login");
                 
             }
 
@@ -398,6 +400,7 @@ namespace click_imoveis.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
