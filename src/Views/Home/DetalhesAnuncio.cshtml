@@ -6,7 +6,9 @@
 
 
 
-
+<hr />
+<h5>Imagens:</h5>
+<br />
     
     
     <div class="d-flex flex-wrap justify-content-center gap-3">
@@ -40,35 +42,35 @@
 
 
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.DataInicio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.DataInicio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.DataFim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.DataFim)
-        </dd>
+        @* <dt class = "col-sm-2"> *@
+        @*     @Html.DisplayNameFor(model => model.anuncio.DataInicio) *@
+        @* </dt> *@
+        @* <dd class = "col-sm-10"> *@
+        @*     @Html.DisplayFor(model => model.anuncio.DataInicio) *@
+        @* </dd> *@
+        @* <dt class = "col-sm-2"> *@
+        @*     @Html.DisplayNameFor(model => model.anuncio.DataFim) *@
+        @* </dt> *@
+        @* <dd class = "col-sm-10"> *@
+        @*     @Html.DisplayFor(model => model.anuncio.DataFim) *@
+        @* </dd> *@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.Valor)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Valor)
+            R$ @Html.DisplayFor(model => model.anuncio.Valor)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.ValorCondominio)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.ValorCondominio)
+            R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.ValorIptu)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.ValorIptu)
+            R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.Titulo)
@@ -93,7 +95,7 @@
     </dl>
 
     <hr />
-    <h5>Características:</h5>
+    <h5>Imóvel:</h5>
     <br />
         
     <dl class="row">
@@ -115,7 +117,7 @@
             @Html.DisplayNameFor(model => model.anuncio.Imovel.Metragem)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Metragem)
+            @Html.DisplayFor(model => model.anuncio.Imovel.Metragem) m<sup>2</sup>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.Imovel.Quartos)
