@@ -6,7 +6,7 @@
 
 
 
-<div>
+
     
     
     <div class="d-flex flex-wrap justify-content-center gap-3">
@@ -136,62 +136,44 @@
 
 
     <hr />
-    <h5>Endereço:</h5>
+    <h5>Localização:</h5>
     <br />
 
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Logradouro)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Logradouro)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Numero)
-        </dt>
+@{
+    var endereco = string.Join(", ",
+        new[] {
+            Model.anuncio.Imovel?.Logradouro,
+            Model.anuncio.Imovel?.Numero,
+            Model.anuncio.Imovel?.Bairro,
+            Model.anuncio.Imovel?.Cidade,
+            Model.anuncio.Imovel?.Estado,
+            Model.anuncio.Imovel?.CodigoPostal
+                        }.Where(s => !string.IsNullOrWhiteSpace(s))
+    );
+    var enderecoUrl = System.Net.WebUtility.UrlEncode(endereco);
+}
 
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Numero)
-        </dd>
+<p>@endereco</p>
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Bairro)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Bairro)
-        </dd>
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Cidade)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Cidade)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Estado)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Estado)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.CodigoPostal)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.CodigoPostal)
-        </dd>
-
-
-
-
-    </dl>
-
-
+<div class="map-responsive">
+    <iframe width="600"
+            height="450"
+            style="border:0;"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=@enderecoUrl&output=embed">
+    </iframe>
 </div>
+
+
+
 
 <hr />
 
 <br />
-
+<h5>Mensagens:</h5>
+<br />
 
 
 @{
@@ -261,6 +243,16 @@
 <div>
     <a asp-action="Index" class="btn btn-primary">Voltar</a>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 @section Scripts {
