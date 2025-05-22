@@ -62,6 +62,10 @@ public class HomeController : Controller
             return NotFound();
 
         var anuncio = await _context.Anuncios
+                            .Include(u => u.Usuario)
+                            .ThenInclude(u => u.PessoaFisica)
+                            .Include(u => u.Usuario)
+                            .ThenInclude(u => u.PessoaJuridica)
                             .Include(u => u.Imovel)
                             .ThenInclude(u => u.Midias)
                             .FirstOrDefaultAsync(u => u.AnuncioId == id);

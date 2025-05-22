@@ -6,99 +6,126 @@
 
 
 
+<!-- Modal para dados do anunciante -->
+<div class="modal fade" id="contatoDoAnunciante" tabindex="-1" aria-labelledby="contatoDoAnuncianteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contatoDoAnuncianteLabel">Contatos do Anunciante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                @if (Model.anuncio.Usuario?.Pessoa == Pessoa.PessoaFisica)
+                {
+                    <p><span class="fw-bold">Nome:</span> @Model.anuncio.Usuario.PessoaFisica?.NomeCompleto</p>
+                }
+                else if (Model.anuncio.Usuario?.Pessoa == Pessoa.PessoaJuridica)
+                {
+                    <p><span class="fw-bold">Nome:</span> @Model.anuncio.Usuario.PessoaJuridica?.RazaoSocial</p>
+                }
+
+                <p><span class="fw-bold">Telefone:</span> @Model.anuncio.Usuario?.TelefonePrincipal</p>
+                <p><span class="fw-bold">Email:</span> @Model.anuncio.Usuario?.Email</p>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <hr />
 <h5>Imagens:</h5>
 <br />
-    
-    
-    <div class="d-flex flex-wrap justify-content-center gap-3">
 
-        @{
-            if (Model.anuncio.Imovel?.Midias != null)
-            {
-                foreach (var item in Model.anuncio.Imovel.Midias)
-                {                    
-                    <div class="card" style="width: 18rem;">
+
+<div class="d-flex flex-wrap justify-content-center gap-3">
+
+    @{
+        if (Model.anuncio.Imovel?.Midias != null)
+        {
+            foreach (var item in Model.anuncio.Imovel.Midias)
+            {                    
+                <div class="card" style="width: 18rem;">
                     <img src="/@(item.Link ?? "/imagem-nao-disponivel.jpg")"
-                         class="card-img-top"
-                         alt="..."
-                         onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
+                    class="card-img-top"
+                    alt="..."
+                    onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
 
-                    
+
                 </div>
 
             }
         }
 
-        
+
     }
 
-    </div>
+</div>
 
 
-    <hr />
-    <h5>Anúncio:</h5>
-    <br />
+<hr />
+<h5>Anúncio:</h5>
+<br />
 
 
-    <dl class="row">
-        @* <dt class = "col-sm-2"> *@
-        @*     @Html.DisplayNameFor(model => model.anuncio.DataInicio) *@
-        @* </dt> *@
-        @* <dd class = "col-sm-10"> *@
-        @*     @Html.DisplayFor(model => model.anuncio.DataInicio) *@
-        @* </dd> *@
-        @* <dt class = "col-sm-2"> *@
-        @*     @Html.DisplayNameFor(model => model.anuncio.DataFim) *@
-        @* </dt> *@
-        @* <dd class = "col-sm-10"> *@
-        @*     @Html.DisplayFor(model => model.anuncio.DataFim) *@
-        @* </dd> *@
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Valor)
-        </dt>
-        <dd class = "col-sm-10">
-            R$ @Html.DisplayFor(model => model.anuncio.Valor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.ValorCondominio)
-        </dt>
-        <dd class = "col-sm-10">
-            R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.ValorIptu)
-        </dt>
-        <dd class = "col-sm-10">
-            R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Titulo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Descricao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Finalidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Finalidade)
-        </dd>
-        
-        
-    </dl>
+<dl class="row">
 
-    <hr />
-    <h5>Imóvel:</h5>
-    <br />
-        
-    <dl class="row">
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.anuncio.Valor)
+    </dt>
+    <dd class = "col-sm-10">
+        R$ @Html.DisplayFor(model => model.anuncio.Valor)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.anuncio.ValorCondominio)
+    </dt>
+    <dd class = "col-sm-10">
+        R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.anuncio.ValorIptu)
+    </dt>
+    <dd class = "col-sm-10">
+        R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.anuncio.Titulo)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.anuncio.Titulo)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.anuncio.Descricao)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.anuncio.Descricao)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.anuncio.Finalidade)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.anuncio.Finalidade)
+    </dd>
+
+
+</dl>
+
+<hr />
+<h5>Imóvel:</h5>
+<br />
+
+<dl class="row">
+
+    @if (Model.anuncio.Imovel != null)
+    {
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.anuncio.Imovel.Banheiros)
         </dt>
@@ -131,6 +158,10 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.anuncio.Imovel.Vagas)
         </dd>
+    }
+
+
+        
        
     </dl>
 
@@ -242,9 +273,23 @@
 
 <br />
 
-<div>
-    <a asp-action="Index" class="btn btn-primary">Voltar</a>
+
+
+<hr />
+
+<br />
+
+<div class="d-flex">
+    <!-- Botão para abrir modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contatoDoAnunciante">
+        Contato do Anunciante
+    </button>
+    <div class="flex-grow-1"></div>
+    <div>
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    </div>
 </div>
+
 
 
 
