@@ -151,6 +151,10 @@
                         @(item.Imovel?.Estado != null ? $"{item.Imovel.Estado}" : "")
                         
                     </div>
+
+                   
+                  
+
                     <div class="flex-grow-1"></div> <!-- Espaço expansível -->
                     <div class="text-end">
                         <a asp-action="DetalhesAnuncio" class="btn btn-primary" asp-route-id="@item.AnuncioId">Detalhes</a>
@@ -162,7 +166,15 @@
         }
     }
     
-    
-    
 </div>
-
+@if (!(ViewBag.VerMais ?? false) && Model.Count() == 10)
+{
+    <form method="get">
+        <input type="hidden" name="verMais" value="true" />
+        @if (!string.IsNullOrEmpty(ViewBag.Titulo as string))
+        {
+            <input type="hidden" name="titulo" value="@ViewBag.Titulo" />
+        }
+        <button type="submit" class="btn btn-primary btn-lg  px-5 shadow">Ver mais</button>
+    </form>
+}

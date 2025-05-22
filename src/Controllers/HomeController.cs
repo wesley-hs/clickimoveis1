@@ -18,31 +18,29 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index(string? titulo)
+    public async Task<IActionResult> Index(string? titulo, bool verMais = false)
     {
+        IQueryable<Anuncio> anunciosQuery = _context.Anuncios
+            .Include(a => a.Imovel)
+                .ThenInclude(i => i.Midias)
+            .OrderByDescending(a => a.DataInicio);
 
-        List<Anuncio> dados = new List<Anuncio>();
-        
-        if (!string.IsNullOrEmpty(titulo)) 
+        if (!string.IsNullOrEmpty(titulo))
         {
-            dados = await _context.Anuncios
-                .Include(a => a.Imovel)
-                .ThenInclude(a => a.Midias)
-                .Where(c => c.Titulo != null && c.Titulo.Contains(titulo))
-                .ToListAsync();
-        }
-        else
-        {
-            dados = await _context.Anuncios
-                .Include(a => a.Imovel)
-                .ThenInclude(a => a.Midias)
-                .ToListAsync();
+            anunciosQuery = anunciosQuery.Where(a => a.Titulo.Contains(titulo));
         }
 
-        ViewBag.Titulo = titulo != null ? titulo : null;
-           
-        return View(dados);
+        var anuncios = verMais
+            ? await anunciosQuery.ToListAsync()
+            : await anunciosQuery.Take(10).ToListAsync();
+
+        ViewBag.Titulo = titulo;
+        ViewBag.VerMais = verMais;
+
+        return View(anuncios);
     }
+
+
 
     public IActionResult Privacy()
     {
