@@ -7,16 +7,24 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Caso de Teste** 	| **CT01 – Cadastrar perfil usuário e login** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-01	e RF-03 - A aplicação deve permitir aos usuários pessoa física cadastrarem uma conta |
-|Registro de evidência | https://github.com/user-attachments/assets/09f255a7-5e68-4e08-a374-2f7bc6c46603 |
+|Registro de evidência | https://github.com/user-attachments/assets/d0c410ae-5e4f-490f-9869-1fd53ffc4f85|
 
 
 
   
 
+
+
+
+
 | **Caso de Teste** 	| **CT02 – Cadastrar perfil corretor e login** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-02 e RF-03- A aplicação deve permitir aos usuários pessoa jurídica cadastrarem uma conta |
-|Registro de evidência |https://github.com/user-attachments/assets/64cd333a-2a3d-411b-8fee-471e47781df0 |
+|Registro de evidência | https://github.com/user-attachments/assets/96ab345a-13a7-43dc-828a-5439c90cfa14|
+
+
+
+
 
 
 
@@ -30,7 +38,9 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 | **Caso de Teste** 	| **CT03 – Cadastro de imóveis**	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-4 - A aplicação deve permitir aos usuários cadastrarem imóveis |
-|Registro de evidência |   https://github.com/user-attachments/assets/ba99bcb7-1d30-4a6e-aa8d-913655df6edd |
+
+
+|Registro de evidência | https://github.com/user-attachments/assets/5efdb3dc-f71b-4da8-8aff-0958fc6dd6d4|
 
 
 
