@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace click_imoveis.Models
@@ -29,7 +29,8 @@ namespace click_imoveis.Models
         public string? Descricao { get; set; }
         public Finalidade Finalidade { get; set; }
 
-
+        [Display(Name = "Total de Visualizações")]
+        public int TotalVisualizacoes { get; set; } = 0;
 
         public int? ImovelId { get; set; }
         public Imovel? Imovel { get; set; }
@@ -38,7 +39,6 @@ namespace click_imoveis.Models
         public Usuario? Usuario { get; set; }
 
         public ICollection<Mensagem>? Mensagens { get; set; }
-
     }
 
     public enum Finalidade
