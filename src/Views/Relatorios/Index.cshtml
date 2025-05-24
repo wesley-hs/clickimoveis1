@@ -1,20 +1,132 @@
-﻿@{
+@model click_imoveis.Models.RelatorioViewModel
+@{
     ViewData["Title"] = "Relatórios";
 }
 
-<h1 class="text-center mb-4">Relatórios do Sistema</h1>
+<div class="container mt-4">
+    <h2 class="mb-4">Relatórios</h2>
 
-<div class="relatorio-container">
-    <div class="relatorio-item">
-        <h5>Total de Imóveis Cadastrados</h5>
-        <p>@ViewBag.totalDeImoveisCadastrados</p>
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total de Imóveis</h5>
+                    <p class="card-text display-4">@Model.TotalImoveis</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total de Anúncios</h5>
+                    <p class="card-text display-4">@Model.TotalAnuncios</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total de Usuários</h5>
+                    <p class="card-text display-4">@Model.TotalUsuarios</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="relatorio-item">
-        <h5>Total de Anúncios Cadastrados</h5>
-        <p>@ViewBag.totalDeAnunciosCadastrados</p>
-    </div>
-    <div class="relatorio-item">
-        <h5>Total de Usuários Cadastrados</h5>
-        <p>@ViewBag.totalDeUsuariosCadastrados</p>
+<!---->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Desempenho por Imóvel</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Visualizações</th>
+                                    <th>Mensagens</th>
+                                    <th>Data Cadastro</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.DesempenhoImoveis)
+                                {
+                                    <tr>
+                                        <td>@item.Titulo</td>
+                                        <td>@item.TotalVisualizacoes</td>
+                                        <td>@item.TotalMensagens</td>
+                                        <td>@item.DataCadastro.ToShortDateString()</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tendência de Preço por Bairro</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="precoChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // elemento canvas do'precoChart' para desenhar o gráfico
+            var ctx = document.getElementById('precoChart').getContext('2d');
+            //converte em um objeto JavaScript
+            var data = @Html.Raw(Json.Serialize(Model.TendenciaPrecos));
+            //cria um novo gráfico
+            var chart = new Chart(ctx, {
+                //Tipo de gráfico
+                type: 'bar',
+                //Dados do gráfico
+                data: {
+                    labels: data.map(item => item.local),
+                    datasets: [{
+                        label: 'Média de Preço por Bairro',
+                        data: data.map(item => item.mediaPreco),
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                //Opções de configuração
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return 'R$ ' + value.toLocaleString('pt-BR');
+                                }
+                            }
+                        }
+                    },
+                    //Plugins
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'R$ ' + context.raw.toLocaleString('pt-BR');
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}
