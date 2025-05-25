@@ -17,10 +17,12 @@ namespace click_imoveis.Controllers
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<UsuariosController> _logger;
 
-        public UsuariosController(AppDbContext context)
+        public UsuariosController(AppDbContext context, ILogger<UsuariosController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Usuarios
@@ -359,6 +361,8 @@ namespace click_imoveis.Controllers
 
             if (dados == null)
             {
+                _logger.LogWarning("Tentativa de login de usuário não cadastrado no sistema: {emailUsuario}",usuario.Email);
+                
                 ViewBag.Message = "Usuário e/ou senha inválidos.";
                 return View();
             }
@@ -386,6 +390,8 @@ namespace click_imoveis.Controllers
                 };
 
                 await HttpContext.SignInAsync(principal, props);
+
+                _logger.LogInformation("Usuário {dados.Email} logado com sucesso.",dados.Email);
 
                 return Redirect("/");
                 

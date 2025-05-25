@@ -2,9 +2,24 @@ using click_imoveis.DataSeed;
 using click_imoveis.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+
+
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(builder.Configuration)            
+            .CreateLogger();
+
+builder.Host.UseSerilog(); 
+
+
+
+builder.Services.AddControllers();
 // Add services to the container. //
 builder.Services.AddControllersWithViews();
 
@@ -62,4 +77,18 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+try
+{
+    Log.Information("Iniciando a aplicação web");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "A aplicação falhou ao iniciar");
+}
+finally
+{
+    // Garante que todos os logs sejam gravados antes de sair.
+    Log.CloseAndFlush();
+    
+}
