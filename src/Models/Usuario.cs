@@ -51,7 +51,8 @@ namespace click_imoveis.Models
         [Required(ErrorMessage = "O campo Pessoa é obrigatório.")]
         public Pessoa Pessoa { get; set; }
 
-        
+        public string? ResetToken { get; set; }
+        public DateTime? ResetTokenValidade { get; set; }
 
 
         public ICollection<Imovel>? Imoveis { get; set; }

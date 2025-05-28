@@ -450,5 +450,77 @@ namespace click_imoveis.Controllers
 
             return listaTipoDeUsuario;
         }
+
+        [AllowAnonymous]
+        public IActionResult EsqueciSenha()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> EsqueciSenha(string email)
+        {
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
+            if (usuario == null)
+            {
+                ViewBag.Message = "Se o e-mail estiver cadastrado, você receberá um link para redefinir sua senha.";
+                return View();
+            }
+
+            // Gere um token simples (exemplo: Guid + validade)
+            var token = Guid.NewGuid().ToString();
+            usuario.ResetToken = token;
+            usuario.ResetTokenValidade = DateTime.UtcNow.AddHours(1);
+            await _context.SaveChangesAsync();
+
+
+            var resetLink = Url.Action("RedefinirSenha", "Usuarios", new { email = usuario.Email, token = token }, Request.Scheme);
+
+            // Envie o e-mail (substitua por seu serviço de e-mail real)
+            // await _emailSender.SendEmailAsync(usuario.Email, "Redefinição de senha", $"Clique aqui para redefinir: {resetLink}");
+            _logger.LogInformation("Link de redefinição: {resetLink}", resetLink);
+
+            ViewBag.Message = "Se o e-mail estiver cadastrado, você receberá um link para redefinir sua senha.";
+            return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult RedefinirSenha(string email, string token)
+        {
+            ViewBag.Email = email;
+            ViewBag.Token = token;
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> RedefinirSenha(string email, string token, string novaSenha)
+        {
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
+            if (usuario == null || usuario.Senha == null)
+            {
+                ViewBag.Message = "Link inválido ou expirado.";
+                return View();
+            }
+
+            if (usuario.ResetToken != token || usuario.ResetTokenValidade == null || usuario.ResetTokenValidade < DateTime.UtcNow)
+            {
+                ViewBag.Message = "Link inválido ou expirado.";
+                return View();
+            }
+
+            // Atualiza senha e limpa o token
+            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+            usuario.ResetToken = null;
+            usuario.ResetTokenValidade = null;
+            await _context.SaveChangesAsync();
+
+
+            ViewBag.Message = "Senha redefinida com sucesso! Você já pode fazer login.";
+            return View();
+        }
+
+
     }
 }

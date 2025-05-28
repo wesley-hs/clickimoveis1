@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Redefinir Senha";
+}
+<h2>Redefinir Senha</h2>
+<form method="post">
+    <input type="hidden" name="email" value="@ViewBag.Email" />
+    <input type="hidden" name="token" value="@ViewBag.Token" />
+    <label for="novaSenha">Nova Senha:</label>
+    <input type="password" name="novaSenha" required />
+    <button type="submit">Redefinir</button>
+</form>
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+
