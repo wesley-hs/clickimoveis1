@@ -15,10 +15,12 @@ namespace click_imoveis.Controllers
     public class AnunciosController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<AnunciosController> _logger;
 
-        public AnunciosController(AppDbContext context)
+        public AnunciosController(AppDbContext context, ILogger<AnunciosController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Anuncios
@@ -93,9 +95,13 @@ namespace click_imoveis.Controllers
 
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
+
+                _logger.LogInformation("Anúncio criado com sucesso: {AnuncioId}", anuncio.AnuncioId);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId", anuncio.ImovelId);
+
+            _logger.LogWarning("Falha ao criar anúncio: {ModelStateErrors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
             return View(anuncio);
         }
 
@@ -139,9 +145,11 @@ namespace click_imoveis.Controllers
                 {
                     _context.Update(anuncio);
                     await _context.SaveChangesAsync();
+                   
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    _logger.LogError("Erro de concorrência ao editar o anúncio: {AnuncioId}", anuncio.AnuncioId);
                     if (!AnuncioExists(anuncio.AnuncioId))
                     {
                         return NotFound();
@@ -151,10 +159,13 @@ namespace click_imoveis.Controllers
                         throw;
                     }
                 }
+                _logger.LogInformation("Anúncio atualizado com sucesso: {AnuncioId}", anuncio.AnuncioId);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId", anuncio.ImovelId);
             ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "UsuarioId", "Email", anuncio.UsuarioId);
+
+            _logger.LogWarning("Falha ao editar anúncio: {ModelStateErrors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
             return View(anuncio);
         }
 
@@ -190,6 +201,7 @@ namespace click_imoveis.Controllers
             }
 
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Anúncio excluído com sucesso: {AnuncioId}", id);
             return RedirectToAction(nameof(Index));
         }
 
