@@ -106,7 +106,9 @@ namespace click_imoveis.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UsuarioViewModel usuarioViewModel)
-        {            
+        {   
+            _logger.LogInformation("Criando usuário: {email}", usuarioViewModel.Usuario.Email);
+
             ViewBag.Pessoas = GetListaPessoa();
             ViewBag.TipoDeUsuario = GetListaTipoDeUsuario();
 
@@ -131,6 +133,7 @@ namespace click_imoveis.Controllers
 
             if (!ModelState.IsValid)
             {
+                _logger.LogWarning("Modelo inválido ao criar usuário: {email}", usuarioViewModel.Usuario.Email);
                 return View(usuarioViewModel);
             }
             
@@ -151,6 +154,8 @@ namespace click_imoveis.Controllers
                     usuarioViewModel.PessoaFisica.UsuarioId = usuarioViewModel.Usuario.UsuarioId;
                     _context.Add(usuarioViewModel.PessoaFisica);
                     await _context.SaveChangesAsync();
+
+                    _logger.LogInformation("Usuário {email} criado com sucesso.", usuarioViewModel.Usuario.Email);
                     return RedirectToAction("Login");
                 
             }
@@ -160,6 +165,8 @@ namespace click_imoveis.Controllers
                     usuarioViewModel.PessoaJuridica.UsuarioId = usuarioViewModel.Usuario.UsuarioId;
                     _context.Add(usuarioViewModel.PessoaJuridica);
                     await _context.SaveChangesAsync();
+
+                    _logger.LogInformation("Usuário {email} criado com sucesso.", usuarioViewModel.Usuario.Email);
                     return RedirectToAction("Login");
                 
             }
@@ -176,6 +183,7 @@ namespace click_imoveis.Controllers
         {
             if (id == null)
             {
+                _logger.LogWarning("Tentativa de edição de usuário com ID nulo.");
                 return NotFound();
             }
 
@@ -187,6 +195,7 @@ namespace click_imoveis.Controllers
 
             if (usuario == null)
             {
+                _logger.LogWarning("Usuário com ID {id} não encontrado.", id);
                 return NotFound();
             }
 
@@ -213,6 +222,7 @@ namespace click_imoveis.Controllers
         {
             if (id != usuarioViewModel.Usuario.UsuarioId)
             {
+                _logger.LogWarning("Tentativa de edição de usuário com ID {id} diferente do ID no modelo {usuarioId}.", id, usuarioViewModel.Usuario.UsuarioId);
                 return NotFound();
             }
 
@@ -302,7 +312,7 @@ namespace click_imoveis.Controllers
                     }
                 }
                
-               
+               _logger.LogInformation("Usuário {email} editado com sucesso.", usuarioViewModel.Usuario.Email);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -314,6 +324,7 @@ namespace click_imoveis.Controllers
         {
             if (id == null)
             {
+                _logger.LogWarning("Tentativa de exclusão de usuário com ID nulo.");
                 return NotFound();
             }
 
@@ -321,9 +332,10 @@ namespace click_imoveis.Controllers
                 .FirstOrDefaultAsync(m => m.UsuarioId == id);
             if (usuario == null)
             {
+                _logger.LogWarning("Usuário com ID {id} não encontrado para exclusão.", id);
                 return NotFound();
             }
-
+                       
             return View(usuario);
         }
 
@@ -338,6 +350,7 @@ namespace click_imoveis.Controllers
                 _context.Usuarios.Remove(usuario);
             }
 
+            _logger.LogInformation("Usuário com ID {id} excluído com sucesso.", id);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -409,7 +422,11 @@ namespace click_imoveis.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
+            var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
+
             await HttpContext.SignOutAsync();
+
+            _logger.LogInformation("Usuário {userEmail} deslogado com sucesso.", userEmail);
             return RedirectToAction("Index", "Home");
         }
 

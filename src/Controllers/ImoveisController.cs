@@ -16,10 +16,12 @@ namespace click_imoveis.Controllers
     public class ImoveisController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<ImoveisController> _logger;
 
-        public ImoveisController(AppDbContext context)
+        public ImoveisController(AppDbContext context, ILogger<ImoveisController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Imoveis
@@ -33,7 +35,7 @@ namespace click_imoveis.Controllers
 
             if (userIdClaim != null)
             {
-                userId = int.Parse(userIdClaim.Value);
+               userId = int.Parse(userIdClaim.Value);
             }
 
             List<Imovel>? imoveis = new List<Imovel>();
@@ -56,6 +58,7 @@ namespace click_imoveis.Controllers
         {
             if (id == null)
             {
+                _logger.LogWarning("Imóvel fornecido com id nulo para detalhes.");
                 return NotFound();
             }
 
@@ -64,6 +67,7 @@ namespace click_imoveis.Controllers
                 .FirstOrDefaultAsync(m => m.ImovelId == id);
             if (imovel == null)
             {
+                _logger.LogWarning("Imóvel com ID {id} não encontrado.", id);
                 return NotFound();
             }
 
@@ -119,6 +123,8 @@ namespace click_imoveis.Controllers
 
                 _context.Add(imovel);
                 await _context.SaveChangesAsync();
+
+                _logger.LogInformation("Imóvel criado com sucesso: {imovelId}", imovel.ImovelId);
                 return RedirectToAction(nameof(Index));
             }
             return View(imovel);
@@ -129,6 +135,7 @@ namespace click_imoveis.Controllers
         {
             if (id == null)
             {
+                _logger.LogWarning("Imóvel fornecido com id nulo para edição.");
                 return NotFound();
             }
 
@@ -137,6 +144,7 @@ namespace click_imoveis.Controllers
                                     .FirstOrDefaultAsync(u => u.ImovelId == id);
             if (imovel == null)
             {
+                _logger.LogWarning("Imóvel com ID {id} não encontrado para edição.", id);
                 return NotFound();
             }
             return View(imovel);
@@ -151,6 +159,7 @@ namespace click_imoveis.Controllers
         {
             if (id != imovel.ImovelId)
             {
+                _logger.LogWarning("Tentativa de edição de imóvel com ID {id} diferente do ID fornecido {imovelId}.", id, imovel.ImovelId);
                 return NotFound();
             }
 
@@ -216,9 +225,12 @@ namespace click_imoveis.Controllers
                     await _context.SaveChangesAsync();
                     }
 
-               
+
+                _logger.LogInformation("Imóvel editado com sucesso: {imovelId}", imovel.ImovelId);
                 return RedirectToAction(nameof(Index));
                 }
+
+            _logger.LogWarning("Erro ao editar imóvel com ID {id}. Verifique os dados fornecidos.", id);
             return View(imovel);
         }
 
@@ -252,6 +264,8 @@ namespace click_imoveis.Controllers
             }
 
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Imóvel com ID {id} deletado com sucesso.", id);
             return RedirectToAction(nameof(Index));
         }
 
