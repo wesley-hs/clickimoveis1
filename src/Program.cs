@@ -1,5 +1,6 @@
 using click_imoveis.DataSeed;
 using click_imoveis.Models;
+using click_imoveis.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -40,6 +41,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = "/Usuarios/AccessDenied/";
         options.LoginPath = "/Usuarios/Login";
     });
+
+
+// Program.cs (ou Startup.ConfigureServices)
+builder.Services.AddTransient<EmailService>();
+
+// No Program.cs, ADICIONE:
+builder.Services.AddScoped<EmailService>();
 
 
 var app = builder.Build();

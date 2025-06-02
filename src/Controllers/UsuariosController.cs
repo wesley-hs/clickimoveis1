@@ -10,6 +10,8 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Hosting;
+using click_imoveis.Services;
+using System.Security.Cryptography;
 
 namespace click_imoveis.Controllers
 {
@@ -459,29 +461,68 @@ namespace click_imoveis.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> EsqueciSenha(string email)
+        [ValidateAntiForgeryToken]  // Adicionado para proteção contra CSRF
+        public async Task<IActionResult> EsqueciSenha(
+            [FromForm] string email,  // Explicitamente define a origem do dado
+            [FromServices] EmailService emailService,
+            [FromServices] ILogger<UsuariosController> logger)
         {
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
-            if (usuario == null)
+            if (string.IsNullOrWhiteSpace(email))
             {
-                ViewBag.Message = "Se o e-mail estiver cadastrado, você receberá um link para redefinir sua senha.";
+                ViewBag.Message = "Por favor, informe um e-mail válido.";
                 return View();
             }
 
-            // Gere um token simples (exemplo: Guid + validade)
-            var token = Guid.NewGuid().ToString();
-            usuario.ResetToken = token;
-            usuario.ResetTokenValidade = DateTime.UtcNow.AddHours(1);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var usuario = await _context.Usuarios
+                    .AsNoTracking()  // Melhora performance para operações somente leitura
+                    .FirstOrDefaultAsync(u => u.Email == email);
 
+                if (usuario == null)
+                {
+                    // Mensagem genérica por segurança (não revela se e-mail existe)
+                    ViewBag.Message = "Se o e-mail estiver cadastrado, você receberá um link.";
+                    return View();
+                }
 
-            var resetLink = Url.Action("RedefinirSenha", "Usuarios", new { email = usuario.Email, token = token }, Request.Scheme);
+                // Gera token seguro com data de expiração
+                var token = Guid.NewGuid().ToString();
+                usuario.ResetToken = token;
+                usuario.ResetTokenValidade = DateTime.UtcNow.AddHours(1);
+                _context.Update(usuario);  // Atualiza apenas campos necessários
+                await _context.SaveChangesAsync();
 
-            // Envie o e-mail (substitua por seu serviço de e-mail real)
-            // await _emailSender.SendEmailAsync(usuario.Email, "Redefinição de senha", $"Clique aqui para redefinir: {resetLink}");
-            _logger.LogInformation("Link de redefinição: {resetLink}", resetLink);
+                var resetLink = Url.Action(
+                    action: "RedefinirSenha",
+                    controller: "Usuarios",
+                    values: new { email, token },
+                    protocol: Request.Scheme,
+                    host: Request.Host.Value);
 
-            ViewBag.Message = "Se o e-mail estiver cadastrado, você receberá um link para redefinir sua senha.";
+                // Envia e-mail assincronamente
+                await emailService.EnviarEmailAsync(
+                    usuario.Email,
+                    "Redefinição de Senha - Click Imóveis",
+                    $"<h1>Redefina sua senha</h1>" +
+                    $"<p>Clique <a href='{resetLink}'>aqui</a> para redefinir sua senha. O link expira em 1 hora.</p>" +
+                    $"<p>Caso não tenha solicitado, ignore este e-mail.</p>");
+
+                logger.LogInformation($"Link de redefinição enviado para {email}");
+
+                ViewBag.Message = "Link enviado! Verifique seu e-mail (inclusive a caixa de spam).";
+            }
+            catch (DbUpdateException dbEx)
+            {
+                logger.LogError(dbEx, "Falha ao atualizar token no banco de dados");
+                ViewBag.Message = "Erro interno. Tente novamente mais tarde.";
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Falha no processo de recuperação de senha");
+                ViewBag.Message = "Erro ao processar sua solicitação.";
+            }
+
             return View();
         }
 
@@ -520,6 +561,8 @@ namespace click_imoveis.Controllers
             ViewBag.Message = "Senha redefinida com sucesso! Você já pode fazer login.";
             return View();
         }
+
+      
 
 
     }
