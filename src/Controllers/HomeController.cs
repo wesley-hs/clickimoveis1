@@ -98,6 +98,9 @@ public class HomeController : Controller
 
             _context.Mensagens.Add(mensagem);
             await _context.SaveChangesAsync();
+
+            var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
+            _logger.LogInformation("Mensagem enviada por {UserEmail} para o anúncio {AnuncioId}.", userEmail, anuncioId);
         }
 
         return RedirectToAction("DetalhesAnuncio", new { id = anuncioId });
