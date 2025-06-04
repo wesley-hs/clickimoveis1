@@ -16,18 +16,29 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 
 | **Caso de Teste** 	| **CT03 – Cadastro de imóveis**	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-4 - A aplicação deve permitir aos usuários cadastrarem imóveis |
+|	Requisito Associado 	| RF-04 - A aplicação deve permitir aos usuários cadastrarem imóveis |
 |Registro de evidência | https://github.com/user-attachments/assets/5efdb3dc-f71b-4da8-8aff-0958fc6dd6d4|
 
 | **Caso de Teste** 	| **CT04 – Filtro para imóveis**	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-5 - A aplicação deve oferecer aos usuários funcionalidades de filtro/pesquisa para seleção dos imóveis disponíveis	 |
+|	Requisito Associado 	| RF-05 - A aplicação deve oferecer aos usuários funcionalidades de filtro/pesquisa para seleção dos imóveis disponíveis	 |
 |Registro de evidência | https://github.com/user-attachments/assets/e6519d72-1d4f-4eb7-b23b-86e61255f6b5 |
 
 | **Caso de Teste** 	| **CT05 – Upload de fotos no cadstro de imóveis**	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-6 - A aplicação deve permitir aos usuários fazerem upload de fotos e vídeos		 |
+|	Requisito Associado 	| RF-06 - A aplicação deve permitir aos usuários fazerem upload de fotos e vídeos		 |
 |Registro de evidência | https://github.com/user-attachments/assets/6728f5ff-9c2c-47a6-abe0-ee4225b7e09f |
+
+| **Caso de Teste** 	| **CT06– Integração de API de mapas**	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-07 - A aplicação deve permitir integração com APIs externas para exibição de mapas	 |
+|Registro de evidência | https://github.com/user-attachments/assets/92d0034f-66d2-4243-a95a-3723cbfd7b82 |
+
+
+
+
+
+
 
 
 
