@@ -9,36 +9,29 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |	Requisito Associado 	| RF-01	e RF-03 - A aplicação deve permitir aos usuários pessoa física cadastrarem uma conta |
 |Registro de evidência | https://github.com/user-attachments/assets/d0c410ae-5e4f-490f-9869-1fd53ffc4f85|
 
-
-
-  
-
-
-
-
-
 | **Caso de Teste** 	| **CT02 – Cadastrar perfil corretor e login** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-02 e RF-03- A aplicação deve permitir aos usuários pessoa jurídica cadastrarem uma conta |
 |Registro de evidência | https://github.com/user-attachments/assets/96ab345a-13a7-43dc-828a-5439c90cfa14|
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 | **Caso de Teste** 	| **CT03 – Cadastro de imóveis**	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-4 - A aplicação deve permitir aos usuários cadastrarem imóveis |
 |Registro de evidência | https://github.com/user-attachments/assets/5efdb3dc-f71b-4da8-8aff-0958fc6dd6d4|
+
+| **Caso de Teste** 	| **CT04 – Filtro para imóveis**	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-5 - A aplicação deve oferecer aos usuários funcionalidades de filtro/pesquisa para seleção dos imóveis disponíveis	 |
+|Registro de evidência | https://github.com/user-attachments/assets/e6519d72-1d4f-4eb7-b23b-86e61255f6b5 |
+
+| **Caso de Teste** 	| **CT05 – Upload de fotos no cadstro de imóveis**	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-6 - A aplicação deve permitir aos usuários fazerem upload de fotos e vídeos		 |
+|Registro de evidência | https://github.com/user-attachments/assets/6728f5ff-9c2c-47a6-abe0-ee4225b7e09f |
+
+
+
+
 
 
 
