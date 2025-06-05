@@ -38,7 +38,7 @@ namespace click_imoveis.Models
         public int? UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }
 
-        public ICollection<Comentario>? Comentarios { get; set; }
+        public IEnumerable<Comentario> Comentarios { get; set; } = new List<Comentario>();
         public ICollection<Anuncio>? Anuncios { get; set; }
         public ICollection<Midia>? Midias { get; set; }
     }

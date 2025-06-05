@@ -66,6 +66,14 @@ public class HomeController : Controller
                             .ThenInclude(u => u.PessoaJuridica)
                             .Include(u => u.Imovel)
                             .ThenInclude(u => u.Midias)
+                            .Include(u => u.Imovel)
+                            .ThenInclude(u => u.Comentarios)
+                            .ThenInclude(c => c.Usuario)
+                            .ThenInclude(c => c.PessoaFisica)
+                            .Include(u => u.Imovel)
+                            .ThenInclude(u => u.Comentarios)
+                            .ThenInclude(c => c.Usuario)
+                            .ThenInclude(c => c.PessoaJuridica)
                             .FirstOrDefaultAsync(u => u.AnuncioId == id);
                             
         if (anuncio == null)
@@ -76,7 +84,7 @@ public class HomeController : Controller
             .OrderBy(u => u.DataCriacao)
             .ToListAsync();
         ViewBag.Mensagens = mensagens;
-
+        
         DetalheAnuncioViewModel detalheAnuncioViewModel = new DetalheAnuncioViewModel
         {
             anuncio = anuncio,
@@ -104,5 +112,33 @@ public class HomeController : Controller
         }
 
         return RedirectToAction("DetalhesAnuncio", new { id = anuncioId });
+    }
+
+    public async Task<IActionResult> CriarComentario(Comentario comentario, int anuncioId, int imovelId)
+    {
+        _logger.LogInformation("Criar novo comentário");
+        try 
+        {
+            if (User.Identity != null && User.Identity.IsAuthenticated && ModelState.IsValid)
+            {
+                comentario.DataCriacao = DateTime.Now;
+                comentario.ImovelId = imovelId;
+
+                var usuarioIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+                comentario.UsuarioId = int.Parse(usuarioIdClaim.Value);
+
+                await _context.Comentarios.AddAsync(comentario);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation("Novo anúncio salvo com sucesso.");
+            }
+
+        } catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erro ao criar comentário.");
+        }
+        
+        return RedirectToAction("DetalhesAnuncio", new { id = anuncioId });
+        
     }
 }
