@@ -3,6 +3,31 @@
 @{
     ViewData["Title"] = "DetalhesAnuncio";
 }
+  <style>
+       
+        
+        .testimonial-avatar-initial {
+            width: 48px; /* Tamanho do avatar */
+            height: 48px;
+            border-radius: 50%; /* Avatar circular */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500; /* Peso da fonte da inicial */
+            font-size: 1.4rem; /* Tamanho da fonte da inicial */
+            margin-right: 12px;
+        }
+        /* Cores dos avatares */
+        
+        .avatar-default { background-color: green; } /* Cinza para padrão */
+
+        
+       
+    </style>
+
+    
+
 
 
 
@@ -69,6 +94,56 @@
     }
 
 </div>
+
+@if (Model.anuncio.Imovel?.Comentarios.Count() != 0)
+{
+    var mediaNotas = Model.anuncio?.Imovel?.Comentarios.Average(c => c.Nota ?? 3);
+    var mediaNotasFormatada = mediaNotas?.ToString("F1");
+
+    <br />
+    <div class="d-flex justify-content-between"> 
+        <h5 class="mb-4">Comentários:</h5>
+        <h5>Nota: @mediaNotasFormatada</h5>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+
+           @foreach (var item in Model.anuncio.Imovel.Comentarios.Take(3))
+           {
+                string nome = "Anônimo";
+                if (item.Usuario?.PessoaFisica?.NomeCompleto != null)
+                {
+                        nome = item.Usuario.PessoaFisica.NomeCompleto.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0];
+                   
+                }
+                else if (item.Usuario?.PessoaJuridica?.NomeFantasia != null)
+                {
+                        nome = item.Usuario.PessoaJuridica.NomeFantasia.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0];
+                }
+
+
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="testimonial-avatar-initial avatar-default">@nome.Trim()[0].ToString().ToUpper()</div>
+                                            <h6 class="card-title">@nome</h6>
+                                        </div>
+                                        <p class="card-text">"@item.Conteudo"</p>
+
+                                    </div>
+                                </div>
+                            </div>
+               
+            }
+                       
+       </div>
+  </div>
+   
+}
+
+
 
 
 <hr />
@@ -245,10 +320,6 @@
 
 
 
-
-
-
-
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CreateMessage">
@@ -271,12 +342,56 @@
 </div>
 
 
+
+
 <br />
+<hr />
+
+<br />
+<h5>Deixe sua avaliação:</h5>
+<br />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CriarComentario">
+            
+            <div class="form-group">
+                <label>Deixe um comentário sobre o imóvel:</label>
+                <input asp-for="comentario.Conteudo" class="form-control" />
+                <span asp-validation-for="comentario.Conteudo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Deixe uma nota de 1 a 5 para o imóvel:</label>
+                <input asp-for="comentario.Nota" class="form-control" type="number" min="1" max="5" step="1" />
+                <span asp-validation-for="comentario.Nota" class="text-danger"></span>
+            </div>
+            <br />
+
+
+
+
+            <div class="form-group">
+                <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId"/>
+                <input type="hidden" value="@Model.anuncio.Imovel?.ImovelId" name="ImovelId" />
+                <input type="submit" value="Enviar" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
 
 <hr />
-
 <br />
 
 <div class="d-flex">
@@ -293,17 +408,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
 @section Scripts {
     @{
+        
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
