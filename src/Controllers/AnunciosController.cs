@@ -34,17 +34,22 @@ namespace click_imoveis.Controllers
                 userId = int.Parse(userClaim.Value);
             }
 
-            List<Anuncio>? anuncios = new List<Anuncio>();
+            List<Anuncio> anuncios;
 
             if (User.IsInRole("Corretor") || User.IsInRole("Imobiliária") || User.IsInRole("Usuário"))
             {
-                anuncios = await _context.Anuncios.Where(u => u.UsuarioId == userId).ToListAsync();
+                anuncios = await _context.Anuncios
+                    .Include(a => a.Imovel)
+                    .Where(u => u.UsuarioId == userId)
+                    .ToListAsync();
             }
-            else if (User.IsInRole("Administrador"))
+            else // Administrador
             {
-                anuncios = await _context.Anuncios.ToListAsync();
+                anuncios = await _context.Anuncios
+                    .Include(a => a.Imovel)
+                    .ToListAsync();
             }
-    
+
             return View(anuncios);
         }
 
@@ -52,18 +57,15 @@ namespace click_imoveis.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var anuncio = await _context.Anuncios
                 .Include(a => a.Imovel)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
+
             if (anuncio == null)
-            {
                 return NotFound();
-            }
 
             return View(anuncio);
         }
@@ -71,15 +73,19 @@ namespace click_imoveis.Controllers
         // GET: Anuncios/Create
         public IActionResult Create()
         {
-            
-            ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId");
-                        
+            ViewData["ImovelId"] = new SelectList(
+                _context.Imoveis.Select(i => new
+                {
+                    i.ImovelId,
+                    Descricao = i.Logradouro + ", " + i.Numero + " - " + i.Cidade
+                }),
+                "ImovelId",
+                "Descricao"
+            );
             return View();
         }
 
         // POST: Anuncios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AnuncioId,DataInicio,DataFim,Valor,ValorCondominio,ValorIptu,Titulo,Descricao,Finalidade,ImovelId,UsuarioId")] Anuncio anuncio)
@@ -88,10 +94,8 @@ namespace click_imoveis.Controllers
 
             if (ModelState.IsValid && usuarioLogadoId != null)
             {
-                // Busca quem é o usuário logado e adiciona à variável Anuncio
                 var usuario = await _context.Usuarios.FindAsync(Int32.Parse(usuarioLogadoId));
                 anuncio.Usuario = usuario;
-
 
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
@@ -99,7 +103,17 @@ namespace click_imoveis.Controllers
                 _logger.LogInformation("Anúncio criado com sucesso: {AnuncioId}", anuncio.AnuncioId);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId", anuncio.ImovelId);
+
+            ViewData["ImovelId"] = new SelectList(
+                _context.Imoveis.Select(i => new
+                {
+                    i.ImovelId,
+                    Descricao = i.Logradouro + ", " + i.Numero + " - " + i.Cidade
+                }),
+                "ImovelId",
+                "Descricao",
+                anuncio.ImovelId
+            );
 
             _logger.LogWarning("Falha ao criar anúncio: {ModelStateErrors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
             return View(anuncio);
@@ -109,9 +123,7 @@ namespace click_imoveis.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var anuncio = await _context.Anuncios
                 .Include(u => u.Usuario)
@@ -119,25 +131,29 @@ namespace click_imoveis.Controllers
                 .FirstOrDefaultAsync(u => u.AnuncioId == id);
 
             if (anuncio == null)
-            {
                 return NotFound();
-            }
 
-                        
+            ViewData["ImovelId"] = new SelectList(
+                _context.Imoveis.Select(i => new
+                {
+                    i.ImovelId,
+                    Descricao = i.Logradouro + ", " + i.Numero + " - " + i.Cidade
+                }),
+                "ImovelId",
+                "Descricao",
+                anuncio.ImovelId
+            );
+
             return View(anuncio);
         }
 
         // POST: Anuncios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Anuncio anuncio)
         {
             if (id != anuncio.AnuncioId)
-            {
                 return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
@@ -145,25 +161,29 @@ namespace click_imoveis.Controllers
                 {
                     _context.Update(anuncio);
                     await _context.SaveChangesAsync();
-                   
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     _logger.LogError("Erro de concorrência ao editar o anúncio: {AnuncioId}", anuncio.AnuncioId);
                     if (!AnuncioExists(anuncio.AnuncioId))
-                    {
                         return NotFound();
-                    }
                     else
-                    {
                         throw;
-                    }
                 }
                 _logger.LogInformation("Anúncio atualizado com sucesso: {AnuncioId}", anuncio.AnuncioId);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ImovelId"] = new SelectList(_context.Imoveis, "ImovelId", "ImovelId", anuncio.ImovelId);
-            ViewData["UsuarioId"] = new SelectList(_context.Usuarios, "UsuarioId", "Email", anuncio.UsuarioId);
+
+            ViewData["ImovelId"] = new SelectList(
+                _context.Imoveis.Select(i => new
+                {
+                    i.ImovelId,
+                    Descricao = i.Logradouro + ", " + i.Numero + " - " + i.Cidade
+                }),
+                "ImovelId",
+                "Descricao",
+                anuncio.ImovelId
+            );
 
             _logger.LogWarning("Falha ao editar anúncio: {ModelStateErrors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
             return View(anuncio);
@@ -173,18 +193,15 @@ namespace click_imoveis.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var anuncio = await _context.Anuncios
                 .Include(a => a.Imovel)
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.AnuncioId == id);
+
             if (anuncio == null)
-            {
                 return NotFound();
-            }
 
             return View(anuncio);
         }
