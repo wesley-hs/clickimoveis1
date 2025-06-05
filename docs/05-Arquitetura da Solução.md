@@ -40,17 +40,24 @@ Para mais informações, consulte o microfundamento "Modelagem de Dados".
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+### Linguagem de Programação
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+- C#: linguagem principal;
+- Javascript: pequenos scripts no lado do cliente.
+
+### Framework
+
+- ASP.NET Core;
+
+### Ferramentas e IDEs de Desenvolvimento
+
+- Visual Studio Community 2022: IDE para desenvolvimento;
+- Git e GitHub: controle de versão;
+- Figma: wireframes e layouts;
+- Draw.io: diagramas, fluxogramas e desenhos.
+
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+A hospedagem utilizada é o serviço de VPS da Hostinger. O servidor possui sistema operacional linux Ubuntu 22.04. Instalado o .NET Runtime e o MS SQL Server Express. Disponível em: http://212.85.10.208/
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
