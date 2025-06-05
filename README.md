@@ -1,10 +1,13 @@
 # Click Imóveis
 
-`CURSO`
+`CURSO:`
+Análise e Desenvolvimento de Sistemas
 
-`DISCIPLINA`
+`DISCIPLINA:`
+Eixo 2 - Projeto: Desenvolvimento de uma Aplicação Interativa
 
-`SEMESTRE`
+`SEMESTRE:`
+Turma 03 - 2025/1
 
 O objetivo geral deste projeto é a criação de uma aplicação interativa de fácil acesso e uso que permita aos usuários a busca por imóveis de uma forma mais simples e intuitiva.
 ## Integrantes
