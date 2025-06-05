@@ -79,6 +79,6 @@ Como os artefatos do projeto são desenvolvidos utilizando-se de diversas plataf
 | Diagramas                           | LucidChart                              |      [https://lucid.app/lucidchart/62d094a3-1ed3-4ace-81c0-00046a906da1/edit?viewport_loc=-328%2C-10%2C2890%2C1546%2C.Q4MUjXso07N&invitationId=inv_1178b2f1-0429-4107-b223-eebbae4d901d](https://lucid.app/lucidchart/62d094a3-1ed3-4ace-81c0-00046a906da1/edit?viewport_loc=-328%2C-10%2C2890%2C1546%2C.Q4MUjXso07N&invitationId=inv_1178b2f1-0429-4107-b223-eebbae4d901d)                                      |
 | Projeto de Interface                | Figma                              |      endereço a ser definido                                      |
 | Gerenciamento do Projeto            | GitHub Projects                    | [https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/1814](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/1814)                           |
-| Hospedagem                          | GitHub Pages                       |  endereço a ser definido                            |
+| Hospedagem                          | GitHub Pages                       |  [http://212.85.10.208](http://212.85.10.208/)                            |
  
 
