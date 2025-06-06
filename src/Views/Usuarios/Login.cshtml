@@ -4,45 +4,56 @@
     ViewData["Title"] = "Login";
 }
 
-
-
-<br />
-<br />
-
-
-<div class="row justify-content-center">
-    
-    <div class="col-md-4">
-        <h2>Login</h2>
-        <form asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="card shadow" style="width: 100%; max-width: 400px;">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Login</h2>
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3" style="position: relative;">
+                    <label for="senhaLogin" class="form-label">Senha</label>
+                    <input type="password" id="senhaLogin" name="Senha" class="form-control" required />
+                    <button type="button" id="toggleSenhaLogin" tabindex="-1"
+                        style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
+                        <span id="iconSenhaLogin" style="font-size: 1.2em;">👁️</span>
+                    </button>
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+                <div class="mb-3 text-end">
+                    <a href="/Usuarios/EsqueciSenha">Esqueci minha senha</a>
+                </div>
+                <div class="d-grid mb-2">
+                    <input type="submit" value="Acessar" class="btn btn-success" />
+                </div>
+            </form>
+            <p class="text-danger text-center">@ViewBag.Message</p>
+            <hr />
+            <div class="text-center">
+                <h5>Não possui conta?</h5>
+                <a class="btn btn-primary" asp-action="Create">Criar Conta</a>
             </div>
-            <div class="form-group">
-                <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
-                <span asp-validation-for="Senha" class="text-danger"></span>
-            </div>
-            <a href="/Usuarios/EsqueciSenha">Esqueci minha senha</a>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Acessar" class="btn btn-success" />
-            </div>
-            
-            
-        </form>
-        <p class="text-danger">@ViewBag.Message</p>
-        <br />
-        <h5>Não possui conta?</h5>
-        <a class="btn btn-primary" asp-action="Create">Criar Conta</a>
+        </div>
     </div>
 </div>
 
-
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('toggleSenhaLogin').addEventListener('click', function () {
+            var input = document.getElementById('senhaLogin');
+            var icon = document.getElementById('iconSenhaLogin');
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "🙈";
+            } else {
+                input.type = "password";
+                icon.textContent = "👁️";
+            }
+        });
+    </script>
 }
