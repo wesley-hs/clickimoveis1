@@ -9,8 +9,14 @@ namespace click_imoveis.Models
         [Key]
         public int ComentarioId { get; set; }
         public DateTime DataCriacao { get; set; }
+
+        [Required(ErrorMessage = "O comentário é obrigatório.")]
+        [MinLength(5, ErrorMessage = "O comentário deve ter pelo menos 5 caracteres.")]
         public string? Conteudo { get; set; }
-        public string? Nota { get; set; }
+
+        [Required(ErrorMessage = "A nota é obrigatória.")]
+        [Range(1, 5, ErrorMessage = "A nota deve ser entre 1 e 5.")]
+        public short? Nota { get; set; }
 
 
         public int? UsuarioId { get; set; }
