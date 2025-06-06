@@ -145,6 +145,13 @@ namespace click_imoveis.Controllers
             // Insere a data atual no cadastro
             usuarioViewModel.Usuario.DataCadastro = DateTime.Now;
 
+            // Verifica se o e-mail já existe
+            if (await _context.Usuarios.AnyAsync(u => u.Email == usuarioViewModel.Usuario.Email))
+            {
+                ModelState.AddModelError("Usuario.Email", "Este e-mail já está cadastrado.");
+                return View(usuarioViewModel);
+            }
+
             // Save Usuario first
             _context.Add(usuarioViewModel.Usuario);
             await _context.SaveChangesAsync(); // Now UsuarioId is generated
@@ -493,8 +500,7 @@ namespace click_imoveis.Controllers
             try
             {
                 var usuario = await _context.Usuarios
-                    .AsNoTracking()  // Melhora performance para operações somente leitura
-                    .FirstOrDefaultAsync(u => u.Email == email);
+     .FirstOrDefaultAsync(u => u.Email == email);
 
                 if (usuario == null)
                 {
@@ -511,11 +517,10 @@ namespace click_imoveis.Controllers
                 await _context.SaveChangesAsync();
 
                 var resetLink = Url.Action(
-                    action: "RedefinirSenha",
-                    controller: "Usuarios",
-                    values: new { email, token },
-                    protocol: Request.Scheme,
-                    host: Request.Host.Value);
+     "RedefinirSenha",
+     "Usuarios",
+     new { email = usuario.Email, token = token },
+     Request.Scheme);
 
                 // Envia e-mail assincronamente
                 await emailService.EnviarEmailAsync(
