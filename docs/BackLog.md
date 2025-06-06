@@ -16,3 +16,39 @@ Aluna **Iris Alves** - Ajudou a realizar o Diagrama de Casos de Uso, realizou os
 Aluno **André Florio** - Colaborou na montagem do Diagrama de Casos de Uso, ajudou na histórias dos usuários e preparou o logo do projeto.
 
 Aluno **Handryws Junior** Sugeriu o tema do projeto . Participativo nas reuniões inicial geral da turma e da do grupo 3.
+
+
+
+## Etapa 2
+
+Aluno **Bruno Correa** - Desenvolveu também diagramas e a base de dados.
+
+Aluno **João Rezende** - Realizou o diagrama de Fluxo de Usuário
+
+Aluno **Wesley Henrique** - Desenvolveu também diagramas e demais funcionalidades
+
+Aluno **Leandro Araújo** -Colocar informação
+
+
+Aluno **André Florio** - Colocar informação
+
+Aluno **Handryws Junior** - Colocar informação
+
+
+
+## Etapa 3
+
+Aluno **Bruno Correa** - Ajudou na elaboração da documentação de contexto e especificação do projeto. Sugeriu uma versão inicial de Diagrama de Casos de Uso. Participou da reunião inicial geral da Turma 3 e da reunião do grupo 3.
+
+Aluno **João Rezende** - Atualização da documentação no github parcialmente. Tive dificuldades no desenvolvimento mesmo usando copilot e outras ferramentas e ficou pendente certas partes. Sempre mantive a participação nas reuniões, quando falto, aviso com antecedência. Contribuição nas ideias somente.
+
+Aluno **Wesley Henrique** - Atualização parcialmente do registro de teste de software no GitHub, Participação ativa nas reuniões, faltas avisadas. Ajudei no código de cadastro de imóveis.
+
+Aluno **Leandro Araújo** -Geração de código para mensagens/comentários do site e postagem no github do mesmo. Tive bastante dificuldade nessa parte de back end, mas tentei dar início a essa parte do projeto.
+
+
+Aluno **André Florio** -  Implementação da funcionalidade de adicionar mídias (fotos e vídeos) no projeto. Tive certa dificuldade nessa parte, mas consegui avançar e contribuir com essa funcionalidade.
+
+Aluno **Handryws Junior** Sugeriu o tema do projeto . Participativo nas reuniões inicial geral da turma e da do grupo 3.
+
+
