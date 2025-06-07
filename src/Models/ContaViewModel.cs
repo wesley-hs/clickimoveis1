@@ -9,6 +9,7 @@ namespace click_imoveis.Models
         public PessoaJuridica? PessoaJuridica { get; set; }
         public ICollection<Imovel>? Imoveis { get; set; }
         public ICollection<Anuncio>? Anuncios { get; set; }
-               
+        public IFormFile? FotoUpload { get; set; }
+
     }
 }

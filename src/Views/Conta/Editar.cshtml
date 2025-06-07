@@ -1,0 +1,126 @@
+﻿@model click_imoveis.Models.ContaViewModel
+
+@{
+    ViewData["Title"] = "Editar Dados";
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
+}
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">@TempData["MensagemErro"]</div>
+}
+
+@Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">
+                        <i class="bi bi-pencil-square"></i> Editar Dados da Conta
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Editar" method="post" enctype="multipart/form-data" autocomplete="off">
+
+                        <input type="hidden" asp-for="Usuario.UsuarioId" />
+                        <!-- Campos obrigatórios não editáveis -->
+                        <input type="hidden" asp-for="Usuario.Senha" />
+                        <input type="hidden" asp-for="Usuario.TipoDeUsuario" />
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Email" class="form-label"></label>
+                                <input asp-for="Usuario.Email" class="form-control" />
+                                <span asp-validation-for="Usuario.Email" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Creci" class="form-label"></label>
+                                <input asp-for="Usuario.Creci" class="form-control" />
+                                <span asp-validation-for="Usuario.Creci" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-8">
+                                <label asp-for="Usuario.Logradouro" class="form-label"></label>
+                                <input asp-for="Usuario.Logradouro" class="form-control" />
+                                <span asp-validation-for="Usuario.Logradouro" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Usuario.Numero" class="form-label"></label>
+                                <input asp-for="Usuario.Numero" class="form-control" />
+                                <span asp-validation-for="Usuario.Numero" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Complemento" class="form-label"></label>
+                                <input asp-for="Usuario.Complemento" class="form-control" />
+                                <span asp-validation-for="Usuario.Complemento" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Bairro" class="form-label"></label>
+                                <input asp-for="Usuario.Bairro" class="form-control" />
+                                <span asp-validation-for="Usuario.Bairro" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.Cidade" class="form-label"></label>
+                                <input asp-for="Usuario.Cidade" class="form-control" />
+                                <span asp-validation-for="Usuario.Cidade" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="Usuario.Estado" class="form-label"></label>
+                                <input asp-for="Usuario.Estado" class="form-control" />
+                                <span asp-validation-for="Usuario.Estado" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="Usuario.CodigoPostal" class="form-label"></label>
+                                <input asp-for="Usuario.CodigoPostal" class="form-control" />
+                                <span asp-validation-for="Usuario.CodigoPostal" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.TelefonePrincipal" class="form-label"></label>
+                                <input asp-for="Usuario.TelefonePrincipal" class="form-control" />
+                                <span asp-validation-for="Usuario.TelefonePrincipal" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.TelefoneAlternativo1" class="form-label"></label>
+                                <input asp-for="Usuario.TelefoneAlternativo1" class="form-control" />
+                                <span asp-validation-for="Usuario.TelefoneAlternativo1" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Usuario.TelefoneAlternativo2" class="form-label"></label>
+                                <input asp-for="Usuario.TelefoneAlternativo2" class="form-control" />
+                                <span asp-validation-for="Usuario.TelefoneAlternativo2" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Foto de Perfil</label>
+                                <input asp-for="FotoUpload" type="file" class="form-control" accept="image/*" />
+                                <span asp-validation-for="FotoUpload" class="text-danger"></span>
+                                @if (!string.IsNullOrEmpty(Model.Usuario?.FotoUrl))
+                                {
+                                    <div class="mt-2">
+                                        <img src="@Model.Usuario.FotoUrl" alt="Foto atual" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;" />
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <button type="submit" class="btn btn-success me-2">
+                                <i class="bi bi-save"></i> Salvar
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

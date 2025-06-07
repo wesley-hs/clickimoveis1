@@ -1,59 +1,115 @@
-﻿@model click_imoveis.Models.ContaViewModel
+﻿ @model click_imoveis.Models.ContaViewModel
 
 @{
     ViewData["Title"] = "Menu Conta";
 }
 
-<h1 class="text-center mb-4">Informações da Conta</h1>
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
+}
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">@TempData["MensagemErro"]</div>
+}
+
+@if (Model.Usuario != null && !string.IsNullOrEmpty(Model.Usuario.FotoUrl))
+{
+    <div class="text-center mb-3">
+        <img src="@Model.Usuario.FotoUrl" class="rounded-circle shadow" style="width: 120px; height: 120px; object-fit: cover;" alt="Foto do usuário" />
+    </div>
+}
+
+<h1 class="text-center mb-4">
+    <i class="bi bi-person-circle"></i> Informações da Conta
+</h1>
 
 <div class="container">
     <div class="card shadow p-4 mb-5 bg-white rounded">
-        <h4 class="mb-4 border-bottom pb-2">Dados do Usuário</h4>
-
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="mb-0 border-bottom pb-2">Dados do Usuário</h4>
+            <div class="d-flex gap-2">
+                <a asp-controller="Conta" asp-action="Editar" class="btn btn-primary btn-sm">
+                    <i class="bi bi-pencil-square"></i> Editar Dados
+                </a>
+                <a asp-controller="Conta" asp-action="AlterarSenha" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-key"></i> Alterar Senha
+                </a>
+                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalExcluirConta">
+                    <i class="bi bi-trash"></i> Excluir Conta
+                </button>
+            </div>
+        </div>
         <dl class="row">
-            <dt class="col-sm-4">Email</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Email)</dd>
-
-            <dt class="col-sm-4">Tipo de Usuário</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.TipoDeUsuario)</dd>
-
-            <dt class="col-sm-4">Creci</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Creci)</dd>
-
-            <dt class="col-sm-4">Data de Cadastro</dt>
+            <dt class="col-sm-4"><i class="bi bi-envelope"></i> Email</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Email</dd>
+            <dt class="col-sm-4"><i class="bi bi-person-badge"></i> Tipo de Usuário</dt>
+            <dd class="col-sm-8">@Model.Usuario?.TipoDeUsuario</dd>
+            <dt class="col-sm-4"><i class="bi bi-person-badge"></i> Creci</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Creci</dd>
+            <dt class="col-sm-4"><i class="bi bi-calendar"></i> Data de Cadastro</dt>
             <dd class="col-sm-8">
-                @String.Format("{0:dd/MM/yyyy}", Model.Usuario!.DataCadastro)
+                @(Model.Usuario?.DataCadastro != null ? Model.Usuario.DataCadastro.ToString("dd/MM/yyyy") : "")
             </dd>
-
-            <dt class="col-sm-4">Logradouro</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Logradouro)</dd>
-
-            <dt class="col-sm-4">Número</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Numero)</dd>
-
-            <dt class="col-sm-4">Complemento</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Complemento)</dd>
-
-            <dt class="col-sm-4">Bairro</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Bairro)</dd>
-
-            <dt class="col-sm-4">Estado</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Estado)</dd>
-
-            <dt class="col-sm-4">CEP</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.CodigoPostal)</dd>
-
-            <dt class="col-sm-4">Telefone Principal</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.TelefonePrincipal)</dd>
-
-            <dt class="col-sm-4">Telefone Alternativo 1</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.TelefoneAlternativo1)</dd>
-
-            <dt class="col-sm-4">Telefone Alternativo 2</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.TelefoneAlternativo2)</dd>
-
-            <dt class="col-sm-4">Tipo de Pessoa</dt>
-            <dd class="col-sm-8">@Html.DisplayFor(model => model.Usuario!.Pessoa)</dd>
+            <dt class="col-sm-4"><i class="bi bi-geo-alt"></i> Logradouro</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Logradouro</dd>
+            <dt class="col-sm-4"><i class="bi bi-123"></i> Número</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Numero</dd>
+            <dt class="col-sm-4"><i class="bi bi-building"></i> Complemento</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Complemento</dd>
+            <dt class="col-sm-4"><i class="bi bi-geo"></i> Bairro</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Bairro</dd>
+            <dt class="col-sm-4"><i class="bi bi-geo"></i> Estado</dt>
+            <dd class="col-sm-8">@Model.Usuario?.Estado</dd>
+            <dt class="col-sm-4"><i class="bi bi-mailbox"></i> CEP</dt>
+            <dd class="col-sm-8">@Model.Usuario?.CodigoPostal</dd>
+            <dt class="col-sm-4"><i class="bi bi-telephone"></i> Telefone Principal</dt>
+            <dd class="col-sm-8">@Model.Usuario?.TelefonePrincipal</dd>
+            <dt class="col-sm-4"><i class="bi bi-telephone"></i> Telefone Alternativo 1</dt>
+            <dd class="col-sm-8">@Model.Usuario?.TelefoneAlternativo1</dd>
+            <dt class="col-sm-4"><i class="bi bi-telephone"></i> Telefone Alternativo 2</dt>
+            <dd class="col-sm-8">@Model.Usuario?.TelefoneAlternativo2</dd>
         </dl>
+        <hr />
+        <div class="d-flex justify-content-end">
+            <a asp-controller="Conta" asp-action="AlterarSenha" class="btn btn-outline-secondary me-2">
+                <i class="bi bi-key"></i> Alterar Senha
+            </a>
+            <a asp-controller="Usuarios" asp-action="Logout" class="btn btn-outline-danger">
+                <i class="bi bi-box-arrow-right"></i> Sair
+            </a>
+        </div>
     </div>
 </div>
+
+<!-- Modal de confirmação de exclusão -->
+<div class="modal fade" id="modalExcluirConta" tabindex="-1" aria-labelledby="modalExcluirContaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirContaLabel">Confirmar Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja excluir sua conta? Esta ação não poderá ser desfeita.
+            </div>
+            <div class="modal-footer">
+                <form asp-controller="Conta" asp-action="Excluir" method="post">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+           
+
+           
+
+
+           
+
+          
+
+          

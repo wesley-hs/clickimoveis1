@@ -46,6 +46,8 @@ namespace click_imoveis.Models
 
         public string? TelefoneAlternativo2 { get; set; }
 
+        public string? FotoUrl { get; set; }
+
 
         [Display(Name = "Pessoa Física / Pessoa Jurídica")]
         [Required(ErrorMessage = "O campo Pessoa é obrigatório.")]
