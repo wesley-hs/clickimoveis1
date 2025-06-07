@@ -24,7 +24,7 @@ namespace click_imoveis.Controllers
         }
 
         // GET: Anuncios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var userClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             int? userId = null;
@@ -34,24 +34,42 @@ namespace click_imoveis.Controllers
                 userId = int.Parse(userClaim.Value);
             }
 
-            List<Anuncio> anuncios;
+            IQueryable<Anuncio> anunciosQuery;
 
             if (User.IsInRole("Corretor") || User.IsInRole("Imobiliária") || User.IsInRole("Usuário"))
             {
-                anuncios = await _context.Anuncios
+                anunciosQuery = _context.Anuncios
                     .Include(a => a.Imovel)
-                    .Where(u => u.UsuarioId == userId)
-                    .ToListAsync();
+                    .Include(a => a.Usuario)
+                    .Where(u => u.UsuarioId == userId);
             }
             else // Administrador
             {
-                anuncios = await _context.Anuncios
+                anunciosQuery = _context.Anuncios
                     .Include(a => a.Imovel)
-                    .ToListAsync();
+                    .Include(a => a.Usuario);
             }
 
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var search = searchString.ToLower();
+                anunciosQuery = anunciosQuery.Where(a =>
+                    (a.Titulo != null && a.Titulo.ToLower().Contains(search)) ||
+                    (a.Descricao != null && a.Descricao.ToLower().Contains(search)) ||
+                    (a.Usuario != null && a.Usuario.Email.ToLower().Contains(search))
+                );
+            }
+
+
+            ViewData["CurrentFilter"] = searchString; // <-- Adicione esta linha
+            var anuncios = await anunciosQuery.ToListAsync();
+            _logger.LogInformation("Total de anúncios encontrados: {Count}", anuncios.Count);
             return View(anuncios);
+
+            
         }
+
 
         // GET: Anuncios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -226,5 +244,29 @@ namespace click_imoveis.Controllers
         {
             return _context.Anuncios.Any(e => e.AnuncioId == id);
         }
+        // GET: Anuncios/Pesquisar
+        [AllowAnonymous] // Se quiser permitir acesso público
+        public async Task<IActionResult> Pesquisar(string searchString)
+        {
+            var anunciosQuery = _context.Anuncios
+                .Include(a => a.Imovel)
+                .Include(a => a.Usuario)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var search = searchString.ToLower();
+                anunciosQuery = anunciosQuery.Where(a =>
+                    (a.Titulo != null && a.Titulo.ToLower().Contains(search)) ||
+                    (a.Descricao != null && a.Descricao.ToLower().Contains(search)) ||
+                    (a.Usuario != null && a.Usuario.Email.ToLower().Contains(search))
+                );
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+            var anuncios = await anunciosQuery.ToListAsync();
+            return View(anuncios);
+        }
+
     }
 }
