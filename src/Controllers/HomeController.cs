@@ -18,27 +18,41 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index(string? titulo, bool verMais = false)
-    {
-        IQueryable<Anuncio> anunciosQuery = _context.Anuncios
-            .Include(a => a.Imovel)
-                .ThenInclude(i => i.Midias)
-            .OrderByDescending(a => a.DataInicio);
+   public IActionResult Index(string titulo, string cidade, int? quartos, float? valorMax, string tipo)
+{
+    var anuncios = _context.Anuncios
+        .Include(a => a.Imovel)
+        .ThenInclude(i => i.Midias)
+        .AsQueryable();
+        if (!string.IsNullOrEmpty(titulo))
+            anuncios = anuncios.Where(a => a.Titulo != null && a.Titulo.ToLower().Contains(titulo.ToLower()));
+
+        if (!string.IsNullOrEmpty(cidade))
+            anuncios = anuncios.Where(a => a.Imovel.Cidade != null && a.Imovel.Cidade.ToLower().Contains(cidade.ToLower()));
 
         if (!string.IsNullOrEmpty(titulo))
-        {
-            anunciosQuery = anunciosQuery.Where(a => a.Titulo.Contains(titulo));
-        }
+        anuncios = anuncios.Where(a => a.Titulo.Contains(titulo));
 
-        var anuncios = verMais
-            ? await anunciosQuery.ToListAsync()
-            : await anunciosQuery.Take(10).ToListAsync();
+    if (!string.IsNullOrEmpty(cidade))
+        anuncios = anuncios.Where(a => a.Imovel.Cidade.Contains(cidade));
 
+    if (quartos.HasValue)
+        anuncios = anuncios.Where(a => a.Imovel.Quartos == quartos);
+
+        if (valorMax.HasValue)
+            anuncios = anuncios.Where(a => a.Valor <= valorMax);
+
+
+
+        // Preenche os ViewBag para manter os filtros na tela
         ViewBag.Titulo = titulo;
-        ViewBag.VerMais = verMais;
+    ViewBag.Cidade = cidade;
+    ViewBag.Quartos = quartos;
+    ViewBag.ValorMax = valorMax;
+    ViewBag.Tipo = tipo;
 
-        return View(anuncios);
-    }
+    return View(anuncios.ToList());
+}
 
 
 
