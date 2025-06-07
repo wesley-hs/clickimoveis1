@@ -11,9 +11,12 @@ namespace click_imoveis.Models
 
         // Desempenho por imóvel
         public List<DesempenhoImovel> DesempenhoImoveis { get; set; } = new();
-
+        public int PaginaAtual { get; set; }
+        public int TotalPaginas { get; set; }
         // Tendência de preço
         public List<TendenciaPreco> TendenciaPrecos { get; set; } = new();
+        public List<string>? Cidades { get; set; }
+
     }
 
     public class DesempenhoImovel
@@ -23,6 +26,7 @@ namespace click_imoveis.Models
         public int TotalVisualizacoes { get; set; }
         public int TotalMensagens { get; set; }
         public DateTime DataCadastro { get; set; }
+       
     }
 
     public class TendenciaPreco

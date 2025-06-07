@@ -6,36 +6,66 @@
 <div class="container mt-4">
     <h2 class="mb-4">Relatórios</h2>
 
+    <!-- Filtros -->
+    <form method="get" class="row mb-4">
+        <div class="col-md-3 mb-2">
+            <input type="date" name="dataInicio" class="form-control" placeholder="Data inicial" />
+        </div>
+        <div class="col-md-3 mb-2">
+            <input type="date" name="dataFim" class="form-control" placeholder="Data final" />
+        </div>
+        <div class="col-md-3 mb-2">
+            <select name="cidade" class="form-select">
+                <option value="">Todas as cidades</option>
+                @foreach (var cidade in Model.Cidades ?? Enumerable.Empty<string>())
+                {
+                    <option value="@cidade">@cidade</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-3 mb-2">
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+        </div>
+    </form>
+
+    <!-- Exportação -->
+    <div class="mb-3">
+        <a asp-action="ExportarExcel" class="btn btn-success me-2"><i class="bi bi-file-earmark-excel"></i> Exportar Excel</a>
+        <a asp-action="ExportarPdf" class="btn btn-danger"><i class="bi bi-file-earmark-pdf"></i> Exportar PDF</a>
+    </div>
+
+    <!-- Cards de totais -->
     <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-4 mb-2">
+            <div class="card text-white bg-primary h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Total de Imóveis</h5>
+                    <h5 class="card-title"><i class="bi bi-house-door"></i> Total de Imóveis</h5>
                     <p class="card-text display-4">@Model.TotalImoveis</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-4 mb-2">
+            <div class="card text-white bg-success h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Total de Anúncios</h5>
+                    <h5 class="card-title"><i class="bi bi-megaphone"></i> Total de Anúncios</h5>
                     <p class="card-text display-4">@Model.TotalAnuncios</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-4 mb-2">
+            <div class="card text-white bg-info h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Total de Usuários</h5>
+                    <h5 class="card-title"><i class="bi bi-people"></i> Total de Usuários</h5>
                     <p class="card-text display-4">@Model.TotalUsuarios</p>
                 </div>
             </div>
         </div>
     </div>
-<!---->
+
+    <!-- Tabelas e gráficos -->
     <div class="row">
-        <div class="col-md-6">
-            <div class="card">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
                 <div class="card-header">
                     <h5 class="card-title mb-0">Desempenho por Imóvel</h5>
                 </div>
@@ -54,7 +84,9 @@
                                 @foreach (var item in Model.DesempenhoImoveis)
                                 {
                                     <tr>
-                                        <td>@item.Titulo</td>
+                                        <td>
+                                            <a href="@Url.Action("Details", "Imoveis", new { id = item.ImovelId })" title="Ver detalhes">@item.Titulo</a>
+                                        </td>
                                         <td>@item.TotalVisualizacoes</td>
                                         <td>@item.TotalMensagens</td>
                                         <td>@item.DataCadastro.ToShortDateString()</td>
@@ -66,8 +98,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
                 <div class="card-header">
                     <h5 class="card-title mb-0">Tendência de Preço por Bairro</h5>
                 </div>
@@ -83,15 +115,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // elemento canvas do'precoChart' para desenhar o gráfico
             var ctx = document.getElementById('precoChart').getContext('2d');
-            //converte em um objeto JavaScript
             var data = @Html.Raw(Json.Serialize(Model.TendenciaPrecos));
-            //cria um novo gráfico
             var chart = new Chart(ctx, {
-                //Tipo de gráfico
                 type: 'bar',
-                //Dados do gráfico
                 data: {
                     labels: data.map(item => item.local),
                     datasets: [{
@@ -102,7 +129,6 @@
                         borderWidth: 1
                     }]
                 },
-                //Opções de configuração
                 options: {
                     responsive: true,
                     scales: {
@@ -115,7 +141,6 @@
                             }
                         }
                     },
-                    //Plugins
                     plugins: {
                         tooltip: {
                             callbacks: {

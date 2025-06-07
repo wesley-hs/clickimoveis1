@@ -8,13 +8,32 @@ namespace click_imoveis.Controllers
     public class RelatoriosController(AppDbContext context) : Controller
     {
         private readonly AppDbContext _context = context;
+        private List<string> cidades;
 
-       
-        public IActionResult Index()
+        public IActionResult Index(int pagina = 1, int tamanhoPagina = 10)
         {
-            var desempenhoImoveis = _context.Anuncios
+            // Lista de cidades para o filtro
+            var cidades = _context.Imoveis
+                .Where(i => i.Cidade != null && i.Cidade != "")
+                .Select(i => i.Cidade)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToList();
+
+            // Consulta base dos anúncios
+            var anunciosQuery = _context.Anuncios
                 .Include(a => a.Imovel)
                 .Include(a => a.Mensagens)
+                .OrderByDescending(a => a.DataInicio)
+                .AsQueryable();
+
+            // Paginação
+            int totalAnuncios = anunciosQuery.Count();
+            int totalPaginas = (int)Math.Ceiling(totalAnuncios / (double)tamanhoPagina);
+
+            var desempenhoImoveis = anunciosQuery
+                .Skip((pagina - 1) * tamanhoPagina)
+                .Take(tamanhoPagina)
                 .Select(a => new DesempenhoImovel
                 {
                     ImovelId = a.ImovelId ?? 0,
@@ -25,6 +44,7 @@ namespace click_imoveis.Controllers
                 })
                 .ToList();
 
+            // Tendência de preços (mantém igual)
             var tendenciaPrecos = _context.Anuncios
                 .Include(a => a.Imovel)
                 .Where(a => a.Imovel != null && a.Imovel.Bairro != null && a.Valor != null)
@@ -43,10 +63,14 @@ namespace click_imoveis.Controllers
                 TotalAnuncios = _context.Anuncios.Count(),
                 TotalUsuarios = _context.Usuarios.Count(),
                 DesempenhoImoveis = desempenhoImoveis,
-                TendenciaPrecos = tendenciaPrecos
+                TendenciaPrecos = tendenciaPrecos,
+                Cidades = cidades,
+                PaginaAtual = pagina,
+                TotalPaginas = totalPaginas
             };
 
             return View(model);
         }
+
     }
 }
