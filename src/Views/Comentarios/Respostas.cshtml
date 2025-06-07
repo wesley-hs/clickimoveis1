@@ -1,0 +1,33 @@
+﻿@model IEnumerable<click_imoveis.Models.Comentario>
+
+@{
+    ViewData["Title"] = "Respostas do Sistema";
+}
+
+<h1 class="mb-4">Respostas do Sistema</h1>
+
+<table class="table table-striped table-hover table-responsive">
+    <thead class="table-dark">
+        <tr>
+            <th>Data</th>
+            <th>Conteúdo</th>
+            <th>Nota</th>
+            <th>Usuário</th>
+            <th>Imóvel</th>
+            <th>Comentário Pai</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DataCriacao.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.Conteudo</td>
+                <td>@item.Nota</td>
+                <td>@item.Usuario?.Email</td>
+                <td>@item.Imovel?.Logradouro, @item.Imovel?.Numero - @item.Imovel?.Cidade</td>
+                <td>@item.ComentarioPaiId</td>
+            </tr>
+        }
+    </tbody>
+</table>

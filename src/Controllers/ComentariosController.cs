@@ -19,11 +19,23 @@ namespace click_imoveis.Controllers
         }
 
         // GET: Comentarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(short? notaFiltro)
         {
-            var appDbContext = _context.Comentarios.Include(c => c.Imovel).Include(c => c.Usuario);
-            return View(await appDbContext.ToListAsync());
+            var comentarios = _context.Comentarios
+                .Include(c => c.Usuario)
+                .Include(c => c.Imovel)
+                .AsQueryable();
+
+            if (notaFiltro.HasValue)
+            {
+                comentarios = comentarios.Where(c => c.Nota == notaFiltro.Value);
+            }
+
+            return View(await comentarios.ToListAsync());
         }
+
+
+
 
         // GET: Comentarios/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -165,5 +177,18 @@ namespace click_imoveis.Controllers
         {
             return _context.Comentarios.Any(e => e.ComentarioId == id);
         }
+        public async Task<IActionResult> Respostas()
+        {
+            // Supondo que respostas são comentários com ComentarioPaiId preenchido
+            var respostas = await _context.Comentarios
+                .Include(c => c.Usuario)
+                .Include(c => c.Imovel)
+                .Where(c => c.ComentarioPaiId != null)
+                .ToListAsync();
+
+            return View(respostas);
+        }
+
+
     }
 }

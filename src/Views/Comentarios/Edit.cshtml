@@ -1,54 +1,34 @@
 ﻿@model click_imoveis.Models.Comentario
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Comentário";
 }
 
-<h1>Edit</h1>
+<h1 class="mb-4">Editar Comentário</h1>
 
-<h4>Comentario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="card shadow">
+    <div class="card-body">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ComentarioId" />
-            <div class="form-group">
-                <label asp-for="DataCriacao" class="control-label"></label>
-                <input asp-for="DataCriacao" class="form-control" />
-                <span asp-validation-for="DataCriacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Conteudo" class="control-label"></label>
-                <input asp-for="Conteudo" class="form-control" />
+            <div class="mb-3">
+                <label asp-for="Conteudo" class="form-label"></label>
+                <textarea asp-for="Conteudo" class="form-control"></textarea>
                 <span asp-validation-for="Conteudo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Nota" class="control-label"></label>
-                <input asp-for="Nota" class="form-control" />
+            <div class="mb-3">
+                <label asp-for="Nota" class="form-label"></label>
+                <select asp-for="Nota" class="form-select">
+                    <option value="">Selecione</option>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <option value="@i">@i estrela(s)</option>
+                    }
+                </select>
                 <span asp-validation-for="Nota" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="UsuarioId" class="control-label"></label>
-                <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
-                <span asp-validation-for="UsuarioId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImovelId" class="control-label"></label>
-                <select asp-for="ImovelId" class="form-control" asp-items="ViewBag.ImovelId"></select>
-                <span asp-validation-for="ImovelId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            <!-- Adicione outros campos necessários aqui -->
+            <button type="submit" class="btn btn-warning">Salvar Alterações</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

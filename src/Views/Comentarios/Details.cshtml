@@ -1,48 +1,55 @@
 ﻿@model click_imoveis.Models.Comentario
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Comentário";
+    var respostas = ViewBag.Respostas as IEnumerable<click_imoveis.Models.Comentario>;
 }
 
-<h1>Details</h1>
+<h1>Detalhes do Comentário</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataCriacao)</dt>
+            <dd class="col-sm-9">@Model.DataCriacao.ToString("dd/MM/yyyy HH:mm")</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Conteudo)</dt>
+            <dd class="col-sm-9">@Model.Conteudo</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nota)</dt>
+            <dd class="col-sm-9">@Model.Nota</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Usuario)</dt>
+            <dd class="col-sm-9">@Model.Usuario?.Email</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Imovel)</dt>
+            <dd class="col-sm-9">
+                @Model.Imovel?.Logradouro, @Model.Imovel?.Numero - @Model.Imovel?.Cidade
+            </dd>
+        </dl>
+    </div>
+</div>
+
+@if (respostas != null && respostas.Any())
+{
+    <h4>Respostas</h4>
+    <ul class="list-group mb-3">
+        @foreach (var resposta in respostas)
+        {
+            <li class="list-group-item">
+                <strong>@resposta.Usuario?.Email:</strong> @resposta.Conteudo
+                <br />
+                <small class="text-muted">@resposta.DataCriacao.ToString("dd/MM/yyyy HH:mm")</small>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-info">Nenhuma resposta para este comentário.</div>
+}
 
 <div>
-    <h4>Comentario</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataCriacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataCriacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Conteudo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Conteudo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nota)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nota)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Usuario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Imovel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Imovel.ImovelId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ComentarioId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.ComentarioId" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
 </div>

@@ -24,5 +24,6 @@ namespace click_imoveis.Models
 
         public int ImovelId { get; set; }
         public Imovel? Imovel { get; set; }
+        public int? ComentarioPaiId { get; internal set; }
     }
 }
