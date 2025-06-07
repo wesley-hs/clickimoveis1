@@ -1,0 +1,12 @@
+﻿@model IEnumerable<click_imoveis.Models.DesempenhoImovel>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", "Imoveis", new { id = item.ImovelId })" title="Ver detalhes">@item.Titulo</a>
+        </td>
+        <td>@item.TotalVisualizacoes</td>
+        <td>@item.TotalMensagens</td>
+        <td>@item.DataCadastro.ToShortDateString()</td>
+    </tr>
+}

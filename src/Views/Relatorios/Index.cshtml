@@ -80,7 +80,7 @@
                                     <th>Data Cadastro</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tabela-imoveis-body">
                                 @foreach (var item in Model.DesempenhoImoveis)
                                 {
                                     <tr>
@@ -94,6 +94,14 @@
                                 }
                             </tbody>
                         </table>
+                        <div class="text-center mt-2">
+                            <button id="btn-ver-mais" class="btn btn-outline-primary"
+                                    data-pagina="2"
+                            @(Model.PaginaAtual < Model.TotalPaginas ? "" : "style=\"display:none;\"")>
+                                Ver mais
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -152,6 +160,31 @@
                     }
                 }
             });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // ... (seu código Chart.js permanece igual)
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.getElementById('btn-ver-mais');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var pagina = parseInt(btn.getAttribute('data-pagina'));
+                    fetch('@Url.Action("CarregarMaisImoveis", "Relatorios")?pagina=' + pagina)
+                        .then(response => response.text())
+                        .then(html => {
+                            var tbody = document.getElementById('tabela-imoveis-body');
+                            tbody.insertAdjacentHTML('beforeend', html);
+                            btn.setAttribute('data-pagina', pagina + 1);
+
+                            // Esconde o botão se não vier mais linhas
+                            if (!html.trim()) {
+                                btn.style.display = 'none';
+                            }
+                        });
+                });
+            }
         });
     </script>
 }

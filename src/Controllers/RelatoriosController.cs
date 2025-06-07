@@ -71,6 +71,35 @@ namespace click_imoveis.Controllers
 
             return View(model);
         }
+        private List<DesempenhoImovel> ObterDesempenhoImoveisPaginado(int pagina, int tamanhoPagina)
+        {
+            var anunciosQuery = _context.Anuncios
+                .Include(a => a.Imovel)
+                .Include(a => a.Mensagens)
+                .OrderByDescending(a => a.DataInicio)
+                .AsQueryable();
+
+            return anunciosQuery
+                .Skip((pagina - 1) * tamanhoPagina)
+                .Take(tamanhoPagina)
+                .Select(a => new DesempenhoImovel
+                {
+                    ImovelId = a.ImovelId ?? 0,
+                    Titulo = a.Titulo ?? "(Sem título)",
+                    TotalVisualizacoes = a.TotalVisualizacoes,
+                    TotalMensagens = a.Mensagens != null ? a.Mensagens.Count : 0,
+                    DataCadastro = a.DataInicio ?? DateTime.MinValue
+                })
+                .ToList();
+        }
+
+        [HttpGet]
+        public IActionResult CarregarMaisImoveis(int pagina = 1, int tamanhoPagina = 10)
+        {
+            var imoveis = ObterDesempenhoImoveisPaginado(pagina, tamanhoPagina);
+            return PartialView("_TabelaImoveisPartial", imoveis);
+        }
+
 
     }
 }
