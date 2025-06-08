@@ -12,6 +12,7 @@ namespace click_imoveis.Models
         public required string Conteudo { get; set; }
 
 
+        
 
         public int? UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }

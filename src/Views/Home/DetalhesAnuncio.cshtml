@@ -1,35 +1,37 @@
 ﻿@model click_imoveis.Models.DetalheAnuncioViewModel
 
-@{
-    ViewData["Title"] = "DetalhesAnuncio";
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
 }
-  <style>
-       
-        
-        .testimonial-avatar-initial {
-            width: 48px; /* Tamanho do avatar */
-            height: 48px;
-            border-radius: 50%; /* Avatar circular */
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 500; /* Peso da fonte da inicial */
-            font-size: 1.4rem; /* Tamanho da fonte da inicial */
-            margin-right: 12px;
-        }
-        /* Cores dos avatares */
-        
-        .avatar-default { background-color: green; } /* Cinza para padrão */
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">@TempData["MensagemErro"]</div>
+}
 
-        
-       
-    </style>
+@{
+    ViewData["Title"] = "Detalhes do Anúncio";
+}
 
-    
+<style>
+    .testimonial-avatar-initial {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 1.4rem;
+        margin-right: 12px;
+        background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
+    }
 
-
-
+    .avatar-default {
+        background-color: green;
+    }
+</style>
 
 <!-- Modal para dados do anunciante -->
 <div class="modal fade" id="contatoDoAnunciante" tabindex="-1" aria-labelledby="contatoDoAnuncianteLabel" aria-hidden="true">
@@ -48,205 +50,71 @@
                 {
                     <p><span class="fw-bold">Nome:</span> @Model.anuncio.Usuario.PessoaJuridica?.RazaoSocial</p>
                 }
-
                 <p><span class="fw-bold">Telefone:</span> @Model.anuncio.Usuario?.TelefonePrincipal</p>
                 <p><span class="fw-bold">Email:</span> @Model.anuncio.Usuario?.Email</p>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
 <hr />
 <h5>Imagens:</h5>
-<br />
-
-
-<div class="d-flex flex-wrap justify-content-center gap-3">
-
+<div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
     @{
         if (Model.anuncio.Imovel?.Midias != null)
         {
             foreach (var item in Model.anuncio.Imovel.Midias)
-            {                    
+            {
                 <div class="card" style="width: 18rem;">
                     <img src="/@(item.Link ?? "/imagem-nao-disponivel.jpg")"
-                    class="card-img-top"
-                    alt="..."
-                    onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
-
-
+                         class="card-img-top"
+                         alt="Imagem do imóvel"
+                         onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
                 </div>
-
             }
         }
-
-
     }
-
 </div>
 
-@if (Model.anuncio.Imovel?.Comentarios.Count() != 0)
-{
-    var mediaNotas = Model.anuncio?.Imovel?.Comentarios.Average(c => c.Nota ?? 3);
-    var mediaNotasFormatada = mediaNotas?.ToString("F1");
-
-    <br />
-    <div class="d-flex justify-content-between"> 
-        <h5 class="mb-4">Comentários:</h5>
-        <h5>Nota: @mediaNotasFormatada</h5>
-    </div>
-    
-    <div class="container">
-        <div class="row">
-
-           @foreach (var item in Model.anuncio.Imovel.Comentarios.Take(3))
-           {
-                string nome = "Anônimo";
-                if (item.Usuario?.PessoaFisica?.NomeCompleto != null)
-                {
-                        nome = item.Usuario.PessoaFisica.NomeCompleto.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0];
-                   
-                }
-                else if (item.Usuario?.PessoaJuridica?.NomeFantasia != null)
-                {
-                        nome = item.Usuario.PessoaJuridica.NomeFantasia.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0];
-                }
-
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center mb-2">
-                                            <div class="testimonial-avatar-initial avatar-default">@nome.Trim()[0].ToString().ToUpper()</div>
-                                            <h6 class="card-title">@nome</h6>
-                                        </div>
-                                        <p class="card-text">"@item.Conteudo"</p>
-
-                                    </div>
-                                </div>
-                            </div>
-               
-            }
-                       
-       </div>
-  </div>
-   
-}
-
-
-
-
-<hr />
-<h5>Anúncio:</h5>
-<br />
-
-
+<!-- Detalhes do anúncio -->
 <dl class="row">
-
-    <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.anuncio.Valor)
-    </dt>
-    <dd class = "col-sm-10">
-        R$ @Html.DisplayFor(model => model.anuncio.Valor)
-    </dd>
-    <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.anuncio.ValorCondominio)
-    </dt>
-    <dd class = "col-sm-10">
-        R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)
-    </dd>
-    <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.anuncio.ValorIptu)
-    </dt>
-    <dd class = "col-sm-10">
-        R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)
-    </dd>
-    <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.anuncio.Titulo)
-    </dt>
-    <dd class = "col-sm-10">
-        @Html.DisplayFor(model => model.anuncio.Titulo)
-    </dd>
-    <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.anuncio.Descricao)
-    </dt>
-    <dd class = "col-sm-10">
-        @Html.DisplayFor(model => model.anuncio.Descricao)
-    </dd>
-    <dt class = "col-sm-2">
-        @Html.DisplayNameFor(model => model.anuncio.Finalidade)
-    </dt>
-    <dd class = "col-sm-10">
-        @Html.DisplayFor(model => model.anuncio.Finalidade)
-    </dd>
-
-
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Valor)</dt>
+    <dd class="col-sm-10">R$ @Html.DisplayFor(model => model.anuncio.Valor)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.ValorCondominio)</dt>
+    <dd class="col-sm-10">R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.ValorIptu)</dt>
+    <dd class="col-sm-10">R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Titulo)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Titulo)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Descricao)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Descricao)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Finalidade)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Finalidade)</dd>
 </dl>
 
 <hr />
 <h5>Imóvel:</h5>
-<br />
-
 <dl class="row">
-
     @if (Model.anuncio.Imovel != null)
     {
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Banheiros)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Banheiros)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Suites)
-        </dt>
-
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Suites)
-        </dd>
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Metragem)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Metragem) m<sup>2</sup>
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Quartos)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Quartos)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.anuncio.Imovel.Vagas)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.anuncio.Imovel.Vagas)
-        </dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Banheiros)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Banheiros)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Suites)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Suites)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Metragem)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Metragem) m<sup>2</sup></dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Quartos)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Quartos)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Vagas)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Vagas)</dd>
     }
+</dl>
 
-
-        
-       
-    </dl>
-
-
-
-
-    <hr />
-    <h5>Localização:</h5>
-    <br />
-
+<hr />
+<h5>Localização:</h5>
 @{
     var endereco = string.Join(", ",
         new[] {
@@ -256,14 +124,12 @@
             Model.anuncio.Imovel?.Cidade,
             Model.anuncio.Imovel?.Estado,
             Model.anuncio.Imovel?.CodigoPostal
-                        }.Where(s => !string.IsNullOrWhiteSpace(s))
+                }.Where(s => !string.IsNullOrWhiteSpace(s))
     );
     var enderecoUrl = System.Net.WebUtility.UrlEncode(endereco);
 }
-
 <p>@endereco</p>
-
-<div class="map-responsive">
+<div class="map-responsive mb-4">
     <iframe width="600"
             height="450"
             style="border:0;"
@@ -274,128 +140,104 @@
     </iframe>
 </div>
 
-
-
+<hr />
+<h5>Mensagens</h5>
+<div class="list-group mb-4">
+    @foreach (var mensagem in ViewBag.Mensagens)
+    {
+        var isAnunciante = mensagem.UsuarioId == Model.anuncio.UsuarioId;
+        <div class="list-group-item @(isAnunciante ? "bg-light" : "")">
+            <div class="fw-bold @(isAnunciante ? "text-primary" : "text-dark")">
+                @(isAnunciante ? "Anunciante" : "Você")
+            </div>
+            <div>@mensagem.Conteudo</div>
+            <small class="text-muted">@mensagem.DataCriacao.ToString("dd/MM/yyyy HH:mm")</small>
+        </div>
+    }
+</div>
+<div class="row mb-4">
+    <div class="col-md-6 col-lg-5">
+        <form asp-action="CreateMessage" class="card shadow-sm p-3">
+            <div class="mb-3">
+                <label class="form-label">Envie uma mensagem para o Anunciante:</label>
+                <textarea asp-for="@Model.mensagem.Conteudo" class="form-control" rows="3" maxlength="500"></textarea>
+                <span asp-validation-for="@Model.mensagem.Conteudo" class="text-danger"></span>
+            </div>
+            <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId" />
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+        </form>
+    </div>
+</div>
 
 <hr />
-
-<br />
-<h5>Mensagens:</h5>
-<br />
-
-
+<h5>Comentários e Avaliações</h5>
 @{
-    if (ViewBag.Mensagens.Count > 0)
-    {
-        <div style="border:1px solid">
-            @{
-                foreach (var mensagem in ViewBag.Mensagens)
-                {
-                    
-                    if (mensagem.UsuarioId == Model.anuncio.UsuarioId)
-                    {
-                          // Respostas do anunciante
-                          <p class="m-0 text-primary">@mensagem.Conteudo</p>
-                          <p class="text-primary">@mensagem.DataCriacao</p>
-                       
-                        
-                    }
-                    else
-                    {   
-                        // Mensagens de outros usuários
-                        <p class="m-0">@mensagem.Conteudo</p>
-                        <p class="">@mensagem.DataCriacao</p>
-                    }
+    var mediaNotas = Model.anuncio.Imovel?.Comentarios.Any() == true
+        ? Model.anuncio.Imovel.Comentarios.Average(c => c.Nota ?? 0)
+        : 0;
+}
+@if (mediaNotas > 0)
+{
+    <div class="mb-2">
+        <span class="badge bg-warning text-dark">Nota média: @mediaNotas.ToString("F1") ★</span>
+    </div>
 
-                   
-                }
-           
-           } 
+<div class="row">
+    @foreach (var comentario in Model.anuncio.Imovel.Comentarios)
+    {
+        string nome = comentario.Usuario?.PessoaFisica?.NomeCompleto?.Split(' ')[0]
+        ?? comentario.Usuario?.PessoaJuridica?.NomeFantasia?.Split(' ')[0]
+        ?? "Anônimo";
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="testimonial-avatar-initial avatar-default me-2">
+                            @nome.Trim()[0].ToString().ToUpper()
+                        </div>
+                        <div>
+                            <h6 class="mb-0">@nome</h6>
+                            <small class="text-muted">@comentario.DataCriacao.ToString("dd/MM/yyyy")</small>
+                        </div>
+                    </div>
+                    <div>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <span class="@(i <= (comentario.Nota ?? 0) ? "text-warning" : "text-secondary")">&#9733;</span>
+                        }
+                    </div>
+                    <p class="card-text mt-2">"@comentario.Conteudo"</p>
+                </div>
+            </div>
         </div>
     }
 
+        </div>
+    }
 
-    
-}
-
-
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CreateMessage">
-            
-            <div class="form-group">
-                <label>Envie uma mensagem para o Anunciante:</label>
-                <input asp-for="@Model.mensagem.Conteudo" class="form-control" />
-                <span asp-validation-for="@Model.mensagem.Conteudo" class="text-danger"></span>
-            </div>
-            <br />
-            
-
-            <div class="form-group">
-                <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId"/>
-                <input type="submit" value="Enviar" class="btn btn-primary" />
-            </div>
-
-        </form>
-    </div>
-</div>
-
-
-
-
-<br />
-<hr />
-
-<br />
-<h5>Deixe sua avaliação:</h5>
-<br />
-
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CriarComentario">
-            
-            <div class="form-group">
-                <label>Deixe um comentário sobre o imóvel:</label>
-                <input asp-for="comentario.Conteudo" class="form-control" />
+<div class="row mb-4">
+    <div class="col-md-6 col-lg-5">
+        <form asp-action="CriarComentario" class="card shadow-sm p-3">
+            <div class="mb-3">
+                <label class="form-label">Deixe um comentário sobre o imóvel:</label>
+                <textarea asp-for="comentario.Conteudo" class="form-control" rows="3" maxlength="500"></textarea>
                 <span asp-validation-for="comentario.Conteudo" class="text-danger"></span>
             </div>
-            <br />
-            <div class="form-group">
-                <label>Deixe uma nota de 1 a 5 para o imóvel:</label>
-                <input asp-for="comentario.Nota" class="form-control" type="number" min="1" max="5" step="1" />
+            <div class="mb-3">
+                <label class="form-label">Nota (1 a 5):</label>
+                <input asp-for="comentario.Nota" class="form-control w-25" type="number" min="1" max="5" step="1" />
                 <span asp-validation-for="comentario.Nota" class="text-danger"></span>
             </div>
-            <br />
-
-
-
-
-            <div class="form-group">
-                <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId"/>
-                <input type="hidden" value="@Model.anuncio.Imovel?.ImovelId" name="ImovelId" />
-                <input type="submit" value="Enviar" class="btn btn-primary" />
-            </div>
-
+            <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId" />
+            <input type="hidden" value="@Model.anuncio.Imovel?.ImovelId" name="ImovelId" />
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
         </form>
     </div>
 </div>
 
 
 
-
-
-
-
-
-
-
-<hr />
-<br />
-
-<div class="d-flex">
-    <!-- Botão para abrir modal -->
+<div class="d-flex mb-4">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contatoDoAnunciante">
         Contato do Anunciante
     </button>
@@ -405,12 +247,17 @@
     </div>
 </div>
 
-
-
-
 @section Scripts {
+    <script>
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function () {
+                const btn = form.querySelector('button[type=submit],input[type=submit]');
+                if (btn) btn.disabled = true;
+            });
+        });
+    </script>
     @{
-        
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
