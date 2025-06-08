@@ -117,10 +117,42 @@ Cada usuário selecionado deverá preencher a planilha abaixo à medida que for 
 
 | **Caso de Teste** 	| **Início hh:mm:ss** 	| **Término hh:mm:ss** | **Tarefa realizada sem erros? (sim ou não)** | **Erros observados** | **Comentários e observações** |
 | --- 	| --- 	| --- | ---  | --- | --- | 
-| CT-01	|  	|  |   |  |  | 
-| CT-02 |  	|  |   | |  | 
-| CT-03	|  	|  |   |  |  | 
-| CT-04	|  	|  |   |  |  |
-| CT-05|  	|  |   |  |  |
+| CT-01	| 22:18 	| 22:20 | Não   | A pesquisa inicial não retornou resultado |  A barra de pesquisa é fácil de achar, mas os filtros deram erro. Tive que trocar cidade e quartos para conseguir ver algo.| 
+| CT-02 |  22:54	| 22:55 | Sim  | Não é um erro, mas sim uma crítica, pois no login, tem as opções de usuário, corretor, administrador | Interface bem fácil de navegar, foi bem simples fazer o login na página.| 
+| CT-03	| 23:09 	| 23:11 |  Sim | Nenhum | Bem fácil de cadastrar um imóvel, as opções são bem claras e os botões são bem visíveis. | 
+| CT-04	| 23:17 	| 23:19 |  Sim | Nenhum | Os botões são bem fáceis de ver, bem coloridos, mas falta algumas explicações no cadastro e também no botão de deletar, que se clicar um avez já exclui o anúncio|
+| CT-05|  23:25	| 23:28 |  Não | Botões que não levam as páginas | os botões de exportar para Excel e PDF, não estão funcionando, e também a busca nos relatório não está funcionando |
+
+<hr>
+
+                                                                                          
+
+| CT-01	 Nayara Pereira   | https://github.com/user-attachments/assets/3cff6c5e-4f6c-4185-9963-0a580298925d   |
+| ------|-----------------------------------------------------------------------------|
+
+| CT-02 Luiz Felipe	| https://github.com/user-attachments/assets/7fc95a6d-c79f-4755-9529-dd31d690a17c |
+| ------|-------------------------|
+
+| CT-03 Luiz Augusto	| https://github.com/user-attachments/assets/7fc95a6d-c79f-4755-9529-dd31d690a17c |
+| ------|-------------------------|
+
+| CT-04 Diego Almeida	| https://github.com/user-attachments/assets/f8257a12-9e26-4ecc-8f8b-749525523f38 |
+| ------|-------------------------|
+
+| CT-05 Isaias Goulart	|https://github.com/user-attachments/assets/e9e40d10-9105-47b4-a94e-749c09199bec |
+| ------|-------------------------|
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
