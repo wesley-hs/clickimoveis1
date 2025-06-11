@@ -90,6 +90,9 @@ public class HomeController : Controller
                             .ThenInclude(c => c.PessoaJuridica)
                             .FirstOrDefaultAsync(u => u.AnuncioId == id);
                             
+       
+
+
         if (anuncio == null)
             return NotFound();
 
@@ -155,4 +158,17 @@ public class HomeController : Controller
         return RedirectToAction("DetalhesAnuncio", new { id = anuncioId });
         
     }
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var anuncio = await _context.Anuncios.FindAsync(id);
+        if (anuncio != null)
+        {
+            _context.Anuncios.Remove(anuncio);
+            await _context.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Index));
+    }
+
 }

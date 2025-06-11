@@ -1,5 +1,9 @@
 ﻿@model click_imoveis.Models.DetalheAnuncioViewModel
 
+@{
+    ViewData["Title"] = "Detalhes do Anúncio";
+}
+
 @if (TempData["MensagemSucesso"] != null)
 {
     <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
@@ -7,10 +11,6 @@
 @if (TempData["MensagemErro"] != null)
 {
     <div class="alert alert-danger">@TempData["MensagemErro"]</div>
-}
-
-@{
-    ViewData["Title"] = "Detalhes do Anúncio";
 }
 
 <style>
@@ -27,9 +27,21 @@
         margin-right: 12px;
         background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
     }
-
     .avatar-default {
         background-color: green;
+    }
+    .map-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+    }
+    .map-responsive iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
     }
 </style>
 
@@ -60,190 +72,205 @@
     </div>
 </div>
 
-<hr />
-<h5>Imagens:</h5>
-<div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-    @{
-        if (Model.anuncio.Imovel?.Midias != null)
-        {
-            foreach (var item in Model.anuncio.Imovel.Midias)
+<div class="container mt-4">
+    <!-- Imagens e detalhes principais -->
+    <div class="row">
+        <div class="col-lg-7 mb-4">
+            <h5>Imagens:</h5>
+            <div class="d-flex flex-wrap gap-3 mb-3">
+                @if (Model.anuncio.Imovel?.Midias != null && Model.anuncio.Imovel.Midias.Any())
+                {
+                    foreach (var item in Model.anuncio.Imovel.Midias)
+                    {
+                        <div class="card" style="420px;object-fit:cover;">
+                            <img src="@(item.Link.StartsWith("/") ? item.Link : "/" + item.Link)"
+                                 class="card-img-top d-block w-100"
+                                 alt="Imagem do imóvel"
+                                 onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
+                        </div>
+                    }
+                }
+                else
+                {
+                    <span class="text-muted">Nenhuma imagem cadastrada para este imóvel.</span>
+                }
+            </div>
+        </div>
+        <div class="col-lg-5 mb-4">
+            <h5>Detalhes do Anúncio</h5>
+            <dl class="row">
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Valor)</dt>
+                <dd class="col-sm-7">R$ @Html.DisplayFor(model => model.anuncio.Valor)</dd>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.ValorCondominio)</dt>
+                <dd class="col-sm-7">R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)</dd>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.ValorIptu)</dt>
+                <dd class="col-sm-7">R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)</dd>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Titulo)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Titulo)</dd>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Descricao)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Descricao)</dd>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Finalidade)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Finalidade)</dd>
+            </dl>
+            <h5 class="mt-4">Imóvel</h5>
+            @if (Model.anuncio.Imovel != null)
             {
-                <div class="card" style="width: 18rem;">
-                    <img src="/@(item.Link ?? "/imagem-nao-disponivel.jpg")"
-                         class="card-img-top"
-                         alt="Imagem do imóvel"
-                         onerror="this.onerror=null;this.src='/imagem-nao-disponivel.jpg';">
-                </div>
+                <dl class="row">
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Imovel.Banheiros)</dt>
+                    <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Imovel.Banheiros)</dd>
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Imovel.Suites)</dt>
+                    <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Imovel.Suites)</dd>
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Imovel.Metragem)</dt>
+                    <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Imovel.Metragem) m<sup>2</sup></dd>
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Imovel.Quartos)</dt>
+                    <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Imovel.Quartos)</dd>
+                    <dt class="col-sm-5">@Html.DisplayNameFor(model => model.anuncio.Imovel.Vagas)</dt>
+                    <dd class="col-sm-7">@Html.DisplayFor(model => model.anuncio.Imovel.Vagas)</dd>
+                </dl>
             }
-        }
-    }
-</div>
+        </div>
+    </div>
 
-<!-- Detalhes do anúncio -->
-<dl class="row">
-    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Valor)</dt>
-    <dd class="col-sm-10">R$ @Html.DisplayFor(model => model.anuncio.Valor)</dd>
-    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.ValorCondominio)</dt>
-    <dd class="col-sm-10">R$ @Html.DisplayFor(model => model.anuncio.ValorCondominio)</dd>
-    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.ValorIptu)</dt>
-    <dd class="col-sm-10">R$ @Html.DisplayFor(model => model.anuncio.ValorIptu)</dd>
-    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Titulo)</dt>
-    <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Titulo)</dd>
-    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Descricao)</dt>
-    <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Descricao)</dd>
-    <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Finalidade)</dt>
-    <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Finalidade)</dd>
-</dl>
-
-<hr />
-<h5>Imóvel:</h5>
-<dl class="row">
-    @if (Model.anuncio.Imovel != null)
-    {
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Banheiros)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Banheiros)</dd>
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Suites)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Suites)</dd>
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Metragem)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Metragem) m<sup>2</sup></dd>
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Quartos)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Quartos)</dd>
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.anuncio.Imovel.Vagas)</dt>
-        <dd class="col-sm-10">@Html.DisplayFor(model => model.anuncio.Imovel.Vagas)</dd>
-    }
-</dl>
-
-<hr />
-<h5>Localização:</h5>
-@{
-    var endereco = string.Join(", ",
-        new[] {
+    <!-- Localização -->
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h5>Localização:</h5>
+            @{
+                var endereco = string.Join(", ",
+                new[] {
             Model.anuncio.Imovel?.Logradouro,
             Model.anuncio.Imovel?.Numero,
             Model.anuncio.Imovel?.Bairro,
             Model.anuncio.Imovel?.Cidade,
             Model.anuncio.Imovel?.Estado,
             Model.anuncio.Imovel?.CodigoPostal
-                }.Where(s => !string.IsNullOrWhiteSpace(s))
-    );
-    var enderecoUrl = System.Net.WebUtility.UrlEncode(endereco);
-}
-<p>@endereco</p>
-<div class="map-responsive mb-4">
-    <iframe width="600"
-            height="450"
-            style="border:0;"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=@enderecoUrl&output=embed">
-    </iframe>
-</div>
-
-<hr />
-<h5>Mensagens</h5>
-<div class="list-group mb-4">
-    @foreach (var mensagem in ViewBag.Mensagens)
-    {
-        var isAnunciante = mensagem.UsuarioId == Model.anuncio.UsuarioId;
-        <div class="list-group-item @(isAnunciante ? "bg-light" : "")">
-            <div class="fw-bold @(isAnunciante ? "text-primary" : "text-dark")">
-                @(isAnunciante ? "Anunciante" : "Você")
+            }.Where(s => !string.IsNullOrWhiteSpace(s))
+                );
+                var enderecoUrl = System.Net.WebUtility.UrlEncode(endereco);
+            }
+            <p>@endereco</p>
+            <div class="map-responsive mb-4">
+                <iframe width="600"
+                        height="450"
+                        style="border:0;"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=@enderecoUrl&output=embed">
+                </iframe>
             </div>
-            <div>@mensagem.Conteudo</div>
-            <small class="text-muted">@mensagem.DataCriacao.ToString("dd/MM/yyyy HH:mm")</small>
         </div>
-    }
-</div>
-<div class="row mb-4">
-    <div class="col-md-6 col-lg-5">
-        <form asp-action="CreateMessage" class="card shadow-sm p-3">
-            <div class="mb-3">
-                <label class="form-label">Envie uma mensagem para o Anunciante:</label>
-                <textarea asp-for="@Model.mensagem.Conteudo" class="form-control" rows="3" maxlength="500"></textarea>
-                <span asp-validation-for="@Model.mensagem.Conteudo" class="text-danger"></span>
+    </div>
+
+    <!-- Mensagens e Comentários lado a lado -->
+    <div class="row mb-4">
+        <div class="col-lg-6 mb-4">
+            <h5>Mensagens</h5>
+            <div class="list-group mb-3">
+                @foreach (var mensagem in ViewBag.Mensagens)
+                {
+                    var isAnunciante = mensagem.UsuarioId == Model.anuncio.UsuarioId;
+                    <div class="list-group-item @(isAnunciante ? "bg-light" : "")">
+                        <div class="fw-bold @(isAnunciante ? "text-primary" : "text-dark")">
+                            @(isAnunciante ? "Anunciante" : "Você")
+                        </div>
+                        <div>@mensagem.Conteudo</div>
+                        <small class="text-muted">@mensagem.DataCriacao.ToString("dd/MM/yyyy HH:mm")</small>
+                    </div>
+                }
             </div>
-            <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId" />
-            <button type="submit" class="btn btn-primary w-100">Enviar</button>
-        </form>
-    </div>
-</div>
-
-<hr />
-<h5>Comentários e Avaliações</h5>
-@{
-    var mediaNotas = Model.anuncio.Imovel?.Comentarios.Any() == true
-        ? Model.anuncio.Imovel.Comentarios.Average(c => c.Nota ?? 0)
-        : 0;
-}
-@if (mediaNotas > 0)
-{
-    <div class="mb-2">
-        <span class="badge bg-warning text-dark">Nota média: @mediaNotas.ToString("F1") ★</span>
-    </div>
-
-<div class="row">
-    @foreach (var comentario in Model.anuncio.Imovel.Comentarios)
-    {
-        string nome = comentario.Usuario?.PessoaFisica?.NomeCompleto?.Split(' ')[0]
-        ?? comentario.Usuario?.PessoaJuridica?.NomeFantasia?.Split(' ')[0]
-        ?? "Anônimo";
-        <div class="col-md-4 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="testimonial-avatar-initial avatar-default me-2">
-                            @nome.Trim()[0].ToString().ToUpper()
-                        </div>
-                        <div>
-                            <h6 class="mb-0">@nome</h6>
-                            <small class="text-muted">@comentario.DataCriacao.ToString("dd/MM/yyyy")</small>
-                        </div>
-                    </div>
-                    <div>
-                        @for (int i = 1; i <= 5; i++)
-                        {
-                            <span class="@(i <= (comentario.Nota ?? 0) ? "text-warning" : "text-secondary")">&#9733;</span>
-                        }
-                    </div>
-                    <p class="card-text mt-2">"@comentario.Conteudo"</p>
+            <form asp-action="CreateMessage" class="card shadow-sm p-3">
+                <div class="mb-3">
+                    <label class="form-label">Envie uma mensagem para o Anunciante:</label>
+                    <textarea asp-for="@Model.mensagem.Conteudo" class="form-control" rows="3" maxlength="500"></textarea>
+                    <span asp-validation-for="@Model.mensagem.Conteudo" class="text-danger"></span>
                 </div>
-            </div>
+                <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId" />
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </form>
         </div>
-    }
-
+        <div class="col-lg-6 mb-4">
+            <h5>Deixe seu comentário</h5>
+            <form asp-action="CriarComentario" class="card shadow-sm p-3">
+                <div class="mb-3">
+                    <label class="form-label">Deixe um comentário sobre o imóvel:</label>
+                    <textarea asp-for="comentario.Conteudo" class="form-control" rows="3" maxlength="500"></textarea>
+                    <span asp-validation-for="comentario.Conteudo" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nota (1 a 5):</label>
+                    <input asp-for="comentario.Nota" class="form-control w-25" type="number" min="1" max="5" step="1" />
+                    <span asp-validation-for="comentario.Nota" class="text-danger"></span>
+                </div>
+                <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId" />
+                <input type="hidden" value="@Model.anuncio.Imovel?.ImovelId" name="ImovelId" />
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </form>
         </div>
-    }
-
-<div class="row mb-4">
-    <div class="col-md-6 col-lg-5">
-        <form asp-action="CriarComentario" class="card shadow-sm p-3">
-            <div class="mb-3">
-                <label class="form-label">Deixe um comentário sobre o imóvel:</label>
-                <textarea asp-for="comentario.Conteudo" class="form-control" rows="3" maxlength="500"></textarea>
-                <span asp-validation-for="comentario.Conteudo" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Nota (1 a 5):</label>
-                <input asp-for="comentario.Nota" class="form-control w-25" type="number" min="1" max="5" step="1" />
-                <span asp-validation-for="comentario.Nota" class="text-danger"></span>
-            </div>
-            <input type="hidden" value="@Model.anuncio.AnuncioId" name="AnuncioId" />
-            <input type="hidden" value="@Model.anuncio.Imovel?.ImovelId" name="ImovelId" />
-            <button type="submit" class="btn btn-primary w-100">Enviar</button>
-        </form>
     </div>
-</div>
 
+    <!-- Comentários e Avaliações -->
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h5>Comentários e Avaliações</h5>
+            @{
+                var mediaNotas = Model.anuncio.Imovel?.Comentarios.Any() == true
+                ? Model.anuncio.Imovel.Comentarios.Average(c => c.Nota ?? 0)
+                : 0;
+            }
+            @if (mediaNotas > 0)
+            {
+                <div class="mb-2">
+                    <span class="badge bg-warning text-dark">Nota média: @mediaNotas.ToString("F1") ★</span>
+                </div>
+            }
+            <div class="row">
+                @if (Model.anuncio.Imovel?.Comentarios != null)
+                {
+                    foreach (var comentario in Model.anuncio.Imovel.Comentarios)
+                    {
+                        string nome = comentario.Usuario?.PessoaFisica?.NomeCompleto?.Split(' ')[0]
+                        ?? comentario.Usuario?.PessoaJuridica?.NomeFantasia?.Split(' ')[0]
+                        ?? "Anônimo";
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="testimonial-avatar-initial avatar-default me-2">
+                                            @nome.Trim()[0].ToString().ToUpper()
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">@nome</h6>
+                                            <small class="text-muted">@comentario.DataCriacao.ToString("dd/MM/yyyy")</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            <span class="@(i <= (comentario.Nota ?? 0) ? "text-warning" : "text-secondary")">&#9733;</span>
+                                        }
+                                    </div>
+                                    <p class="card-text mt-2">"@comentario.Conteudo"</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
 
+        
+    </div>
 
-<div class="d-flex mb-4">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contatoDoAnunciante">
-        Contato do Anunciante
-    </button>
-    <div class="flex-grow-1"></div>
-    <div>
-        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    <!-- Botões finais -->
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-between">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contatoDoAnunciante">
+                Contato do Anunciante
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </div>
     </div>
 </div>
 
@@ -260,4 +287,3 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
