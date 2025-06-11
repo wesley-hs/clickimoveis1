@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Alterar Senha";
 }
+
 @if (TempData["MensagemSucesso"] != null)
 {
     <div class="alert alert-success">@TempData["MensagemSucesso"]</div>
@@ -12,47 +13,70 @@
     <div class="alert alert-danger">@TempData["MensagemErro"]</div>
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
-            <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white text-center">
-                    <h3 class="mb-0">
-                        <i class="bi bi-key"></i> Alterar Senha
-                    </h3>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="card shadow" style="width: 100%; max-width: 450px;">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4">
+                <i class="bi bi-key"></i> Alterar Senha
+            </h3>
+            <form asp-action="AlterarSenha" method="post" autocomplete="off">
+                <div class="mb-3" style="position: relative;">
+                    <label for="SenhaAtual" class="form-label">Senha Atual</label>
+                    <input type="password" id="SenhaAtual" name="SenhaAtual" class="form-control" required />
+                    <button type="button" id="toggleSenhaAtual" tabindex="-1"
+                            style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
+                        <span id="iconSenhaAtual" style="font-size: 1.2em;">👁️</span>
+                    </button>
+                    <span asp-validation-for="SenhaAtual" class="text-danger"></span>
                 </div>
-                <div class="card-body">
-                    <form asp-action="AlterarSenha" method="post">
-                        <div class="mb-3">
-                            <label asp-for="SenhaAtual" class="form-label"></label>
-                            <input asp-for="SenhaAtual" class="form-control" type="password" />
-                            <span asp-validation-for="SenhaAtual" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="NovaSenha" class="form-label"></label>
-                            <input asp-for="NovaSenha" class="form-control" type="password" />
-                            <span asp-validation-for="NovaSenha" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="ConfirmarNovaSenha" class="form-label"></label>
-                            <input asp-for="ConfirmarNovaSenha" class="form-control" type="password" />
-                            <span asp-validation-for="ConfirmarNovaSenha" class="text-danger"></span>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success me-2">
-                                <i class="bi bi-save"></i> Salvar
-                            </button>
-                            <a asp-action="Index" class="btn btn-secondary">
-                                <i class="bi bi-arrow-left"></i> Cancelar
-                            </a>
-                        </div>
-                    </form>
+                <div class="mb-3" style="position: relative;">
+                    <label for="NovaSenha" class="form-label">Nova Senha</label>
+                    <input type="password" id="NovaSenha" name="NovaSenha" class="form-control" required />
+                    <button type="button" id="toggleNovaSenha" tabindex="-1"
+                            style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
+                        <span id="iconNovaSenha" style="font-size: 1.2em;">👁️</span>
+                    </button>
+                    <span asp-validation-for="NovaSenha" class="text-danger"></span>
                 </div>
-            </div>
+                <div class="mb-3" style="position: relative;">
+                    <label for="ConfirmarNovaSenha" class="form-label">Confirmar Nova Senha</label>
+                    <input type="password" id="ConfirmarNovaSenha" name="ConfirmarNovaSenha" class="form-control" required />
+                    <button type="button" id="toggleConfirmarNovaSenha" tabindex="-1"
+                            style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
+                        <span id="iconConfirmarNovaSenha" style="font-size: 1.2em;">👁️</span>
+                    </button>
+                    <span asp-validation-for="ConfirmarNovaSenha" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a asp-action="Index" class="btn btn-warning">Voltar</a>
+                    <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
+    <script>
+        function togglePassword(inputId, iconId) {
+            var input = document.getElementById(inputId);
+            var icon = document.getElementById(iconId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "🙈";
+            } else {
+                input.type = "password";
+                icon.textContent = "👁️";
+            }
+        }
+        document.getElementById('toggleSenhaAtual').addEventListener('click', function () {
+            togglePassword('SenhaAtual', 'iconSenhaAtual');
+        });
+        document.getElementById('toggleNovaSenha').addEventListener('click', function () {
+            togglePassword('NovaSenha', 'iconNovaSenha');
+        });
+        document.getElementById('toggleConfirmarNovaSenha').addEventListener('click', function () {
+            togglePassword('ConfirmarNovaSenha', 'iconConfirmarNovaSenha');
+        });
+    </script>
 }
