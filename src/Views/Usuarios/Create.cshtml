@@ -4,54 +4,61 @@
     ViewData["Title"] = "Cadastrar nova conta";
 }
 
-<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
-    <div class="card shadow" style="width: 100%; max-width: 450px;">
-        <div class="card-body">
-            <h2 class="card-title text-center mb-4">Cadastrar nova conta</h2>
-            <form asp-action="Create" method="post" id="formularioCadastro">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="mb-3">
-                    <label asp-for="Usuario.Email" class="form-label"></label>
-                    <input asp-for="Usuario.Email" class="form-control" />
-                    <span asp-validation-for="Usuario.Email" class="text-danger"></span>
-                </div>
-                <div class="mb-3" style="position: relative;">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" id="senha" name="Usuario.Senha" class="form-control" required />
-                    <button type="button" id="toggleSenha" tabindex="-1"
-                            style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
-                        <span id="iconSenha" style="font-size: 1.2em;">👁️</span>
-                    </button>
-                    <span asp-validation-for="Usuario.Senha" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label asp-for="Usuario.Pessoa" class="form-label"></label>
-                    <select asp-for="Usuario.Pessoa" class="form-control" asp-items="@ViewBag.Pessoas" id="Pessoa"></select>
-                    <span asp-validation-for="Usuario.Pessoa" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label asp-for="Usuario.TipoDeUsuario" class="form-label"></label>
-                    <select asp-for="Usuario.TipoDeUsuario" class="form-control" asp-items="@ViewBag.TipoDeUsuario"></select>
-                    <span asp-validation-for="Usuario.TipoDeUsuario" class="text-danger"></span>
-                </div>
-                <div class="mb-3" id="formularioPessoaFisica" style="display:none">
-                    <label asp-for="PessoaFisica.NomeCompleto" class="form-label"></label>
-                    <input asp-for="PessoaFisica.NomeCompleto" class="form-control" />
-                    <span asp-validation-for="PessoaFisica.NomeCompleto" class="text-danger"></span>
-                </div>
-                <div class="mb-3" id="formularioPessoaJuridica" style="display:none">
-                    <label asp-for="PessoaJuridica.RazaoSocial" class="form-label"></label>
-                    <input asp-for="PessoaJuridica.RazaoSocial" class="form-control" />
-                    <span asp-validation-for="PessoaJuridica.RazaoSocial" class="text-danger"></span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <a asp-action="Index" class="btn btn-warning">Voltar</a>
-                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
-                </div>
-            </form>
+
+
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+        <div class="card shadow" style="width: 100%; max-width: 450px;">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Cadastrar nova conta</h2>
+                <form asp-action="Create" method="post" id="formularioCadastro">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="Usuario.Email" class="form-label"></label>
+                        <input asp-for="Usuario.Email" class="form-control" />
+                        <span asp-validation-for="Usuario.Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3" style="position: relative;">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" id="senha" name="Usuario.Senha" class="form-control" required />
+                        <button type="button" id="toggleSenha" tabindex="-1"
+                                style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
+                            <span id="iconSenha" style="font-size: 1.2em;">👁️</span>
+                        </button>
+                        <span asp-validation-for="Usuario.Senha" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Usuario.Pessoa" class="form-label"></label>
+                        <select asp-for="Usuario.Pessoa" class="form-control" asp-items="@ViewBag.Pessoas" id="Pessoa"></select>
+                        <span asp-validation-for="Usuario.Pessoa" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Usuario.TipoDeUsuario" class="form-label"></label>
+                        <select asp-for="Usuario.TipoDeUsuario" class="form-control" asp-items="@ViewBag.TipoDeUsuario"></select>
+                        <span asp-validation-for="Usuario.TipoDeUsuario" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3" id="formularioPessoaFisica" style="display:none">
+                        <label asp-for="PessoaFisica.NomeCompleto" class="form-label"></label>
+                        <input asp-for="PessoaFisica.NomeCompleto" class="form-control" />
+                        <span asp-validation-for="PessoaFisica.NomeCompleto" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3" id="formularioPessoaJuridica" style="display:none">
+                        <label asp-for="PessoaJuridica.RazaoSocial" class="form-label"></label>
+                        <input asp-for="PessoaJuridica.RazaoSocial" class="form-control" />
+                        <span asp-validation-for="PessoaJuridica.RazaoSocial" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a asp-action="Index" class="btn btn-warning">Voltar</a>
+                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+  
+
+
+
+
 
 @section Scripts {
     @{

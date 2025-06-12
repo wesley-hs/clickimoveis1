@@ -3,49 +3,52 @@
 @{
     ViewData["Title"] = "Novo Comentário";
 }
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h1 class="mb-4">Novo Comentário</h1>
 
-<h1 class="mb-4">Novo Comentário</h1>
+    <div class="card shadow">
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-<div class="card shadow">
-    <div class="card-body">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="DataCriacao" class="form-label fw-bold"></label>
+                    <input asp-for="DataCriacao" class="form-control" />
+                    <span asp-validation-for="DataCriacao" class="text-danger"></span>
+                </div>
 
-            <div class="mb-3">
-                <label asp-for="DataCriacao" class="form-label fw-bold"></label>
-                <input asp-for="DataCriacao" class="form-control" />
-                <span asp-validation-for="DataCriacao" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="Conteudo" class="form-label fw-bold"></label>
+                    <input asp-for="Conteudo" class="form-control" placeholder="Digite seu comentário..." />
+                    <span asp-validation-for="Conteudo" class="text-danger"></span>
+                </div>
 
-            <div class="mb-3">
-                <label asp-for="Conteudo" class="form-label fw-bold"></label>
-                <input asp-for="Conteudo" class="form-control" placeholder="Digite seu comentário..." />
-                <span asp-validation-for="Conteudo" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="Nota" class="form-label fw-bold"></label>
+                    <input asp-for="Nota" class="form-control" placeholder="De 1 a 5" />
+                    <span asp-validation-for="Nota" class="text-danger"></span>
+                </div>
 
-            <div class="mb-3">
-                <label asp-for="Nota" class="form-label fw-bold"></label>
-                <input asp-for="Nota" class="form-control" placeholder="De 1 a 5" />
-                <span asp-validation-for="Nota" class="text-danger"></span>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="UsuarioId" class="form-label fw-bold"></label>
+                    <select asp-for="UsuarioId" class="form-select" asp-items="ViewBag.UsuarioId"></select>
+                </div>
 
-            <div class="mb-3">
-                <label asp-for="UsuarioId" class="form-label fw-bold"></label>
-                <select asp-for="UsuarioId" class="form-select" asp-items="ViewBag.UsuarioId"></select>
-            </div>
+                <div class="mb-3">
+                    <label asp-for="ImovelId" class="form-label fw-bold"></label>
+                    <select asp-for="ImovelId" class="form-select" asp-items="ViewBag.ImovelId"></select>
+                </div>
 
-            <div class="mb-3">
-                <label asp-for="ImovelId" class="form-label fw-bold"></label>
-                <select asp-for="ImovelId" class="form-select" asp-items="ViewBag.ImovelId"></select>
-            </div>
-
-            <div class="d-flex gap-2">
-                <input type="submit" value="Salvar" class="btn btn-success" />
-                <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
-            </div>
-        </form>
+                <div class="d-flex gap-2">
+                    <input type="submit" value="Salvar" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+
 
 @section Scripts {
     @{

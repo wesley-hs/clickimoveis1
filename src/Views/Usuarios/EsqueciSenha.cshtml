@@ -1,15 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Esqueci minha senha";
 }
-<h2>Esqueci minha senha</h2>
-<form method="post">
-    <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" name="email" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar link de redefinição</button>
-</form>
-@if (ViewBag.Message != null)
-{
-    <div class="alert alert-info mt-3">@ViewBag.Message</div>
-}
+
+
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h2>Esqueci minha senha</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar link de redefinição</button>
+    </form>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-info mt-3">@ViewBag.Message</div>
+    }
+</div>
+
+

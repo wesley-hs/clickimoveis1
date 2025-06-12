@@ -3,51 +3,55 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h1>Lista de Mensagens</h1>
 
-<h1>Lista de Mensagens</h1>
+    <p>
+        <a asp-action="Create">Nova Mensagem</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataCriacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Conteudo)
+                </th>
+                <th>
+                    Usuário Vinculado
+                </th>
+                <th>
+                    Anúncio Vinculado
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataCriacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Conteudo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Anuncio.AnuncioId)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MensagemId">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.MensagemId">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MensagemId">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<p>
-    <a asp-action="Create">Nova Mensagem</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataCriacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Conteudo)
-            </th>
-            <th>
-               Usuário Vinculado
-            </th>
-            <th>
-               Anúncio Vinculado
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCriacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Conteudo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Anuncio.AnuncioId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MensagemId">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.MensagemId">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.MensagemId">Excluir</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+</div>

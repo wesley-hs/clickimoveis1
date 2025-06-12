@@ -3,52 +3,55 @@
 @{
     ViewData["Title"] = "Resultado da Pesquisa";
 }
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h1>Resultado da Pesquisa</h1>
+    <form method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="searchString" class="form-control" placeholder="Buscar por título ou anunciante..." value="@ViewData["CurrentFilter"]" />
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </form>
 
-<h1>Resultado da Pesquisa</h1>
-<form method="get" class="mb-3">
-    <div class="input-group">
-        <input type="text" name="searchString" class="form-control" placeholder="Buscar por título ou anunciante..." value="@ViewData["CurrentFilter"]" />
-        <button class="btn btn-success" type="submit">Buscar</button>
-    </div>
-</form>
-
-@if (!Model.Any())
-{
-    <div class="alert alert-warning">Nenhum imóvel encontrado para sua busca.</div>
-}
-else
-{
-    <table class="table table-striped table-hover table-responsive">
-        <thead class="table-dark">
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
-                <th>@Html.DisplayNameFor(model => model.DataFim)</th>
-                <th>@Html.DisplayNameFor(model => model.Finalidade)</th>
-                <th>@Html.DisplayNameFor(model => model.Valor)</th>
-                <th>@Html.DisplayNameFor(model => model.Titulo)</th>
-                <th>@Html.DisplayNameFor(model => model.Descricao)</th>
-                <th>Anunciante</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning">Nenhum imóvel encontrado para sua busca.</div>
+    }
+    else
+    {
+        <table class="table table-striped table-hover table-responsive">
+            <thead class="table-dark">
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.DataInicio)</td>
-                    <td>@Html.DisplayFor(modelItem => item.DataFim)</td>
-                    <td>
-                        <span class="badge bg-info">@Html.DisplayFor(modelItem => item.Finalidade)</span>
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.Valor)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Usuario.Email)</td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary btn-sm">Detalhes</a>
-                    </td>
+                    <th>@Html.DisplayNameFor(model => model.DataInicio)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataFim)</th>
+                    <th>@Html.DisplayNameFor(model => model.Finalidade)</th>
+                    <th>@Html.DisplayNameFor(model => model.Valor)</th>
+                    <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                    <th>Anunciante</th>
+                    <th>Ações</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.DataInicio)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DataFim)</td>
+                        <td>
+                            <span class="badge bg-info">@Html.DisplayFor(modelItem => item.Finalidade)</span>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Valor)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Usuario.Email)</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.AnuncioId" class="btn btn-primary btn-sm">Detalhes</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>

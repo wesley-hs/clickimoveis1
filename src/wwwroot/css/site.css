@@ -1,3 +1,7 @@
+:root {
+    --bs-body-font-family: 'Inter', "Adjusted Arial", Tahoma, Geneva, sans-serif;
+}
+
 html {
   font-size: 14px;
 }
@@ -53,10 +57,10 @@ body {
     }
 
     .logo {
-        width: 100px;
+        width: 140px;
         height: auto;
-        border-radius: 5mm;
         padding-left: 10px;
+        padding-right: 20px;
     }
 
 .container-fluid {
@@ -85,4 +89,12 @@ body {
     font-size: 1.4rem;
     margin-right: 12px;
     background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
+}
+
+.h-80px {
+    height: 80px;
+}
+
+.h-2px {
+    height: 2px !important;
 }
