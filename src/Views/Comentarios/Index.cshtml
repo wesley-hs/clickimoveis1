@@ -3,52 +3,55 @@
 @{
     ViewData["Title"] = "Comentários";
 }
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h1 class="mb-4">Comentários</h1>
 
-<h1 class="mb-4">Comentários</h1>
 
+    <p>
+        <a asp-action="Create" class="btn btn-success mb-3">Novo Comentário</a>
+    </p>
 
-<p>
-    <a asp-action="Create" class="btn btn-success mb-3">Novo Comentário</a>
-</p>
-
-<table class="table table-striped table-hover table-responsive">
-    <thead class="table-dark">
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.DataCriacao)</th>
-            <th>@Html.DisplayNameFor(model => model.Conteudo)</th>
-            <th>Nota</th>
-            <th>@Html.DisplayNameFor(model => model.Usuario)</th>
-            <th>Imóvel</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped table-hover table-responsive">
+        <thead class="table-dark">
             <tr>
-                <td>@item.DataCriacao.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@item.Conteudo</td>
-                <td>
-                    @for (int i = 1; i <= 5; i++)
-                    {
-                        if (item.Nota >= i)
-                        {
-                            <span style="color:gold;">&#9733;</span>
-                        }
-                        else
-                        {
-                            <span style="color:lightgray;">&#9733;</span>
-                        }
-                    }
-                </td>
-                <td>@item.Usuario?.Email</td>
-                <td>@item.Imovel?.Logradouro, @item.Imovel?.Numero - @item.Imovel?.Cidade</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ComentarioId" class="btn btn-warning btn-sm">Editar</a>
-                    <a asp-action="Details" asp-route-id="@item.ComentarioId" class="btn btn-primary btn-sm">Detalhes</a>
-                    <a asp-action="Delete" asp-route-id="@item.ComentarioId" class="btn btn-danger btn-sm">Excluir</a>
-                </td>
+                <th>@Html.DisplayNameFor(model => model.DataCriacao)</th>
+                <th>@Html.DisplayNameFor(model => model.Conteudo)</th>
+                <th>Nota</th>
+                <th>@Html.DisplayNameFor(model => model.Usuario)</th>
+                <th>Imóvel</th>
+                <th>Ações</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.DataCriacao.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@item.Conteudo</td>
+                    <td>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            if (item.Nota >= i)
+                            {
+                                <span style="color:gold;">&#9733;</span>
+                            }
+                            else
+                            {
+                                <span style="color:lightgray;">&#9733;</span>
+                            }
+                        }
+                    </td>
+                    <td>@item.Usuario?.Email</td>
+                    <td>@item.Imovel?.Logradouro, @item.Imovel?.Numero - @item.Imovel?.Cidade</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ComentarioId" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.ComentarioId" class="btn btn-primary btn-sm">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.ComentarioId" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

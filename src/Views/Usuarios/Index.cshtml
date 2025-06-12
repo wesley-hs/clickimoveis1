@@ -4,47 +4,54 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Usuários</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-success">Cadastrar nova conta</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Email)</th>
-            <th>@Html.DisplayNameFor(model => model.Pessoa)</th>
-            <th>@Html.DisplayNameFor(model => model.TipoDeUsuario)</th>
-            <th>Nome Completo</th>
-            <th>Razão Social</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+
+<div class="container">
+    <hr class="h-2px mt-0"/>
+    <h1>Usuários</h1>
+    <p>
+        <a asp-action="Create" class="btn btn-success">Cadastrar nova conta</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>@Html.DisplayFor(modelItem => item.Pessoa)</td>
-                <td>@Html.DisplayFor(modelItem => item.TipoDeUsuario)</td>
-                <td>
-                     @if (item.PessoaFisica != null) 
-                     {     
-                                <p>@item.PessoaFisica.NomeCompleto</p> 
-                     } 
-                </td>
-                <td>
-                     @if (item.PessoaJuridica != null)
-                     {  
-                                <p>@item.PessoaJuridica.RazaoSocial</p> 
-                     } 
-                </td>
-                <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.UsuarioId">Editar</a> |
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.UsuarioId">Detalhes</a> |
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.UsuarioId">Excluir</a>
-                </td>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <th>@Html.DisplayNameFor(model => model.Pessoa)</th>
+                <th>@Html.DisplayNameFor(model => model.TipoDeUsuario)</th>
+                <th>Nome Completo</th>
+                <th>Razão Social</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pessoa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TipoDeUsuario)</td>
+                    <td>
+                        @if (item.PessoaFisica != null)
+                        {
+                            <p>@item.PessoaFisica.NomeCompleto</p>
+                        }
+                    </td>
+                    <td>
+                        @if (item.PessoaJuridica != null)
+                        {
+                            <p>@item.PessoaJuridica.RazaoSocial</p>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.UsuarioId">Editar</a> |
+                        <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.UsuarioId">Detalhes</a> |
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.UsuarioId">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

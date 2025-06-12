@@ -3,32 +3,35 @@
 @{
     ViewData["Title"] = "Editar Comentário";
 }
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h1 class="mb-4">Editar Comentário</h1>
 
-<h1 class="mb-4">Editar Comentário</h1>
-
-<div class="card shadow">
-    <div class="card-body">
-        <form asp-action="Edit">
-            <input type="hidden" asp-for="ComentarioId" />
-            <div class="mb-3">
-                <label asp-for="Conteudo" class="form-label"></label>
-                <textarea asp-for="Conteudo" class="form-control"></textarea>
-                <span asp-validation-for="Conteudo" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Nota" class="form-label"></label>
-                <select asp-for="Nota" class="form-select">
-                    <option value="">Selecione</option>
-                    @for (int i = 1; i <= 5; i++)
-                    {
-                        <option value="@i">@i estrela(s)</option>
-                    }
-                </select>
-                <span asp-validation-for="Nota" class="text-danger"></span>
-            </div>
-            <!-- Adicione outros campos necessários aqui -->
-            <button type="submit" class="btn btn-warning">Salvar Alterações</button>
-            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-        </form>
+    <div class="card shadow">
+        <div class="card-body">
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="ComentarioId" />
+                <div class="mb-3">
+                    <label asp-for="Conteudo" class="form-label"></label>
+                    <textarea asp-for="Conteudo" class="form-control"></textarea>
+                    <span asp-validation-for="Conteudo" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Nota" class="form-label"></label>
+                    <select asp-for="Nota" class="form-select">
+                        <option value="">Selecione</option>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <option value="@i">@i estrela(s)</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Nota" class="text-danger"></span>
+                </div>
+                <!-- Adicione outros campos necessários aqui -->
+                <button type="submit" class="btn btn-warning">Salvar Alterações</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
     </div>
+
 </div>

@@ -3,73 +3,76 @@
 @{
     ViewData["Title"] = "Details";
 }
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <h1>Detalhes do anúncio</h1>
 
-<h1>Detalhes do anúncio</h1>
+    <div>
 
-<div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataInicio)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataFim)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataFim)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Finalidade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Finalidade)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Valor)
+            </dd>
 
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataInicio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataInicio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataFim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataFim)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Finalidade)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Finalidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Valor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Valor)
-        </dd>
-        
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Titulo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Titulo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorCondominio)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ValorCondominio)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ValorIptu)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ValorIptu)
-        </dd>
-        
-        <dt class = "col-sm-2">
-            Anunciante
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.Email)
-        </dd>
-    </dl>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ValorCondominio)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ValorCondominio)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ValorIptu)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ValorIptu)
+            </dd>
+
+            <dt class="col-sm-2">
+                Anunciante
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Usuario.Email)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-warning">Voltar</a> |
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.AnuncioId">Editar</a>
+
+    </div>
 </div>
-<div>
-    <a asp-action="Index" class="btn btn-warning">Voltar</a> |
-    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.AnuncioId">Editar</a> 
-   
-</div>
+

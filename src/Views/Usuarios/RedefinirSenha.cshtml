@@ -1,32 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Redefinir Senha";
 }
-<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
-    <div class="card shadow" style="width: 100%; max-width: 400px;">
-        <div class="card-body">
-            <h2 class="card-title text-center mb-4">Redefinir Senha</h2>
-            <form method="post">
-                <input type="hidden" name="email" value="@ViewBag.Email" />
-                <input type="hidden" name="token" value="@ViewBag.Token" />
-                <div class="mb-3" style="position: relative;">
-                    <label for="novaSenha" class="form-label">Nova Senha</label>
-                    <input type="password" id="novaSenha" name="novaSenha" class="form-control" required />
-                    <button type="button" id="toggleSenha" tabindex="-1"
-                            style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
-                        <span id="iconSenha" style="font-size: 1.2em;">👁️</span>
-                    </button>
-                </div>
-                <div class="d-grid mb-2">
-                    <button type="submit" class="btn btn-primary">Redefinir</button>
-                </div>
-            </form>
-            @if (ViewBag.Message != null)
-            {
-                <p class="text-center mt-3">@ViewBag.Message</p>
-            }
+
+<div class="container">
+    <hr class="mt-0 h-2px" />
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+        <div class="card shadow" style="width: 100%; max-width: 400px;">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Redefinir Senha</h2>
+                <form method="post">
+                    <input type="hidden" name="email" value="@ViewBag.Email" />
+                    <input type="hidden" name="token" value="@ViewBag.Token" />
+                    <div class="mb-3" style="position: relative;">
+                        <label for="novaSenha" class="form-label">Nova Senha</label>
+                        <input type="password" id="novaSenha" name="novaSenha" class="form-control" required />
+                        <button type="button" id="toggleSenha" tabindex="-1"
+                                style="position: absolute; top: 38px; right: 10px; background: none; border: none; cursor: pointer;">
+                            <span id="iconSenha" style="font-size: 1.2em;">👁️</span>
+                        </button>
+                    </div>
+                    <div class="d-grid mb-2">
+                        <button type="submit" class="btn btn-primary">Redefinir</button>
+                    </div>
+                </form>
+                @if (ViewBag.Message != null)
+                {
+                    <p class="text-center mt-3">@ViewBag.Message</p>
+                }
+            </div>
         </div>
     </div>
 </div>
+
+
+
+
 
 @section Scripts {
     <script>
