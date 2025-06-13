@@ -20,11 +20,17 @@ jobs:
         with:
           dotnet-version: '8.x'
 
+      - name: Change to src folder
+        working-directory: ./src
+        run: echo "Changed to src folder"
+
       - name: Build with dotnet
         run: dotnet build click-imoveis.sln --configuration Release
+        working-directory: ./src
 
       - name: dotnet publish
         run: dotnet publish click-imoveis.sln -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        working-directory: ./src
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
