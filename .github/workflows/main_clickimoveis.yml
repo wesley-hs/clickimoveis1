@@ -26,17 +26,17 @@ jobs:
       - name: Restaurar dependências
         run: dotnet restore ./src/click-imoveis.sln
 
-      - name: Build da solution
-        run: dotnet build ./src/click-imoveis.sln --configuration Release --no-restore
+      - name: Build do projeto
+        run: dotnet build ./src/click-imoveis.csproj --configuration Release --no-restore
 
-      - name: Publicar a solução
-        run: dotnet publish ./src/click-imoveis.sln -c Release -o ${{env.DOTNET_ROOT}}/myapp --no-build
+      - name: Publicar projeto
+        run: dotnet publish ./src/click-imoveis.csproj -c Release -o ./publish --no-build
 
       - name: Upload do artefato
         uses: actions/upload-artifact@v4
         with:
           name: app-publicada
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./publish
 
   deploy:
     runs-on: windows-latest
@@ -65,4 +65,5 @@ jobs:
         with:
           app-name: 'clickimoveis'
           slot-name: 'Production'
-          package: .
+          package: ./publish
+
