@@ -32,35 +32,43 @@ jobs:
       - name: Publicar projeto
         run: dotnet publish ./src/click-imoveis.csproj -c Release -o ./publish --no-build
 
-      - name: Upload do artefato
+      - name: Zipar a pasta publish
+        run: Compress-Archive -Path ./publish/* -DestinationPath ./app.zip
+        shell: pwsh
+
+      - name: Upload do artefato zipado
         uses: actions/upload-artifact@v4
         with:
-          name: app-publicada
-          path: ./publish
+          name: app-publicada-zip
+          path: ./app.zip
 
   deploy:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: Production
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write
       contents: read
 
     steps:
-      - name: Baixar artefato
+      - name: Baixar artefato zipado
         uses: actions/download-artifact@v4
         with:
-          name: app-publicada
+          name: app-publicada-zip
+
+      - name: Login no Azure
+        uses: azure/login@v2
+        with:
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
       - name: Deploy no Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'clickimoveis'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./publish
+          app-name: clickimoveis
+          slot-name: Production
+          package: ./app.zip
 
 
