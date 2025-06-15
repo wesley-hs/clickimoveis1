@@ -47,21 +47,12 @@ jobs:
     needs: build
     environment:
       name: Production
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write
-      contents: read
 
     steps:
       - name: Baixar artefato zipado
         uses: actions/download-artifact@v4
         with:
           name: app-publicada-zip
-
-      - name: Login no Azure
-        uses: azure/login@v2
-        with:
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
       - name: Deploy no Azure Web App
         id: deploy-to-webapp
@@ -70,5 +61,7 @@ jobs:
           app-name: clickimoveis
           slot-name: Production
           package: ./app.zip
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
 
 
