@@ -8,6 +8,11 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  DOTNET_VERSION: '8.0.x'
+  AZURE_WEBAPP_NAME: 'clickimoveis'
+  AZURE_WEBAPP_PACKAGE_PATH: './publish-output'
+
 jobs:
   build:
     runs-on: windows-latest
@@ -15,53 +20,88 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET Core SDK ${{ env.DOTNET_VERSION }}
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Restaurar dependências
-        run: dotnet restore ./src/click-imoveis.sln
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Build do projeto
-        run: dotnet build ./src/click-imoveis.csproj --configuration Release --no-restore
+      - name: Build with dotnet
+        run: dotnet build --configuration Release --no-restore
 
-      - name: Publicar projeto
-        run: dotnet publish ./src/click-imoveis.csproj -c Release -o ./publish --no-build
+      - name: Publish with dotnet
+        run: |
+          dotnet publish \
+            --configuration Release \
+            --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} \
+            --runtime win-x64 \
+            --self-contained false \
+            -p:PublishReadyToRun=true
+          
+          # Garante que o web.config será incluído
+          if (Test-Path "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/web.config") {
+              Write-Host "web.config encontrado"
+          } else {
+              # Cria um web.config básico se não existir
+              $webConfigContent = @"
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+    <handlers>
+      <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
+    </handlers>
+    <aspNetCore processPath="dotnet" 
+                arguments=".\clickimoveis.dll" 
+                stdoutLogEnabled="true" 
+                stdoutLogFile="\\?\%home%\LogFiles\stdout" 
+                hostingModel="inprocess">
+      <environmentVariables>
+        <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Production" />
+      </environmentVariables>
+    </aspNetCore>
+  </system.webServer>
+</configuration>
+"@
+              $webConfigContent | Out-File -FilePath "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/web.config" -Encoding utf8
+          }
 
-      - name: Zipar a pasta publish
-        run: Compress-Archive -Path ./publish/* -DestinationPath ./app.zip
-        shell: pwsh
-
-      - name: Upload do artefato zipado
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
-          name: app-publicada-zip
-          path: ./app.zip
+          name: dotnet-app
+          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
   deploy:
     runs-on: windows-latest
     needs: build
     environment:
-      name: Production
-
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
     steps:
-      - name: Baixar artefato zipado
+      - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: app-publicada-zip
+          name: dotnet-app
+          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
-      - name: Deploy no Azure Web App
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B00F0C9007164E77A79CA5DD00C8BB05 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_07651A640DAA4C1AB94FF75AE54B71DF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F8F3B7B3EFC84FB3A6DCF6B6D0F355A5 }}
+
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: clickimoveis
-          slot-name: Production
-          package: ./app.zip
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: 'Production'
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
 
