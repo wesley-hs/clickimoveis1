@@ -1,6 +1,6 @@
 
 
-name: Build and deploy ASP.Net Core app to Azure Web App - clickimoveis
+name: Build and deploy ASP.Net Core app to Azure Web App - clickimoveis1
 
 on:
   push:
@@ -55,12 +55,12 @@ jobs:
           name: app-publicada-zip
 
       - name: Deploy no Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: clickimoveis
+          app-name: clickimoveis1
           slot-name: Production
           package: ./app.zip
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
           
 
